@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<title>Fantasy Tank Builder</title>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	</head>
+	<body onload="onload()">
+		<canvas id="game"></canvas>
+		<script src="scripts/globals.js"></script>
+		<script src="scripts/drawBackground.js"></script>
+		<script src="scripts/drawGraphics.js"></script>
+		
+		<button id = "editbutton" onclick = "editButtonClick()">Toggle edit mode.</button>
+		
+		<p id = "note">Press the edit mode button to edit the tank. <br> Press e to autofire and c to autospin. <br> Refresh the page to get a new tank.</p>
+		
+		<p class="textbox" id = "bodylabel">Specifies the radius of the tank's main body (Default is 32).</p>
+		<textarea class="textbox" id = "body" rows="1" cols = "10" visible = true placeholder = "Body Size">32</textarea>
+		
+		<p class="textbox" id = "offsetlabel">Specifies the distance from the center of the tank the barrel is horizontally. <br> Negative values moves to the right, positive to the left.</p>
+		<textarea class="textbox" id = "offset" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
+		
+		<p class="textbox" id = "lengthlabel">Specifies the length of the barrel, this affects speed and knockback</p>
+		<textarea class="textbox" id = "length" rows="1" cols = "10" visible = true placeholder = "length">60</textarea>
+		
+		<p class="textbox" id = "widthlabel">Specifies the width of the barrel, this affects size and knockback</p>
+		<textarea class="textbox" id = "width" rows="1" cols = "10" visible = true placeholder = "width">15</textarea>
+		
+		<p class="textbox" id = "reloadlabel">Specifies the time it takes for the barrel to fire again, in seconds.</p>
+		<textarea class="textbox" id = "reload" rows="1" cols = "10" visible = true placeholder = "Reload">2</textarea>
+		
+		<p class="textbox" id = "knockbacklabel">Should bullets knock the tank back? Check if so.</p>
+		<input type="checkbox" class = "textbox" id = "knockback">
+		<p class="textbox" id = "traplabel">What type of Gun Barrel do you want to place?</p>
+		<select class = "textbox" id = "bullet">
+			<option value="bullet">Gun</option> 
+  			<option value="trap">Trap Layer</option>
+  			<option value="drone">Drone Maker</option>
+		</select>
+		
+		<button class = "textbox" id = "place" onclick = "placeBarrel()">Place barrel. <br> (For mobile users.)</button>
+		<button class = "textbox" id = "export" onclick = "printObject()">Export tank.</button>
+		<button class = "textbox" id = "import" onclick = "importObject()">Import tank.</button>
+		<textarea class="textbox" id = "save" rows="10" cols = "60" visible = true placeholder = "Save Codes go here..."></textarea>
+		
+		<p class="textbox" id = "notes">Pressing q also places a barrel. Remeber to click outside any of the boxes before doing this so you don't type q in there! <br> Ctrl + scrollWheel to increase/decrease FOV. <br> Red line shows where the tank will be facing outside of edit mode. <br> Hold shift to rotate the barrel in 15° increments.<br> Note that guns are drawn in order of last placed to first.</p>
+	</body>
+</html>

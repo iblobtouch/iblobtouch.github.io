@@ -18,7 +18,7 @@
 #editbutton {
 	z-index = 5;
 	position:fixed;
-	border:none;
+	border: solid black 1px;
 }
 
 #note {
@@ -58,84 +58,98 @@
 	margin-left: 1px;
 }
 
-#lengthlabel {
+#offsetxlabel {
 	font: ubuntu 32px;
 	margin-top: 150px;
 	margin-left: 1px;
 }
 
+#offsetx {
+	margin-top: 190px;
+	margin-left: 1px;
+}
+
+#lengthlabel {
+	font: ubuntu 32px;
+	margin-top: 210px;
+	margin-left: 1px;
+}
+
 #length {
-	margin-top: 170px;
+	margin-top: 230px;
 	margin-left: 1px;
 }
 
 #widthlabel {
 	font: ubuntu 32px;
-	margin-top: 190px;
+	margin-top: 250px;
 	margin-left: 1px;
 }
 
 #width {
-	margin-top: 210px;
+	margin-top: 270px;
 	margin-left: 1px;
 }
 
 #reloadlabel {
 	font: ubuntu 32px;
-	margin-top: 230px;
+	margin-top: 290px;
 	margin-left: 1px;
 }
 
 #reload {
-	margin-top: 250px;
+	margin-top: 310px;
 	margin-left: 1px;
 }
 
 #knockbacklabel {
 	font: ubuntu 32px;
-	margin-top: 270px;
+	margin-top: 330px;
 	margin-left: 1px;
 }
 
 #knockback {
-	margin-top: 290px;
+	margin-top: 350px;
 	margin-left: 1px;
 }
 
 #traplabel {
 	font: ubuntu 32px;
-	margin-top: 310px;
+	margin-top: 370px;
 	margin-left: 1px;
 }
 
 #bullet {
-	margin-top: 330px;
-	margin-left: 1px;
-}
-
-#place {
-	margin-top: 350px;
-	margin-left: 1px;
-}
-
-#notes {
-	font: ubuntu 32px;
 	margin-top: 390px;
 	margin-left: 1px;
 }
 
-#export {
-	margin-top: 490px;
+#place {
+	margin-top: 410px;
+	margin-left: 1px;
+	border: solid black 1px;
+}
+
+#notes {
+	font: ubuntu 32px;
+	margin-top: 450px;
 	margin-left: 1px;
 }
 
+#export {
+	margin-top: 550px;
+	margin-left: 1px;
+	border: solid black 1px;
+}
+
 #import {
-	margin-top: 490px;
+	margin-top: 550px;
 	margin-left: 100px;
+	border: solid black 1px;
 }
 
 #save {
 	font: ubuntu 32px;
-	margin-top: 510px;
+	margin-top: 570px;
 	margin-left: 1px;
 }

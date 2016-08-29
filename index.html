@@ -7,6 +7,7 @@
 	</head>
 	<body onload="onload()">
 		<canvas id="game"></canvas>
+		<script language="javascript" src="libs/lz-string.js"></script>
 		<script src="scripts/globals.js"></script>
 		<script src="scripts/drawBackground.js"></script>
 		<script src="scripts/drawGraphics.js"></script>
@@ -20,6 +21,9 @@
 		
 		<p class="textbox" id = "offsetlabel">Specifies the distance from the center of the tank the barrel is horizontally. <br> Negative values moves to the right, positive to the left.</p>
 		<textarea class="textbox" id = "offset" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
+		
+		<p class="textbox" id = "offsetxlabel">Specifies the distance from the center of the tank the barrel is vertically. <br> Negative values moves down, positive moves up.</p>
+		<textarea class="textbox" id = "offsetx" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
 		
 		<p class="textbox" id = "lengthlabel">Specifies the length of the barrel, this affects speed and knockback</p>
 		<textarea class="textbox" id = "length" rows="1" cols = "10" visible = true placeholder = "length">60</textarea>
@@ -37,6 +41,7 @@
 			<option value="bullet">Gun</option> 
   			<option value="trap">Trap Layer</option>
   			<option value="drone">Drone Maker</option>
+			<option value="necro">Sunchips!</option>
 		</select>
 		
 		<button class = "textbox" id = "place" onclick = "placeBarrel()">Place barrel. <br> (For mobile users.)</button>

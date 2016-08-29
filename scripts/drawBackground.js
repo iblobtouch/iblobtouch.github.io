@@ -1,7 +1,3 @@
-var c = document.getElementById('game'),
-ctx = c.getContext('2d');
-// resize the canvas to fill browser window dynamically
-
 function drawStuff() {
 	ctx.clearRect(0, 0, c.width, c.height);
 	lines = {};

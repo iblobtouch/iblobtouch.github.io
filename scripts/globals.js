@@ -142,7 +142,7 @@ function printObject() {
 		}
 	}
 	outtext += "]";
-	var compresstext = LZString.compress(outtext);
+	var compresstext = LZString.compressToUTF16(outtext);
 	document.getElementById("save").value = "*" + compresstext;
 }
 
@@ -162,7 +162,7 @@ function importObject() {
 	var inputtext = "" + document.getElementById("save").value;
 	if (inputtext.length > 0) {
 		if (inputtext.substr(0, 1) === "*") {
-			inputtext = LZString.decompress(inputtext.substr(1));	
+			inputtext = LZString.decompressFromUTF16(inputtext.substr(1));
 		}
 		console.log(inputtext.substr(0, 2));
 		if (inputtext.substr(0, 1) === "[") {

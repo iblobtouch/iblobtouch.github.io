@@ -36,7 +36,7 @@ mouse.y = 0;
 mouse.held = false;
 mouse.rightdown = false;
 
-function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type) {
+function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type, knockback) {
 	this.angle = a;
 	//Angle is the offset from the angle from mouse to tank.
 	this.xoffset = xoff;
@@ -57,6 +57,7 @@ function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type) {
 	//Does firing a bullet from this barrel knock you back?
 	this.type = type;
 	//0 = bullet firer, 1 = trap layer, 2 = drone maker.
+	this.knockback = knockback;
 }
 
 var barrels = [];
@@ -142,8 +143,7 @@ function printObject() {
 		}
 	}
 	outtext += "]";
-	var compresstext = LZString.compressToUTF16(outtext);
-	document.getElementById("save").value = "*" + compresstext;
+	document.getElementById("save").value = outtext;
 }
 
 function xdistancefrom (x, y, cx, cy, distance, aoffset) {
@@ -161,10 +161,6 @@ function ydistancefrom (x, y, cx, cy, distance, aoffset) {
 function importObject() {
 	var inputtext = "" + document.getElementById("save").value;
 	if (inputtext.length > 0) {
-		if (inputtext.substr(0, 1) === "*") {
-			inputtext = LZString.decompressFromUTF16(inputtext.substr(1));
-		}
-		console.log(inputtext.substr(0, 2));
 		if (inputtext.substr(0, 1) === "[") {
 			console.log("notfound");
 			document.getElementById("body").value = 32;

@@ -195,10 +195,13 @@ function drawTank() {
 	if (((mouse.held === true) || (autofire === true)) && (editmode === false)) {
 		for (var n = 0; n < barrels.length; n += 1) {
 			if ((barrels[n].reload === 0) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < 8)) || ((barrels[n].type === 3) && (necrolimit < 20))))) {
+				if (barrels[n].hasOwnProperty("knockback") === false ) {
+					barrels[n].knockback = 0;
+				}
 				bullets[bullets.length] = new Bullet(barrels[n].xoffset, barrels[n].yoffset, 
 				xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx, 
 				ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy,
-				barrels[n].angle, barrels[n].width / 2, barrels[n].width / 10, 10, barrels[n].length / 40, 100, barrels[n].length, 360, barrels[n].type, mouse.x, mouse.y, offset.totalx, offset.totaly);
+				barrels[n].angle, barrels[n].width / 2, barrels[n].knockback, 10, barrels[n].length / 40, 100, barrels[n].length, 360, barrels[n].type, mouse.x, mouse.y, offset.totalx, offset.totaly);
 				
 				barrels[n].reload = barrels[n].basereload;
 				
@@ -418,7 +421,7 @@ function placeBarrel() {
 		btype = 3;
 	}
 
-	barrels[barrels.length] = new Barrel(rangle, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 20)), parseFloat(validateField(document.getElementById("length").value, 60)), parseFloat(validateField(document.getElementById("reload").value * 60, 120)), document.getElementById("knockback").checked, btype);
+	barrels[barrels.length] = new Barrel(rangle, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 20)), parseFloat(validateField(document.getElementById("length").value, 60)), parseFloat(validateField(document.getElementById("reload").value * 60, 120)), true, btype, parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10);
 }
 
 function keyDownHandler(e) {

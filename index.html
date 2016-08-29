@@ -7,7 +7,6 @@
 	</head>
 	<body onload="onload()">
 		<canvas id="game"></canvas>
-		<script language="javascript" src="libs/lz-string.js"></script>
 		<script src="scripts/globals.js"></script>
 		<script src="scripts/drawBackground.js"></script>
 		<script src="scripts/drawGraphics.js"></script>
@@ -34,8 +33,9 @@
 		<p class="textbox" id = "reloadlabel">Specifies the time it takes for the barrel to fire again, in seconds.</p>
 		<textarea class="textbox" id = "reload" rows="1" cols = "10" visible = true placeholder = "Reload">2</textarea>
 		
-		<p class="textbox" id = "knockbacklabel">Should bullets knock the tank back? Check if so.</p>
-		<input type="checkbox" class = "textbox" id = "knockback">
+		<p class="textbox" id = "knockbacklabel">How much knockback should the barrel give? .</p>
+		<textarea class="textbox" id = "knockback" rows="1" cols = "10" visible = true placeholder = "Knockback">0</textarea>
+		
 		<p class="textbox" id = "traplabel">What type of Gun Barrel do you want to place?</p>
 		<select class = "textbox" id = "bullet">
 			<option value="bullet">Gun</option> 

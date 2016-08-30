@@ -60,6 +60,16 @@ function drawMovement() {
 	if (accel.y < -accel.max) {
 		accel.y += accel.amount * 2;
 	}
+	if (editmode === false) {
+		if (((accel.x > -0.1) && (accel.x < 0.1)) && ((accel.y > -0.1) && (accel.y < 0.1))) {
+			if ((tankalpha > 0.2) && (document.getElementById("invis").checked === true)) {
+				tankalpha -= 0.002;
+			}
+		} else if (tankalpha < 1) {
+			tankalpha += 0.002;
+		}
+	}
+	
 	tankpointx = c.width / 2 - accel.x * 20;
 	tankpointy = c.height / 2 - accel.y * 20;
 }
@@ -67,7 +77,7 @@ function drawMovement() {
 function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type) {
 	ctx.save();
 	ctx.strokeStyle = "rgba(85, 85, 85, " + alpha + ")";
-	ctx.lineWidth = 10;
+	ctx.lineWidth = 5;
 	ctx.fillStyle = "rgba(153, 153, 153, " + alpha + ")";
 	ctx.translate(tankpointx, tankpointy, 0);
 	if (editmode === false){
@@ -83,23 +93,23 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type) {
 	}
 	
 	if (type === 0) {
-		ctx.strokeRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
 		ctx.fillRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
+		ctx.strokeRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
 	}
 	
 	if (type === 1) {
 		ctx.beginPath();
 		ctx.moveTo(xoffset + length, -(width / 2) - yoffset);
-		ctx.lineTo(xoffset + length + (length / 2),  0 - ((width * 2) + yoffset));
-		ctx.lineTo(xoffset + length + (length / 2),  ((width * 2) - yoffset));
+		ctx.lineTo(xoffset + length + (length / 2),  0 - ((width * 1.5) + yoffset));
+		ctx.lineTo(xoffset + length + (length / 2),  ((width * 1.5) - yoffset));
 		ctx.lineTo(xoffset + length, (width / 2) - yoffset);
 		ctx.lineTo(xoffset + length, -(width / 2) - yoffset);
 		ctx.closePath();
-		ctx.stroke();
 		ctx.fill();
+		ctx.stroke();
 
-		ctx.strokeRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
 		ctx.fillRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
+		ctx.strokeRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
 	}
 	
 	if (type > 1) {
@@ -110,31 +120,34 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type) {
 		ctx.lineTo(xoffset + 20, (width / 4) - yoffset);
 		ctx.lineTo(xoffset + 20, -(width / 4) - yoffset);
 		ctx.closePath();
-		ctx.stroke();
 		ctx.fill();
+		ctx.stroke();
 	}
 	ctx.restore();
 }
 
-function drawBullet(x, y, size) {
+function drawBullet(x, y, size, transparency) {
 	//Draw a bullet using the given parameters.
 	
 	ctx.save();
 	ctx.strokeStyle = "#555555";
-	ctx.lineWidth = 10;
+	ctx.lineWidth = 5;
 	ctx.fillStyle = "#00B2E1";
+	ctx.globalAlpha = transparency;
 	ctx.beginPath();
-	ctx.arc(x, y, size, 0, Math.PI * 2, true);
-	ctx.stroke();
+	ctx.arc(x, y, size + 2, 0, Math.PI * 2, true);
+	ctx.closePath();
 	ctx.fill();
+	ctx.stroke();
 	ctx.restore();
 }
 
-function drawTrap(x, y, size, angle) {
+function drawTrap(x, y, size, angle, transparency) {
 	ctx.save();
 	ctx.strokeStyle = "#555555";
-	ctx.lineWidth = 10;
+	ctx.lineWidth = 5;
 	ctx.fillStyle = "#00B2E1";
+	ctx.globalAlpha = transparency;
 	ctx.translate(x, y);
 	ctx.beginPath();
 	ctx.moveTo(0, size / 3);
@@ -151,15 +164,15 @@ function drawTrap(x, y, size, angle) {
 	ctx.rotate(60 * (Math.PI / 180));
 	ctx.lineTo(0, size / 3);
 	ctx.closePath();
-	ctx.stroke();
 	ctx.fill();
+	ctx.stroke();
 	ctx.restore();
 }
 
 function drawDrone(x, y, size, angle) {
 	ctx.save();
 	ctx.strokeStyle = "#555555";
-	ctx.lineWidth = 10;
+	ctx.lineWidth = 5;
 	ctx.fillStyle = "#00B2E1";
 	ctx.translate(x, y);
 	ctx.beginPath();
@@ -172,16 +185,16 @@ function drawDrone(x, y, size, angle) {
 	ctx.rotate(120 * (Math.PI / 180));
 	ctx.lineTo(0, size);
 	ctx.closePath();
-	ctx.stroke();
 	ctx.fill();
+	ctx.stroke();
 	ctx.restore();
 }
 
 function drawNecro(x, y, size, angle) {
 	ctx.save();
+	ctx.fillStyle = "#FCC376";
 	ctx.strokeStyle = "#555555";
 	ctx.lineWidth = 10;
-	ctx.fillStyle = "#FCC376";
 	ctx.translate(x, y);
 	ctx.rotate(angle * (Math.PI / 180));
 	ctx.strokeRect(-size / 2, -size / 2, size, size);
@@ -205,9 +218,14 @@ function drawTank() {
 				
 				barrels[n].reload = barrels[n].basereload;
 				
+				tankalpha = 1.0;
+				
 				if (barrels[n].hasKnockBack == true) {
 					accel.x += Math.cos((angle(c.width / 2, c.height / 2, mouse.x, mouse.y) + barrels[n].angle) * (Math.PI / 180)) * (bullets[bullets.length - 1].knockback);
         			accel.y += Math.sin((angle(c.width / 2, c.height / 2, mouse.x, mouse.y) + barrels[n].angle) * (Math.PI / 180)) * (bullets[bullets.length - 1].knockback);
+				}
+				if (barrels[n].type === 1) {
+					bullets[bullets.length - 1].time *= 5;
 				}
 				if (barrels[n].type === 2) {
 					dronelimit += 1;
@@ -216,19 +234,6 @@ function drawTank() {
 				}
 			}
 		}
-	}
-	
-	if (editmode === true) {
-		ctx.save();
-		ctx.strokeStyle = "#FF0000";
-		ctx.beginPath;
-		ctx.moveTo(tankpointx, tankpointy);
-		ctx.lineTo(c.width, tankpointy);
-		ctx.stroke();
-		ctx.restore();
-	} else if (autospin === true) {
-		mouse.x = (Math.cos((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointx;
-		mouse.y = (Math.sin((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointy;
 	}
 	
 	if ((autospin === true)) {
@@ -281,12 +286,12 @@ function drawTank() {
 		}
 
 		if (bullets[n].type === 0) {
-			drawBullet(bullets[n].x, bullets[n].y, bullets[n].size);
+			drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency);
 		}
 		//Display as a bullet if it's a bullet.
 		
 		if (bullets[n].type === 1) {
-			drawTrap(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].angle);
+			drawTrap(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].angle, bullets[n].transparency);
 		}
 		//Display as a trap if it's a trap.
 		
@@ -299,11 +304,13 @@ function drawTank() {
 			drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
 		}
 		//Display as a trap if it's a drone.
-		
+		if (bullets[n].time <= 20) {
+			bullets[n].transparency = bullets[n].time / 20;
+		} 
 		if (bullets[n].time <= 1) {
 			bullets.splice(n, 1);
 			//When a bullet times out, delete it.
-		} else if (bullets[n].type === 0){
+		} else if (bullets[n].type < 2){
 			bullets[n].time -= 1;
 			//If it's a bullet, decrease it's time left to live by 1 each frame.
 		}
@@ -323,7 +330,7 @@ function drawTank() {
 			barrels[n].length = barrels[n].baselength;
 			//For the rest of the reload cycle, set it back to its inital length.
 		}
-		drawBarrel(barrels[n].angle, barrels[n].xoffset, barrels[n].yoffset, barrels[n].width, barrels[n].length, alpha, false, barrels[n].type);
+		drawBarrel(barrels[n].angle, barrels[n].xoffset, barrels[n].yoffset, barrels[n].width, barrels[n].length, tankalpha, false, barrels[n].type);
 		if (barrels[n].reload > 0) {
 			barrels[n].reload -= 1;
 		}
@@ -342,18 +349,98 @@ function drawTank() {
 	if (editmode === true) {
 		drawBarrel(angle(tankpointx, tankpointy, mouse.x, mouse.y), parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 1)), parseFloat(validateField(document.getElementById("length").value, 1)), 0.5, true, btype);
 		//Draw a ghosted barrel while in edit mode above the normal barrels.
+	} else if (autospin === true) {
+		mouse.x = (Math.cos((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointx;
+		mouse.y = (Math.sin((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointy;
 	}
 	
-	ctx.save();
-	ctx.strokeStyle = "#555555";
-	ctx.lineWidth = 10;
-	ctx.fillStyle = "#00B2E1";
-	ctx.beginPath();
-	ctx.arc(tankpointx, tankpointy, parseFloat(validateField(document.getElementById("body").value, 32)), 0, Math.PI*2, true);
+	var tanksize = parseFloat(validateField(document.getElementById("body").value, 32));
+	var shape = document.getElementById("shape").value;
+	
+	if (shape=== "circle") {
+		ctx.save();
+		ctx.beginPath();
+		ctx.arc(tankpointx, tankpointy, tanksize, 0, Math.PI*2, true);
+		ctx.clip();
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.restore();
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.strokeStyle = "#555555";
+		ctx.lineWidth = 5;
+		ctx.fillStyle = "#00B2E1";
+		ctx.beginPath();
+		ctx.arc(tankpointx, tankpointy, tanksize, 0, Math.PI*2, true);
+		ctx.fill();
+		ctx.stroke();
+		ctx.restore();
+	}
+	if (shape === "square") {
+		ctx.save();
+		ctx.translate(tankpointx, tankpointy);
+		if (editmode === false) {
+			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
+		}
+		ctx.beginPath();
+		ctx.rect(-tanksize - 2, -tanksize - 2, (tanksize + 2) * 2, (tanksize + 2) * 2);
+		ctx.clip();
+		ctx.clearRect(-c.width, -c.height, c.width * 2, c.height * 2);
+		ctx.restore();
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.strokeStyle = "#555555";
+		ctx.lineWidth = 5;
+		ctx.fillStyle = "#00B2E1";
+		ctx.translate(tankpointx, tankpointy);
+		if (editmode === false) {
+			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
+		}
+		ctx.fillRect(-tanksize, -tanksize, tanksize * 2, tanksize * 2);
+		ctx.strokeRect(-tanksize, -tanksize, tanksize * 2, tanksize * 2);
+		ctx.restore();
+	}
+	
+	if (shape=== "smasher") {
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.fillStyle = "#555555";
+		ctx.translate(tankpointx, tankpointy);
+		ctx.beginPath();
+		if (editmode === false) {
+			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
+		}
+		ctx.moveTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.closePath();
+		ctx.clip();
+		ctx.translate(-tankpointx, -tankpointy);
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.translate(tankpointx, tankpointy);
+		ctx.fill();
+		ctx.restore();
+		
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.strokeStyle = "#555555";
+		ctx.lineWidth = 5;
+		ctx.fillStyle = "#00B2E1";
+		ctx.beginPath();
+		ctx.arc(tankpointx, tankpointy, tanksize, 0, Math.PI*2, true);
+		ctx.fill();
+		ctx.restore();
+	}
 	//Draw the body of the tank on top of everything.
-	ctx.stroke();
-	ctx.fill();
-	ctx.restore();
 }
 
 function drawUI() {
@@ -392,6 +479,7 @@ function drawUI() {
 }
 
 function drawManager() {
+	
 	drawMovement();
 	
 	drawTank();
@@ -513,5 +601,5 @@ document.addEventListener("keyup", keyUpHandler, false);
 window.oncontextmenu = function () {return false;};
 
 function onload() {
-	var drawtimer = setInterval(drawManager, 100 / 60);
+	var drawtimer = setInterval(drawManager, 100 / 30);
 }

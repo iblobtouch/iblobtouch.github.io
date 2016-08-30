@@ -1,5 +1,9 @@
+var bc = document.getElementById("background"), bctx = bc.getContext("2d");
 var c = document.getElementById('game'), ctx = c.getContext('2d');
 // resize the canvas to fill browser window dynamically
+
+var fullc = new Path2D();
+fullc.rect(0, 0, c.width, c.height);
 
 var autofire = false;
 var autospin = false;
@@ -8,6 +12,7 @@ var shiftheld = false;
 var autoangle = 0;
 var dronelimit = 0;
 var necrolimit = 0;
+var tankalpha = 1;
 
 var tankpointx = c.width / 2;
 var tankpointy = c.height / 2;
@@ -15,8 +20,8 @@ var tankpointy = c.height / 2;
 var offset = {};
 offset.x = 0;
 offset.y = 0;
-offset.totalx = 0;
-offset.totaly = 0;
+offset.totalx = 100;
+offset.totaly = 100;
 
 var accel = {};
 accel.x = 0;
@@ -81,6 +86,7 @@ function Bullet(xoffset, yoffset, x, y, bangle, size, knockback, damage, speed, 
 	this.targety = targety;
 	this.initoffx = initoffx;
 	this.initoffy = initoffy;
+	this.transparency = 1;
 }
 
 var bullets = [];
@@ -102,6 +108,7 @@ function editButtonClick() {
 		autospin = false;
 		accel.x = 0;
 		accel.y = 0;
+		tankalpha = 1.0;
 		var elements = document.getElementsByClassName("textbox");
 
     	for (var i = 0; i < elements.length; i++){
@@ -133,7 +140,7 @@ function validateField(value, returnval, ignoreneg) {
 
 function printObject() {
 	var barreltext = ""; 
-	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "[";
+	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" +  document.getElementById("shape").value + "[";
 	if (barrels.length > 0) {
 		for (var i = 0; i < barrels.length; i += 1) {
 			outtext += JSON.stringify(barrels[i]);
@@ -165,8 +172,13 @@ function importObject() {
 			console.log("notfound");
 			document.getElementById("body").value = 32;
 			barrels = JSON.parse(inputtext);
-		} else {
+		} else if (inputtext.indexOf("*") === -1) {
 			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
+			document.getElementById("shape").value = "circle";
+			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
+		} else {
+			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("*"));
+			document.getElementById("shape").value = inputtext.substr(inputtext.indexOf("*") + 1, inputtext.indexOf("[") - 1 - inputtext.indexOf("*"));
 			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
 		}
 	}

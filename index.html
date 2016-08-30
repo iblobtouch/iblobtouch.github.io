@@ -6,6 +6,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	</head>
 	<body onload="onload()">
+		<canvas id="background"></canvas>
 		<canvas id="game"></canvas>
 		<script src="scripts/globals.js"></script>
 		<script src="scripts/drawBackground.js"></script>
@@ -15,8 +16,15 @@
 		
 		<p id = "note">Press the edit mode button to edit the tank. <br> Press e to autofire and c to autospin. <br> Refresh the page to get a new tank.</p>
 		
-		<p class="textbox" id = "bodylabel">Specifies the radius of the tank's main body (Default is 32).</p>
+		<p class="textbox" id = "bodylabel">Specifies the radius of the tank's main body.</p>
 		<textarea class="textbox" id = "body" rows="1" cols = "10" visible = true placeholder = "Body Size">32</textarea>
+		
+		<p class="textbox" id = "shapelabel">What type of body should be used?</p>
+		<select class = "textbox" id = "shape">
+			<option value="circle">Circle</option> 
+  			<option value="square">Square</option>
+  			<option value="smasher">Smasher</option>
+		</select>
 		
 		<p class="textbox" id = "offsetlabel">Specifies the distance from the center of the tank the barrel is horizontally. <br> Negative values moves to the right, positive to the left.</p>
 		<textarea class="textbox" id = "offset" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
@@ -33,8 +41,11 @@
 		<p class="textbox" id = "reloadlabel">Specifies the time it takes for the barrel to fire again, in seconds.</p>
 		<textarea class="textbox" id = "reload" rows="1" cols = "10" visible = true placeholder = "Reload">2</textarea>
 		
-		<p class="textbox" id = "knockbacklabel">How much knockback should the barrel give? .</p>
+		<p class="textbox" id = "knockbacklabel">How much knockback should the barrel give?</p>
 		<textarea class="textbox" id = "knockback" rows="1" cols = "10" visible = true placeholder = "Knockback">0</textarea>
+		
+		<p class="textbox" id = "invislabel">Turn invisible?</p>
+		<input type="checkbox" class = "textbox" id="invis">
 		
 		<p class="textbox" id = "traplabel">What type of Gun Barrel do you want to place?</p>
 		<select class = "textbox" id = "bullet">

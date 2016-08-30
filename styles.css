@@ -7,8 +7,20 @@
     width:100%;
     height:100%;
     display: block;
-	background-color: #CDCDCD;
 	z-index: 0;
+}
+
+#background {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    padding:0;
+    margin: 0;
+    width:100%;
+    height:100%;
+    display: block;
+	background-color: #CDCDCD;
+	z-index: -1;
 }
 
 .ubuntu {
@@ -45,6 +57,17 @@
 #body {
 	margin-top: 70px;
 	margin-left: 1px;
+}
+
+#shapelabel {
+	font: ubuntu 32px;
+	margin-top: 50px;
+	margin-left: 300px;
+}
+
+#shape {
+	margin-top: 70px;
+	margin-left: 300px;
 }
 
 #offsetlabel {
@@ -111,6 +134,17 @@
 #knockback {
 	margin-top: 350px;
 	margin-left: 1px;
+}
+
+#invislabel {
+	font: ubuntu 32px;
+	margin-top: 330px;
+	margin-left: 350px;
+}
+
+#invis {
+	margin-top: 350px;
+	margin-left: 350px;
 }
 
 #traplabel {

@@ -57,6 +57,17 @@
 	margin-left: 300px;
 }
 
+#colorlabel {
+	font: ubuntu 32px;
+	margin-top: 50px;
+	margin-left: 550px;
+}
+
+#color {
+	margin-top: 70px;
+	margin-left: 550px;
+}
+
 #offsetlabel {
 	font: ubuntu 32px;
 	margin-top: 90px;
@@ -169,19 +180,19 @@
 }
 
 #export {
-	margin-top: 550px;
+	margin-top: 570px;
 	margin-left: 1px;
 	border: solid black 1px;
 }
 
 #import {
-	margin-top: 550px;
+	margin-top: 570px;
 	margin-left: 100px;
 	border: solid black 1px;
 }
 
 #save {
 	font: ubuntu 32px;
-	margin-top: 570px;
+	margin-top: 590px;
 	margin-left: 1px;
 }

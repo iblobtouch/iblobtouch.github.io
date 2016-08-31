@@ -1,4 +1,5 @@
-var c = document.getElementById('game'), ctx = c.getContext('2d');
+var c = document.getElementById('game'),
+	ctx = c.getContext('2d');
 // resize the canvas to fill browser window dynamically
 
 var autofire = false;
@@ -30,6 +31,7 @@ input.up = false;
 input.down = false;
 input.left = false;
 input.right = false;
+input.f = false;
 
 var mouse = {};
 mouse.x = 0;
@@ -89,13 +91,26 @@ function Bullet(xoffset, yoffset, x, y, bangle, size, knockback, damage, speed, 
 var bullets = [];
 //Array containing all the barrels, each entry is a Barrel object.
 
+function Shape(type) {
+	this.initx = offset.totalx;
+	this.inity = offset.totaly;
+	this.x = mouse.x;
+	this.y = mouse.y;
+	this.type = type;
+	this.angle = 0;
+	this.health = 100;
+}
+
+var shapes = [];
+
 function angle(cx, cy, ex, ey) {
-  var dy = ey - cy, dx = ex - cx;
-  var theta = Math.atan2(dy, dx); // range (-PI, PI]
-  theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
-  //if (theta < 0) theta = 360 + theta; // range [0, 360)
-  //theta *= (Math.PI / 180);
-  return theta;
+	var dy = ey - cy,
+		dx = ex - cx;
+	var theta = Math.atan2(dy, dx); // range (-PI, PI]
+	theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
+	//if (theta < 0) theta = 360 + theta; // range [0, 360)
+	//theta *= (Math.PI / 180);
+	return theta;
 }
 
 function editButtonClick() {
@@ -108,25 +123,25 @@ function editButtonClick() {
 		tankalpha = 1.0;
 		var elements = document.getElementsByClassName("textbox");
 
-    	for (var i = 0; i < elements.length; i++){
-        	elements[i].style.visibility = "visible";
-    	}
+		for (var i = 0; i < elements.length; i++) {
+			elements[i].style.visibility = "visible";
+		}
 	} else {
 		editmode = false;
 		var elements = document.getElementsByClassName("textbox");
 
-    	for (var i = 0; i < elements.length; i++){
-        	elements[i].style.visibility = "hidden";
-    	}
+		for (var i = 0; i < elements.length; i++) {
+			elements[i].style.visibility = "hidden";
+		}
 	}
 }
 
 function validateField(value, returnval, ignoreneg) {
 	if (value.length == 0) {
-	    return returnval;
+		return returnval;
 	}
 	if ((value < 0) && (ignoreneg !== true)) {
-	    return returnval;
+		return returnval;
 	}
 	if (isNaN(value) === true) {
 		return returnval;
@@ -136,8 +151,8 @@ function validateField(value, returnval, ignoreneg) {
 }
 
 function printObject() {
-	var barreltext = ""; 
-	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" +  document.getElementById("shape").value + "[";
+	var barreltext = "";
+	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "[";
 	if (barrels.length > 0) {
 		for (var i = 0; i < barrels.length; i += 1) {
 			outtext += JSON.stringify(barrels[i]);
@@ -150,13 +165,13 @@ function printObject() {
 	document.getElementById("save").value = outtext;
 }
 
-function xdistancefrom (x, y, cx, cy, distance, aoffset) {
+function xdistancefrom(x, y, cx, cy, distance, aoffset) {
 	var anglefrom = (angle(x, y, cx, cy) + aoffset) * (Math.PI / 180);
 	return Math.cos(anglefrom) * (distance);
 	//return cx - x;
 }
 
-function ydistancefrom (x, y, cx, cy, distance, aoffset) {
+function ydistancefrom(x, y, cx, cy, distance, aoffset) {
 	var anglefrom = (angle(x, y, cx, cy) + aoffset) * (Math.PI / 180);
 	return Math.sin(anglefrom) * (distance);
 	//return cy - y;

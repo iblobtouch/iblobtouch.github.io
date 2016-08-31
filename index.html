@@ -10,6 +10,7 @@
 		<script src="scripts/globals.js"></script>
 		<script src="scripts/drawBackground.js"></script>
 		<script src="scripts/drawGraphics.js"></script>
+		<script src="scripts/gameController.js"></script>
 		
 		<button id = "editbutton" onclick = "editButtonClick()">Toggle edit mode.</button>
 		
@@ -24,6 +25,9 @@
   			<option value="square">Square</option>
   			<option value="smasher">Smasher</option>
 		</select>
+		
+		<p class="textbox" id = "colorlabel">What colour should be used for the tank and bullets?</p>
+		<input type = "color" class="textbox" id = "color" value = "#00B2E1">
 		
 		<p class="textbox" id = "offsetlabel">Specifies the distance from the center of the tank the barrel is horizontally. <br> Negative values moves to the right, positive to the left.</p>
 		<textarea class="textbox" id = "offset" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
@@ -61,6 +65,6 @@
 		<button class = "textbox" id = "import" onclick = "importObject()">Import tank.</button>
 		<textarea class="textbox" id = "save" rows="10" cols = "60" visible = true placeholder = "Save Codes go here..."></textarea>
 		
-		<p class="textbox" id = "notes">Pressing q also places a barrel. Remeber to click outside any of the boxes before doing this so you don't type q in there! <br> Ctrl + scrollWheel to increase/decrease FOV. <br> Red line shows where the tank will be facing outside of edit mode. <br> Hold shift to rotate the barrel in 15° increments.<br> Note that guns are drawn in order of last placed to first.</p>
+		<p class="textbox" id = "notes">Pressing q also places a barrel. Remeber to click outside any of the boxes before doing this so you don't type q in there! <br> Press F while a placed barrel is selected to delete it.<br> Ctrl + scrollWheel to increase/decrease FOV. <br> Red line shows where the tank will be facing outside of edit mode. <br> Hold shift to rotate the barrel in 15° increments.<br> Note that guns are drawn in order of last placed to first.</p>
 	</body>
 </html>

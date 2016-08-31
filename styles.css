@@ -134,6 +134,17 @@
 	margin-left: 350px;
 }
 
+#disablelabel {
+	font: ubuntu 32px;
+	margin-top: 370px;
+	margin-left: 350px;
+}
+
+#disable {
+	margin-top: 390px;
+	margin-left: 350px;
+}
+
 #traplabel {
 	font: ubuntu 32px;
 	margin-top: 370px;

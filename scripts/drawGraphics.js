@@ -207,8 +207,14 @@ function drawTank() {
 	var tankpointy = c.height / 2 - accel.y * 20;
 	if (((mouse.held === true) || (autofire === true)) && (editmode === false)) {
 		for (var n = 0; n < barrels.length; n += 1) {
-			if ((barrels[n].reload === 0) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < 8)) || ((barrels[n].type === 3) && (necrolimit < 20))))) {
-				if (barrels[n].hasOwnProperty("knockback") === false ) {
+			var canfire = true;
+			if (barrels[n].hasOwnProperty("disabled") === true) {
+				if (barrels[n].disabled === false) {
+					var canfire = false;
+				}
+			}
+			if ((barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < 8)) || ((barrels[n].type === 3) && (necrolimit < 20))))) {
+				if (barrels[n].hasOwnProperty("knockback") === false) {
 					barrels[n].knockback = 0;
 				}
 				bullets[bullets.length] = new Bullet(barrels[n].xoffset, barrels[n].yoffset, 
@@ -508,7 +514,7 @@ function placeBarrel() {
 		btype = 3;
 	}
 
-	barrels[barrels.length] = new Barrel(rangle, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 20)), parseFloat(validateField(document.getElementById("length").value, 60)), parseFloat(validateField(document.getElementById("reload").value * 60, 120)), true, btype, parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10);
+	barrels[barrels.length] = new Barrel(rangle, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 20)), parseFloat(validateField(document.getElementById("length").value, 60)), parseFloat(validateField(document.getElementById("reload").value * 60, 120)), true, btype, parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10, document.getElementById("disable").checked);
 }
 
 function keyDownHandler(e) {

@@ -37,7 +37,7 @@ mouse.y = 0;
 mouse.held = false;
 mouse.rightdown = false;
 
-function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type, knockback) {
+function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type, knockback, disabled) {
 	this.angle = a;
 	//Angle is the offset from the angle from mouse to tank.
 	this.xoffset = xoff;
@@ -59,6 +59,7 @@ function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type, kn
 	this.type = type;
 	//0 = bullet firer, 1 = trap layer, 2 = drone maker.
 	this.knockback = knockback;
+	this.disabled = disabled;
 }
 
 var barrels = [];

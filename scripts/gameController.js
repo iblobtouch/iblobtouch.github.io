@@ -385,7 +385,7 @@ function drawUI() {
 }
 
 function drawManager() {
-
+	console.log(window.location.href);
 	drawMovement();
 
 	drawTank();

@@ -1,4 +1,3 @@
-var bc = document.getElementById("background"), bctx = bc.getContext("2d");
 var c = document.getElementById('game'), ctx = c.getContext('2d');
 // resize the canvas to fill browser window dynamically
 

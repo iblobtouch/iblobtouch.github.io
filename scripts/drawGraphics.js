@@ -265,22 +265,13 @@ function drawTank() {
 			bullets[n].x -= xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, 1, 0);
 		
 			bullets[n].y -= ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, 1, 0);
-		} else if (bullets[n].type === 1) {
+		} else if (bullets[n].type < 2) {
 			var ydif = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
 			var xdif = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
 			
 			bullets[n].x = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.width / 2 + xdif + (offset.totalx - bullets[n].initoffx);
 		
 			bullets[n].y = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.height / 2 - ydif + (offset.totaly - bullets[n].initoffy);
-
-			//Get the bullets current x and y based on distance, offset and angle.
-		} else {
-			var ydif = xdistancefrom(tankpointx, tankpointy, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
-			var xdif = ydistancefrom(tankpointx, tankpointy, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
-			
-			bullets[n].x = xdistancefrom(tankpointx, tankpointy, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + tankpointx + xdif + (offset.totalx - bullets[n].initoffx);
-		
-			bullets[n].y = ydistancefrom(tankpointx, tankpointy, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + tankpointy - ydif + (offset.totaly - bullets[n].initoffy);
 
 			//Get the bullets current x and y based on distance, offset and angle.
 		}
@@ -601,5 +592,5 @@ document.addEventListener("keyup", keyUpHandler, false);
 window.oncontextmenu = function () {return false;};
 
 function onload() {
-	var drawtimer = setInterval(drawManager, 100 / 60);
+	var drawtimer = setInterval(drawManager, 100 / 30);
 }

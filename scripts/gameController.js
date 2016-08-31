@@ -193,26 +193,27 @@ function drawTank() {
 
 			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
 		}
+		if (editmode === false) {
+			if (bullets[n].type === 0) {
+				drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency);
+			}
+			//Display as a bullet if it's a bullet.
 
-		if (bullets[n].type === 0) {
-			drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency);
-		}
-		//Display as a bullet if it's a bullet.
+			if (bullets[n].type === 1) {
+				drawTrap(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].angle, bullets[n].transparency);
+			}
+			//Display as a trap if it's a trap.
 
-		if (bullets[n].type === 1) {
-			drawTrap(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].angle, bullets[n].transparency);
-		}
-		//Display as a trap if it's a trap.
+			if (bullets[n].type === 2) {
+				drawDrone(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
+			}
+			//Display as a trap if it's a drone.
 
-		if (bullets[n].type === 2) {
-			drawDrone(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
+			if (bullets[n].type === 3) {
+				drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
+			}
+			//Display as a trap if it's a drone.
 		}
-		//Display as a trap if it's a drone.
-
-		if (bullets[n].type === 3) {
-			drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
-		}
-		//Display as a trap if it's a drone.
 		if (bullets[n].time <= 20) {
 			bullets[n].transparency = bullets[n].time / 20;
 		}
@@ -385,13 +386,12 @@ function drawUI() {
 }
 
 function drawManager() {
-	if (window.location.href === "https://iblobtouch.github.io/") {
-		drawMovement();
+	console.log(window.location.href);
+	drawMovement();
 
-		drawTank();
+	drawTank();
 
-		drawUI();
-	}
+	drawUI();
 }
 
 function placeBarrel() {

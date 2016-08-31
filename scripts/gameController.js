@@ -385,7 +385,7 @@ function drawUI() {
 }
 
 function drawManager() {
-	if (window.location.href === https://iblobtouch.github.io/) {
+	if (window.location.href === "https://iblobtouch.github.io/") {
 		drawMovement();
 
 		drawTank();

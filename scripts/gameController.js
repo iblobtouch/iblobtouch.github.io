@@ -176,12 +176,15 @@ function drawTank() {
 			bullets[n].y -= ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed / 2, 0);
 		} else if (bullets[n].type === 1) {
 
-			var ydif = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
-			var xdif = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
+			bullets[n].targetx += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
+			bullets[n].targety += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
+			
+			bullets[n].x += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totalx - bullets[n].initoffx);
 
-			bullets[n].x = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.width / 2 + xdif + (offset.totalx - bullets[n].initoffx);
-
-			bullets[n].y = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.height / 2 - ydif + (offset.totaly - bullets[n].initoffy);
+			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totaly - bullets[n].initoffy);
+			
+			bullets[n].initoffx = offset.totalx;
+			bullets[n].initoffy = offset.totaly;
 
 			//Get the bullets current x and y based on distance, offset and angle.
 		} else {
@@ -189,9 +192,9 @@ function drawTank() {
 			bullets[n].targetx += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
 			bullets[n].targety += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
 			
-			bullets[n].x += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
+			bullets[n].x += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totalx - bullets[n].initoffx);
 
-			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
+			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totaly - bullets[n].initoffy);
 		}
 		if (editmode === false) {
 			if (bullets[n].type === 0) {

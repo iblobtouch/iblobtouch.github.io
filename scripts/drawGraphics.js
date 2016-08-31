@@ -214,7 +214,7 @@ function drawTank() {
 				bullets[bullets.length] = new Bullet(barrels[n].xoffset, barrels[n].yoffset, 
 				xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx, 
 				ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy,
-				barrels[n].angle, barrels[n].width / 2, barrels[n].knockback, 10, barrels[n].length / 40, 100, barrels[n].length, 360, barrels[n].type, mouse.x, mouse.y, offset.totalx, offset.totaly);
+				barrels[n].angle, barrels[n].width / 2, barrels[n].knockback, 10, barrels[n].length / 40, 100, barrels[n].length, 360, barrels[n].type, mouse.x - accel.x, mouse.y - accel.y, offset.totalx, offset.totaly);
 				
 				barrels[n].reload = barrels[n].basereload;
 				
@@ -265,7 +265,8 @@ function drawTank() {
 			bullets[n].x -= xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, 1, 0);
 		
 			bullets[n].y -= ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, 1, 0);
-		} else if (bullets[n].type < 2) {
+		} else if (bullets[n].type === 1) {
+			
 			var ydif = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
 			var xdif = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
 			
@@ -274,6 +275,13 @@ function drawTank() {
 			bullets[n].y = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.height / 2 - ydif + (offset.totaly - bullets[n].initoffy);
 
 			//Get the bullets current x and y based on distance, offset and angle.
+		} else {
+			var ydif = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
+			var xdif = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].yoffset, bullets[n].bangle);
+			
+			bullets[n].x = xdistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.width / 2 + xdif;
+		
+			bullets[n].y = ydistancefrom(c.width / 2, c.height / 2, bullets[n].targetx, bullets[n].targety, bullets[n].distance + bullets[n].xoffset, bullets[n].bangle) + c.height / 2 - ydif;
 		}
 
 		if (bullets[n].type === 0) {

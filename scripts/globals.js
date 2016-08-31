@@ -1,9 +1,6 @@
 var c = document.getElementById('game'), ctx = c.getContext('2d');
 // resize the canvas to fill browser window dynamically
 
-var fullc = new Path2D();
-fullc.rect(0, 0, c.width, c.height);
-
 var autofire = false;
 var autospin = false;
 var editmode = false;

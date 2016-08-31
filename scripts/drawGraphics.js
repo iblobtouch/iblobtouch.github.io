@@ -601,5 +601,5 @@ document.addEventListener("keyup", keyUpHandler, false);
 window.oncontextmenu = function () {return false;};
 
 function onload() {
-	var drawtimer = setInterval(drawManager, 100 / 30);
+	var drawtimer = setInterval(drawManager, 100 / 60);
 }

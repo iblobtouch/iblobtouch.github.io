@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<title>Fantasy Tank Builder</title>
 	<head>
@@ -12,59 +12,80 @@
 		<script src="scripts/drawGraphics.js"></script>
 		<script src="scripts/gameController.js"></script>
 		
+		<p id="watermark">Play at iblobtouch.github.io!</p>
+		
 		<button id = "editbutton" onclick = "editButtonClick()">Toggle edit mode.</button>
+		<button class="editbuttons" id = "bodybutton" onclick = "bodyClick()">Body/Color settings</button>
+		<button class="editbuttons" id = "barrelbutton" onclick = "barrelClick()">Barrel settings</button>
+		<button class="editbuttons" id = "bulletbutton" onclick = "bulletClick()">Bullet settings</button>
+		<button class="editbuttons" id = "savebutton" onclick = "saveClick()">Export/Import</button>
 		
 		<p id = "note">Press the edit mode button to edit the tank. <br> Press e to autofire and c to autospin. <br> Refresh the page to get a new tank.</p>
 		
-		<p class="textbox" id = "bodylabel">Specifies the radius of the tank's main body.</p>
-		<textarea class="textbox" id = "body" rows="1" cols = "10" visible = true placeholder = "Body Size">32</textarea>
+		<p class="editbuttons tanksettings pos1label">Specifies the radius of the tank's main body.</p>
+		<textarea class="editbuttons tanksettings pos1" id = "body" rows="1" cols = "10" placeholder = "Body Size">32</textarea>
 		
-		<p class="textbox" id = "shapelabel">What type of body should be used?</p>
-		<select class = "textbox" id = "shape">
+		<p class="editbuttons tanksettings pos2label">What type of body should be used?</p>
+		<select class = "editbuttons tanksettings pos2" id = "shape">
 			<option value="circle">Circle</option> 
   			<option value="square">Square</option>
   			<option value="smasher">Smasher</option>
 		</select>
 		
-		<p class="textbox" id = "colorlabel">What colour should be used for the tank and bullets?</p>
-		<input type = "color" class="textbox" id = "color" value = "#00B2E1">
+		<p class="editbuttons tanksettings pos3label">What colour should be used for the tank and bullets?</p>
+		<input type = "color" class="editbuttons tanksettings pos3" id = "color" value = "#00B2E1">
 		
-		<p class="textbox" id = "offsetlabel">Specifies the distance from the center of the tank the barrel is horizontally. <br> Negative values moves to the right, positive to the left.</p>
-		<textarea class="textbox" id = "offset" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
+		<p class="editbuttons tanksettings pos4label" >Turn invisible?</p>
+		<input type="checkbox" class = "editbuttons tanksettings pos4" id="invis">
 		
-		<p class="textbox" id = "offsetxlabel">Specifies the distance from the center of the tank the barrel is vertically. <br> Negative values moves down, positive moves up.</p>
-		<textarea class="textbox" id = "offsetx" rows="1" cols = "10" visible = true placeholder = "offset">0</textarea>
-		
-		<p class="textbox" id = "lengthlabel">Specifies the length of the barrel, this affects speed and knockback</p>
-		<textarea class="textbox" id = "length" rows="1" cols = "10" visible = true placeholder = "length">60</textarea>
-		
-		<p class="textbox" id = "widthlabel">Specifies the width of the barrel, this affects size and knockback</p>
-		<textarea class="textbox" id = "width" rows="1" cols = "10" visible = true placeholder = "width">15</textarea>
-		
-		<p class="textbox" id = "reloadlabel">Specifies the time it takes for the barrel to fire again, in seconds.</p>
-		<textarea class="textbox" id = "reload" rows="1" cols = "10" visible = true placeholder = "Reload">2</textarea>
-		
-		<p class="textbox" id = "knockbacklabel">How much knockback should the barrel give?</p>
-		<textarea class="textbox" id = "knockback" rows="1" cols = "10" visible = true placeholder = "Knockback">0</textarea>
-		
-		<p class="textbox" id = "invislabel">Turn invisible?</p>
-		<input type="checkbox" class = "textbox" id="invis">
-		<p class="textbox" id = "disablelabel">Can this barrel shoot?</p>
-		<input type="checkbox" class = "textbox" id="disable" checked>
-		
-		<p class="textbox" id = "traplabel">What type of Gun Barrel do you want to place?</p>
-		<select class = "textbox" id = "bullet">
+		<p class="editbuttons barrelsettings pos1label" id = "traplabel" >What type of Gun Barrel do you want to place?</p>
+		<select class = "editbuttons barrelsettings pos1" id = "bullet" >
 			<option value="bullet">Gun</option> 
   			<option value="trap">Trap Layer</option>
   			<option value="drone">Drone Maker</option>
 			<option value="necro">Sunchips!</option>
 		</select>
 		
-		<button class = "textbox" id = "place" onclick = "placeBarrel()">Place barrel. <br> (For mobile users.)</button>
-		<button class = "textbox" id = "export" onclick = "printObject()">Export tank.</button>
-		<button class = "textbox" id = "import" onclick = "importObject()">Import tank.</button>
-		<textarea class="textbox" id = "save" rows="10" cols = "60" visible = true placeholder = "Save Codes go here..."></textarea>
+		<p class="editbuttons barrelsettings pos2label">Can this barrel shoot?</p>
+		<input type="checkbox" class = "editbuttons barrelsettings pos2" id="disable" checked>
 		
-		<p class="textbox" id = "notes">Pressing q also places a barrel. Remeber to click outside any of the boxes before doing this so you don't type q in there! <br> Press F while a placed barrel is selected to delete it.<br> Ctrl + scrollWheel to increase/decrease FOV. <br> Red line shows where the tank will be facing outside of edit mode. <br> Hold shift to rotate the barrel in 15° increments.<br> Note that guns are drawn in order of last placed to first.</p>
+		<p class="editbuttons barrelsettings pos3label">Specifies the width.</p>
+		<textarea class="editbuttons barrelsettings pos3" id = "width" rows="1" cols = "10"  placeholder = "width">15</textarea>
+		
+		<p class="editbuttons barrelsettings pos4label">Specifies the length.</p>
+		<textarea class="editbuttons barrelsettings pos4" id = "length" rows="1" cols = "10"  placeholder = "length">60</textarea>
+		
+		<p class="editbuttons barrelsettings pos5label">Specifies the distance above or below the center.<br> Negative values moves to the right, positive to the left.</p>
+		<textarea class="editbuttons barrelsettings pos5" id = "offset" rows="1" cols = "10"  placeholder = "offset">0</textarea>
+		
+		<p class="editbuttons barrelsettings pos6label">Specifies the distance from the center of the tank.<br> Negative values moves down, positive moves up.</p>
+		<textarea class="editbuttons barrelsettings pos6" id = "offsetx" rows="1" cols = "10"  placeholder = "offset">0</textarea>
+		
+		<p class="editbuttons barrelsettings pos7label">Specifies the time it takes to fire again, in seconds.</p>
+		<textarea class="editbuttons barrelsettings pos7" id = "reload" rows="1" cols = "10"  placeholder = "Reload">2</textarea>
+		
+		<p class="editbuttons barrelsettings pos8label">How much knockback should the barrel give?</p>
+		<textarea class="editbuttons barrelsettings pos8" id = "knockback" rows="1" cols = "10"  placeholder = "Knockback">0</textarea>
+		
+		<p class="editbuttons barrelsettings pos9label">How much spread does the barrel have? (angle +/- from mouse)</p>
+		<textarea class="editbuttons barrelsettings pos9" id = "spread" rows="1" cols = "10"  placeholder = "Knockback">0</textarea>
+		
+		<p class="editbuttons bulletsettings pos1label">How large should the bullet be?</p>
+		<textarea class="editbuttons bulletsettings pos1" id = "size" rows="1" cols = "10"  placeholder = "width">15</textarea>
+		
+		<p class="editbuttons bulletsettings pos2label">How fast should the bullet move?</p>
+		<textarea class="editbuttons bulletsettings pos2" id = "speed" rows="1" cols = "10"  placeholder = "width">50</textarea>
+		
+		<p class="editbuttons bulletsettings pos3label">How long should the bullet live for? (in seconds)</p>
+		<textarea class="editbuttons bulletsettings pos3" id = "time" rows="1" cols = "10"  placeholder = "length">1</textarea>
+		
+		<p class="editbuttons bulletsettings pos4label">Take these stats from the barrel?</p>
+		<input type="checkbox" class = "editbuttons bulletsettings pos4" id="use" checked>
+		
+		<button class = "editbuttons savesettings pos1label" onclick = "printObject()" >Export tank.</button>
+		<button class = "editbuttons savesettings " style = "margin-left: 100px; margin-top: -10px;" onclick = "importObject()" >Import tank.</button>
+		<textarea class="editbuttons savesettings pos1" id = "save" rows="10" cols = "60"  placeholder = "Save Codes go here..." ></textarea>
+		
+		<p class="editbuttons" id = "notes">Pressing q also places a barrel. Remeber to click outside any of the boxes before doing this so you don't type q in there! <br> Press F while a placed barrel is selected to delete it.<br> Ctrl + scrollWheel to increase/decrease FOV. <br> Red line shows where the tank will be facing outside of edit mode. <br> Hold shift to rotate the barrel in 15° increments.<br> Note that guns are drawn in order of last placed to first.</p>
 	</body>
 </html>

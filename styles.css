@@ -6,12 +6,17 @@
     margin: 0;
     width:100%;
     height:100%;
-    display: block;
 	background-color: #CDCDCD;
 }
 
 .ubuntu {
 	font-family: 'Ubuntu', sans-serif;
+}
+
+#watermark {
+	position:fixed;
+	margin-left: 80%;
+	font: ubuntu 32px;
 }
 
 #editbutton {
@@ -20,179 +25,136 @@
 	border: solid black 1px;
 }
 
-#note {
-	z-index = 5;
-	position:fixed;
-	font: ubuntu 32px;
-	margin-top: -5px;
-	margin-left: 150px;
-}
-
-.textbox {
+.editbuttons {
 	z-index = 5;
 	position:fixed;
 	border:none;
 	visibility: hidden;
 }
 
-#bodylabel {
-	font: ubuntu 32px;
-	margin-top: 50px;
+#bodybutton {
+	margin-top: 30px;
 	margin-left: 1px;
 }
 
-#body {
+#barrelbutton {
+	margin-top: 30px;
+	margin-left: 130px;
+}
+
+#bulletbutton {
+	margin-top: 30px;
+	margin-left: 230px;
+}
+
+#savebutton {
+	margin-top: 30px;
+	margin-left: 330px;
+}
+
+.pos1label {
+	font: ubuntu 32px;
+	margin-top: -10px;
+	margin-left: 1px;
+}
+
+.pos2label {
+	font: ubuntu 32px;
+	margin-top: -10px;
+	margin-left: 400px;
+}
+
+.pos3label {
+	font: ubuntu 32px;
 	margin-top: 70px;
 	margin-left: 1px;
 }
 
-#shapelabel {
+.pos4label {
 	font: ubuntu 32px;
-	margin-top: 50px;
-	margin-left: 300px;
-}
-
-#shape {
 	margin-top: 70px;
-	margin-left: 300px;
+	margin-left: 400px;
 }
 
-#colorlabel {
-	font: ubuntu 32px;
-	margin-top: 50px;
-	margin-left: 550px;
-}
-
-#color {
-	margin-top: 70px;
-	margin-left: 550px;
-}
-
-#offsetlabel {
-	font: ubuntu 32px;
-	margin-top: 90px;
-	margin-left: 1px;
-}
-
-#offset {
-	margin-top: 130px;
-	margin-left: 1px;
-}
-
-#offsetxlabel {
+.pos5label {
 	font: ubuntu 32px;
 	margin-top: 150px;
 	margin-left: 1px;
 }
 
-#offsetx {
-	margin-top: 190px;
-	margin-left: 1px;
-}
-
-#lengthlabel {
+.pos6label {
 	font: ubuntu 32px;
-	margin-top: 210px;
-	margin-left: 1px;
+	margin-top: 150px;
+	margin-left: 400px;
 }
 
-#length {
+.pos7label {
+	font: ubuntu 32px;
 	margin-top: 230px;
 	margin-left: 1px;
 }
 
-#widthlabel {
+.pos8label {
 	font: ubuntu 32px;
-	margin-top: 250px;
-	margin-left: 1px;
+	margin-top: 230px;
+	margin-left: 400px;
 }
 
-#width {
-	margin-top: 270px;
-	margin-left: 1px;
-}
-
-#reloadlabel {
+.pos9label {
 	font: ubuntu 32px;
-	margin-top: 290px;
-	margin-left: 1px;
-}
-
-#reload {
 	margin-top: 310px;
 	margin-left: 1px;
 }
 
-#knockbacklabel {
-	font: ubuntu 32px;
-	margin-top: 330px;
+.pos1 {
+	margin-top: 30px;
 	margin-left: 1px;
 }
 
-#knockback {
+.pos2 {
+	margin-top: 30px;
+	margin-left: 400px;
+}
+
+.pos3 {
+	font: ubuntu 32px;
+	margin-top: 110px;
+	margin-left: 1px;
+}
+
+.pos4 {
+	font: ubuntu 32px;
+	margin-top: 110px;
+	margin-left: 400px;
+}
+
+.pos5 {
+	margin-top: 190px;
+	margin-left: 1px;
+}
+
+.pos6 {
+	margin-top: 190px;
+	margin-left: 400px;
+}
+
+.pos7 {
+	margin-top: 270px;
+	margin-left: 1px;
+}
+
+.pos8 {
+	margin-top: 270px;
+	margin-left: 400px;
+}
+
+.pos9 {
 	margin-top: 350px;
 	margin-left: 1px;
-}
-
-#invislabel {
-	font: ubuntu 32px;
-	margin-top: 330px;
-	margin-left: 350px;
-}
-
-#invis {
-	margin-top: 350px;
-	margin-left: 350px;
-}
-
-#disablelabel {
-	font: ubuntu 32px;
-	margin-top: 370px;
-	margin-left: 350px;
-}
-
-#disable {
-	margin-top: 390px;
-	margin-left: 350px;
-}
-
-#traplabel {
-	font: ubuntu 32px;
-	margin-top: 370px;
-	margin-left: 1px;
-}
-
-#bullet {
-	margin-top: 390px;
-	margin-left: 1px;
-}
-
-#place {
-	margin-top: 410px;
-	margin-left: 1px;
-	border: solid black 1px;
 }
 
 #notes {
 	font: ubuntu 32px;
-	margin-top: 450px;
-	margin-left: 1px;
-}
-
-#export {
-	margin-top: 570px;
-	margin-left: 1px;
-	border: solid black 1px;
-}
-
-#import {
-	margin-top: 570px;
-	margin-left: 100px;
-	border: solid black 1px;
-}
-
-#save {
-	font: ubuntu 32px;
-	margin-top: 590px;
+	margin-top: 40%;
 	margin-left: 1px;
 }

@@ -39,52 +39,54 @@ mouse.y = 0;
 mouse.held = false;
 mouse.rightdown = false;
 
-function Barrel(a, xoff, yoff, width, length, baseReload, hasKnockBack, type, knockback, disabled) {
+function Barrel(a, type, size, speed, time) {
 	this.angle = a;
 	//Angle is the offset from the angle from mouse to tank.
-	this.xoffset = xoff;
+	this.xoffset = parseFloat(validateField(document.getElementById("offsetx").value, 0, true));
 	//xoffset affect how far into the tank the barrel it.
-	this.yoffset = yoff;
+	this.yoffset = parseFloat(validateField(document.getElementById("offset").value, 0, true));
 	//yoffset affect how far away from the center the barrel rotates.
-	this.width = width;
+	this.width = parseFloat(validateField(document.getElementById("width").value, 20));
 	//width affects the width of the barrel.
-	this.baselength = length;
+	this.baselength = parseFloat(validateField(document.getElementById("length").value, 60));
 	//baselength is the starting length of the barrel.
-	this.length = length;
+	this.length = parseFloat(validateField(document.getElementById("length").value, 60));
 	//length affects the width of the barrel.
-	this.basereload = baseReload;
+	this.basereload = parseFloat(validateField(document.getElementById("reload").value * 60, 120));
 	//basereload is the maximum delay between shots in frames.
 	this.reload = 0;
 	//Reload is how many frames until the barrel can fire again.
-	this.hasKnockBack = hasKnockBack;
+	this.hasKnockBack = true;
 	//Does firing a bullet from this barrel knock you back?
 	this.type = type;
 	//0 = bullet firer, 1 = trap layer, 2 = drone maker.
-	this.knockback = knockback;
-	this.disabled = disabled;
+	this.knockback = parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10;
+	this.disabled = document.getElementById("disable").checked;
+	this.b = [size, speed, time];
+	this.spread = parseFloat(validateField(document.getElementById("spread").value, 0, false));
 }
 
 var barrels = [];
 //Array containing all the barrels, each entry is a Barrel object.
 
-function Bullet(xoffset, yoffset, x, y, bangle, size, knockback, damage, speed, health, distance, time, type, targetx, targety, initoffx, initoffy) {
-	this.xoffset = xoffset;
-	this.yoffset = yoffset;
+function Bullet(n, size, speed, time, x, y, targetx, targety, spr) {
+	this.xoffset = barrels[n].xoffset;
+	this.yoffset = barrels[n].yoffset;
 	this.x = x;
 	this.y = y;
-	this.bangle = bangle;
+	this.bangle = barrels[n].angle + (Math.random() * spr) - (spr / 2);
 	this.size = size;
-	this.knockback = knockback;
-	this.damage = damage;
+	this.knockback = barrels[n].knockback;
+	this.damage = 10;
 	this.speed = speed;
-	this.health = health;
-	this.distance = distance;
+	this.health = 100;
+	this.distance = barrels[n].length;
 	this.time = time;
-	this.type = type;
+	this.type = barrels[n].type;
 	this.targetx = targetx;
 	this.targety = targety;
-	this.initoffx = initoffx;
-	this.initoffy = initoffy;
+	this.initoffx = offset.totalx;
+	this.initoffy = offset.totaly;
 	this.transparency = 1;
 }
 
@@ -121,18 +123,59 @@ function editButtonClick() {
 		accel.x = 0;
 		accel.y = 0;
 		tankalpha = 1.0;
-		var elements = document.getElementsByClassName("textbox");
-
-		for (var i = 0; i < elements.length; i++) {
-			elements[i].style.visibility = "visible";
-		}
+		showhide("visible", "hidden", "hidden", "hidden", "visible");
 	} else {
 		editmode = false;
-		var elements = document.getElementsByClassName("textbox");
+		showhide("hidden", "hidden", "hidden", "hidden", "hidden");
+	}
+}
 
-		for (var i = 0; i < elements.length; i++) {
-			elements[i].style.visibility = "hidden";
-		}
+function bodyClick() {
+	showhide("visible", "visible", "hidden", "hidden", "hidden");
+}
+
+function barrelClick() {
+	showhide("visible", "hidden", "visible", "hidden", "hidden");
+}
+
+function bulletClick() {
+	showhide("visible", "hidden", "hidden", "visible", "hidden");
+}
+
+
+function saveClick() {
+	showhide("visible", "hidden", "hidden", "hidden", "visible");
+}
+
+function showhide(e, bo, ba, bu, s) {
+	var elements = document.getElementsByClassName("editbuttons");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = e;
+	}
+	
+	elements = document.getElementsByClassName("tanksettings");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = bo;
+	}
+	
+	elements = document.getElementsByClassName("barrelsettings");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = ba;
+	}
+	
+	elements = document.getElementsByClassName("bulletsettings");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = bu;
+	}
+	
+	elements = document.getElementsByClassName("savesettings");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = s;
 	}
 }
 

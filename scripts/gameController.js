@@ -108,13 +108,19 @@ function drawTank() {
 				var ydif = xdistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				var xdif = ydistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				
-				bullets[bullets.length] = new Bullet(barrels[n].xoffset, barrels[n].yoffset,
+				if ((barrels[n].hasOwnProperty("b") === true) && (document.getElementById("use").checked === false)) {
+					bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
 					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
 					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
-					barrels[n].angle, barrels[n].width / 2, barrels[n].knockback, 10, barrels[n].length / 40, 100, barrels[n].length, 360, barrels[n].type, 
 					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x, 
-					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, 
-					offset.totalx, offset.totaly);
+					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, barrels[n].spread);
+				} else {
+					bullets[bullets.length] = new Bullet(n, barrels[n].width / 2, 5, 360,
+					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
+					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
+					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x, 
+					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, 0);
+				}
 
 				barrels[n].reload = barrels[n].basereload;
 
@@ -392,7 +398,6 @@ function drawUI() {
 }
 
 function drawManager() {
-	console.log(window.location.href);
 	drawMovement();
 
 	drawTank();
@@ -422,7 +427,7 @@ function placeBarrel() {
 		btype = 3;
 	}
 
-	barrels[barrels.length] = new Barrel(rangle, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 20)), parseFloat(validateField(document.getElementById("length").value, 60)), parseFloat(validateField(document.getElementById("reload").value * 60, 120)), true, btype, parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10, document.getElementById("disable").checked);
+	barrels[barrels.length] = new Barrel(rangle, btype, parseFloat(validateField(document.getElementById("size").value - 10, 5, false)), parseFloat(validateField(document.getElementById("speed").value, 1, false)) / 10, parseFloat(validateField(document.getElementById("time").value * 60, 180, false)));
 }
 
 function keyDownHandler(e) {

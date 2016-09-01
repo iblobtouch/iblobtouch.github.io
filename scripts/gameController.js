@@ -195,7 +195,7 @@ function drawTank() {
 			bullets[n].x += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totalx - bullets[n].initoffx);
 
 			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totaly - bullets[n].initoffy);
-
+			
 			bullets[n].initoffx = offset.totalx;
 			bullets[n].initoffy = offset.totaly;
 		}

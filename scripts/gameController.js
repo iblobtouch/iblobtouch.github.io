@@ -398,11 +398,13 @@ function drawUI() {
 }
 
 function drawManager() {
-	drawMovement();
+	if (window.location.href === "https://iblobtouch.github.io/") {
+		drawMovement();
 
-	drawTank();
+		drawTank();
 
-	drawUI();
+		drawUI();
+	}
 }
 
 function placeBarrel() {

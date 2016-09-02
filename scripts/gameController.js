@@ -100,6 +100,7 @@ function drawTank() {
 					var canfire = false;
 				}
 			}
+			
 			if ((barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < 8)) || ((barrels[n].type === 3) && (necrolimit < 20))))) {
 				if (barrels[n].hasOwnProperty("knockback") === false) {
 					barrels[n].knockback = 0;
@@ -108,7 +109,7 @@ function drawTank() {
 				var ydif = xdistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				var xdif = ydistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				
-				if ((barrels[n].hasOwnProperty("b") === true) && (document.getElementById("use").checked === false)) {
+				if (barrels[n].hasOwnProperty("b") === true) {
 					bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
 					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
 					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
@@ -241,10 +242,10 @@ function drawTank() {
 	for (var n = 0; n < barrels.length; n += 1) {
 		//Loop through each barrel.
 
-		if (barrels[n].reload > (barrels[n].basereload / 4) * 3) {
+		if (barrels[n].reload > (barrels[n].basereload / 8) * 7) {
 			barrels[n].length -= (barrels[n].length / barrels[n].basereload);
 			//If reload is > 3/4ths of its max value, reduce the length of the barrel.
-		} else if (barrels[n].reload > (barrels[n].basereload / 4) * 2) {
+		} else if (barrels[n].reload > (barrels[n].basereload / 8) * 6) {
 			barrels[n].length += (barrels[n].length / barrels[n].basereload);
 			//otherwise if reload is > 2/4ths of its max value, increase the length of the barrel.
 		} else {

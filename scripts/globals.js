@@ -62,8 +62,13 @@ function Barrel(a, type, size, speed, time) {
 	//0 = bullet firer, 1 = trap layer, 2 = drone maker.
 	this.knockback = parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10;
 	this.disabled = document.getElementById("disable").checked;
-	this.b = [size, speed, time];
 	this.spread = parseFloat(validateField(document.getElementById("spread").value, 0, false));
+	
+	if (document.getElementById("use").checked === true) {
+		this.b = [size, speed, time];
+	} else {
+		this.b = [parseFloat(validateField(document.getElementById("width").value, 20)) / 2, parseFloat(validateField(document.getElementById("length").value, 60)) / 10, 360];
+	}
 }
 
 var barrels = [];

@@ -156,8 +156,8 @@ function drawTank() {
 		if (bullets[n].type > 1) {
 			for (var i = 0; i < bullets.length; i += 1) {
 				if ((bullets[i].type > 1) && (i != n) && (bullets[n].x >= bullets[i].x - bullets[i].size) && (bullets[n].x <= bullets[i].x + bullets[i].size) && (bullets[n].y >= bullets[i].y - bullets[i].size) && (bullets[n].y <= bullets[i].y + bullets[i].size)) {
-					bullets[n].x += (bullets[n].x - bullets[i].x) * 0.1;
-					bullets[n].y += (bullets[n].y - bullets[i].y) * 0.1;
+					bullets[n].x += (bullets[n].x - bullets[i].x) * 0.05;
+					bullets[n].y += (bullets[n].y - bullets[i].y) * 0.05;
 				}
 			}
 		}

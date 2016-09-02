@@ -64,7 +64,7 @@ function Barrel(a, type, size, speed, time) {
 	this.disabled = document.getElementById("disable").checked;
 	this.spread = parseFloat(validateField(document.getElementById("spread").value, 0, false));
 	
-	if (document.getElementById("use").checked === true) {
+	if (document.getElementById("use").checked === false) {
 		this.b = [size, speed, time];
 	} else {
 		this.b = [parseFloat(validateField(document.getElementById("width").value, 20)) / 2, parseFloat(validateField(document.getElementById("length").value, 60)) / 10, 360];

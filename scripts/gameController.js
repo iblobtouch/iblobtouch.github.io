@@ -435,16 +435,16 @@ function placeBarrel() {
 
 function keyDownHandler(e) {
 	"use strict";
-	if (e.keyCode === 68) {
-		input.left = true;
-	}
-	if (e.keyCode === 65) {
+	if ((e.keyCode === 68) || (e.keyCode === 37)) {
 		input.right = true;
 	}
-	if (e.keyCode === 87) {
+	if ((e.keyCode === 65) || (e.keyCode === 39)) {
+		input.left = true;
+	}
+	if ((e.keyCode === 87) || (e.keyCode === 38)) {
 		input.up = true;
 	}
-	if (e.keyCode === 83) {
+	if ((e.keyCode === 83) || (e.keyCode === 40)) {
 		input.down = true;
 	}
 	if (e.keyCode === 69) {
@@ -477,16 +477,16 @@ function keyDownHandler(e) {
 
 function keyUpHandler(e) {
 	"use strict";
-	if (e.keyCode === 68) {
-		input.left = false;
-	}
-	if (e.keyCode === 65) {
+	if ((e.keyCode === 68) || (e.keyCode === 37)) {
 		input.right = false;
 	}
-	if (e.keyCode === 87) {
+	if ((e.keyCode === 65) || (e.keyCode === 39)) {
+		input.left = false;
+	}
+	if ((e.keyCode === 87) || (e.keyCode === 38)) {
 		input.up = false;
 	}
-	if (e.keyCode === 83) {
+	if ((e.keyCode === 83) || (e.keyCode === 40)) {
 		input.down = false;
 	}
 	if (e.keyCode === 16) {

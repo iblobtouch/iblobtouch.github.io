@@ -49,16 +49,16 @@ function drawMovement() {
 		}
 	}
 	if (accel.x > accel.max) {
-		accel.x -= accel.amount * 2;
+		accel.x -= accel.amount * 4;
 	}
 	if (accel.y > accel.max) {
-		accel.y -= accel.amount * 2;
+		accel.y -= accel.amount * 4;
 	}
 	if (accel.x < -accel.max) {
-		accel.x += accel.amount * 2;
+		accel.x += accel.amount * 4;
 	}
 	if (accel.y < -accel.max) {
-		accel.y += accel.amount * 2;
+		accel.y += accel.amount * 4;
 	}
 	if (editmode === false) {
 		if (((accel.x > -0.1) && (accel.x < 0.1)) && ((accel.y > -0.1) && (accel.y < 0.1))) {

@@ -114,14 +114,11 @@ function drawTank() {
 			} else if (shapes[n].type === 1) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");
 			} else if (shapes[n].type === 2) {
-				ctx.save();
-				ctx.strokeStyle = "#555555";
-				ctx.fillStyle = "#768DFC";
-				ctx.lineWidth = 5;
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
-				ctx.restore();
-			} else {
+			} else if (shapes[n].type === 3) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+			} else {
+				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
 			}
 
 			if (shapes[n].health < shapes[n].maxhealth) {

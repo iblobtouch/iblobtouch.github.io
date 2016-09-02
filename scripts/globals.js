@@ -107,10 +107,12 @@ function Shape(x, y, random) {
 		stype = 0;
 	} else if (random < 0.9) {
 		stype = 1;
-	} else if (random < 0.999) {
+	} else if (random < 0.980) {
 		stype = 2;
-	} else {
+	} else if (random < 0.990) {
 		stype = 3;
+	} else {
+		stype = 4;
 	}
 	
 	this.initx = offset.totalx;

@@ -78,19 +78,68 @@ function drawTank() {
 	var tankpointx = c.width / 2 - accel.x * 20;
 	var tankpointy = c.height / 2 - accel.y * 20;
 	
-	for (var n = 0; n < shapes.length; n += 1) {
-		if (shapes[n].type === 0) {
-			ctx.fillRect(shapes[n].x, shapes[n].y, 100, 100);
+	if (editmode === false) {
+		if (document.getElementById("spawn").checked === true) {
+			if (shapetimer > 1) {
+				shapetimer -= 1;
+			} else {
+				shapetimer = 120;
+				shapes[shapes.length] = new Shape((Math.random() * c.width),  (Math.random() * c.height), Math.random());
+			}
 		}
-		shapes[n].x -= shapes[n].initx - offset.totalx;
-		shapes[n].y -= shapes[n].inity - offset.totaly;
-		
-		shapes[n].initx = offset.totalx;
-		shapes[n].inity = offset.totaly;
-		for (var i = 0; i < bullets.length; i += 1) {
-			console.log(shapes[n].x + ", " + bullets[i].x + (offset.totalx - bullets[i].initoffx));
+		for (var n = 0; n < shapes.length; n += 1) {
+			for (var i = 0; i < bullets.length; i += 1) {
+				if ((shapes[n].x + shapes[n].size >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size <= bullets[i].x + (offset.totalx - bullets[i].initoffx))) {
+					if ((shapes[n].y + shapes[n].size >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size <= bullets[i].y + (offset.totaly - bullets[i].initoffy))) {
+						console.log("Collision!");
+						if (shapes[n].health > bullets[i].damage) {
+							shapes[n].health -= bullets[i].damage;
+							shapes[n].accelx += Math.cos(angle(tankpointx, tankpointy, bullets[i].targetx, bullets[i].targety) * (Math.PI / 180)) * (bullets[i].size / 10);
+							shapes[n].accely += Math.sin(angle(tankpointx, tankpointy, bullets[i].targetx, bullets[i].targety) * (Math.PI / 180)) * (bullets[i].size / 10);
+						} else {
+							shapes.splice(n, 1);
+						}
+						bullets.splice(i, 1);
+					}
+				}
+			}
+			if (shapes[n].type === 0) {
+				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#F14E54");
+			} else if (shapes[n].type === 1) {
+				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");
+			} else {
+				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+			}
+
+			if (shapes[n].health < shapes[n].maxhealth) {
+				ctx.fillStyle = "#555555";
+				ctx.roundRect(shapes[n].x - shapes[n].size, shapes[n].y + shapes[n].size + 10, shapes[n].size * 2, 10, 3).fill();
+				ctx.fillStyle = "#86C680";
+				ctx.roundRect(shapes[n].x - shapes[n].size + 2, shapes[n].y + shapes[n].size + 12, (shapes[n].size * 2) * (shapes[n].health / shapes[n].maxhealth) - 2, 6, 3).fill();
+			}
+
+			shapes[n].x -= shapes[n].initx - offset.totalx - shapes[n].accelx;
+			shapes[n].y -= shapes[n].inity - offset.totaly - shapes[n].accely;
+
+			shapes[n].initx = offset.totalx;
+			shapes[n].inity = offset.totaly;
+
+			shapes[n].angle += shapes[n].rotatespeed;
+
+			if ((shapes[n].accelx > 0.1) || (shapes[n].accelx < -0.1)) {
+				shapes[n].accelx -= shapes[n].accelx * 0.1;
+			} else {
+				shapes[n].accelx = 0;
+			}
+
+			if ((shapes[n].accely > 0.1) || (shapes[n].accely < -0.1)) {
+				shapes[n].accely -= shapes[n].accely * 0.1;
+			} else {
+				shapes[n].accely = 0;
+			}
 		}
 	}
+	
 	
 	if (((mouse.held === true) || (autofire === true)) && (editmode === false)) {
 		for (var n = 0; n < barrels.length; n += 1) {
@@ -99,6 +148,11 @@ function drawTank() {
 				if (barrels[n].disabled === false) {
 					var canfire = false;
 				}
+			}
+			
+			var damage = 10;
+			if (barrels[n].hasOwnProperty("damage") === true) {
+				damage = barrels[n].damage;
 			}
 			
 			if ((barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < 8)) || ((barrels[n].type === 3) && (necrolimit < 20))))) {
@@ -218,12 +272,12 @@ function drawTank() {
 			//Display as a trap if it's a trap.
 
 			if (bullets[n].type === 2) {
-				drawDrone(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
+				drawDrone(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y, document.getElementById("color").value));
 			}
 			//Display as a trap if it's a drone.
 
 			if (bullets[n].type === 3) {
-				drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y));
+				drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y, document.getElementById("color").value));
 			}
 			//Display as a trap if it's a drone.
 		}
@@ -282,7 +336,7 @@ function drawTank() {
 		mouse.x = (Math.cos((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointx;
 		mouse.y = (Math.sin((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointy;
 	}
-
+	
 	var tanksize = parseFloat(validateField(document.getElementById("body").value, 32));
 	var shape = document.getElementById("shape").value;
 
@@ -290,8 +344,9 @@ function drawTank() {
 		ctx.save();
 		ctx.beginPath();
 		ctx.arc(tankpointx, tankpointy, tanksize, 0, Math.PI * 2, true);
+		ctx.closePath();
 		ctx.clip();
-		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.clearRect(tankpointx - tanksize, tankpointy - tanksize, tanksize * 2, tanksize * 2);
 		ctx.restore();
 		drawBullet(tankpointx, tankpointy, tanksize, tankalpha);
 	}
@@ -399,13 +454,11 @@ function drawUI() {
 }
 
 function drawManager() {
-	if (window.location.href === "https://iblobtouch.github.io/") {
-		drawMovement();
+	drawMovement();
 
-		drawTank();
+	drawTank();
 
-		drawUI();
-	}
+	drawUI();
 }
 
 function placeBarrel() {
@@ -494,9 +547,6 @@ function keyUpHandler(e) {
 	}
 	if (e.keyCode === 70) {
 		input.f = false;
-	}
-	if ((e.keyCode === 82) && (editmode === false)) {
-		//shapes[shapes.length] = new Shape(0);
 	}
 }
 

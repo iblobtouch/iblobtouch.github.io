@@ -93,11 +93,11 @@ function drawTrap(x, y, size, angle, transparency) {
 	ctx.restore();
 }
 
-function drawDrone(x, y, size, angle) {
+function drawDrone(x, y, size, angle, color) {
 	ctx.save();
 	ctx.strokeStyle = "#555555";
 	ctx.lineWidth = 5;
-	ctx.fillStyle = document.getElementById("color").value;
+	ctx.fillStyle = color;
 	ctx.translate(x, y);
 	ctx.beginPath();
 	ctx.rotate((angle + 10) * (Math.PI / 180));
@@ -114,9 +114,9 @@ function drawDrone(x, y, size, angle) {
 	ctx.restore();
 }
 
-function drawNecro(x, y, size, angle) {
+function drawNecro(x, y, size, angle, color) {
 	ctx.save();
-	ctx.fillStyle = document.getElementById("color").value;
+	ctx.fillStyle = color;
 	ctx.strokeStyle = "#555555";
 	ctx.lineWidth = 10;
 	ctx.translate(x, y);
@@ -125,3 +125,15 @@ function drawNecro(x, y, size, angle) {
 	ctx.fillRect(-size / 2, -size / 2, size, size);
 	ctx.restore();
 }
+
+CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, r) {
+	this.beginPath();
+	this.moveTo(x + r, y);
+    this.arcTo(x + width, y, x + width, y + height, r);
+    this.arcTo(x + width, y + height, x, y + height, r);
+    this.arcTo(x, y + height, x, y, r);
+    this.arcTo(x, y, x + width, y, r);
+	this.closePath();
+	return this;
+};
+//This function draws a rectangle with rounded edges, x and y is the location of the top left point, width and height is the width and height for drawing and r is the radius of each edge.

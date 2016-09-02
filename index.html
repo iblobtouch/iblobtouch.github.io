@@ -14,6 +14,9 @@
 		
 		<p id="watermark">Play at iblobtouch.github.io!</p>
 		
+		<p id="spawnlabel" >Spawn shapes?</p>
+		<input type="checkbox" id="spawn">
+		
 		<button id = "editbutton" onclick = "editButtonClick()">Toggle edit mode.</button>
 		<button class="editbuttons" id = "bodybutton" onclick = "bodyClick()">Body/Color settings</button>
 		<button class="editbuttons" id = "barrelbutton" onclick = "barrelClick()">Barrel settings</button>
@@ -67,8 +70,11 @@
 		<p class="editbuttons barrelsettings pos8label">How much knockback should the barrel give?</p>
 		<textarea class="editbuttons barrelsettings pos8" id = "knockback" rows="1" cols = "10"  placeholder = "Knockback">0</textarea>
 		
-		<p class="editbuttons barrelsettings pos9label">How much spread does the barrel have? (angle +/- from mouse)</p>
+		<p class="editbuttons barrelsettings pos9label">How much spread does the barrel have? (angle from mouse)</p>
 		<textarea class="editbuttons barrelsettings pos9" id = "spread" rows="1" cols = "10"  placeholder = "Knockback">0</textarea>
+		
+		<p class="editbuttons barrelsettings pos10label">How much damage should the bullets do? (shapes have 100 hp).</p>
+		<textarea class="editbuttons barrelsettings pos10" id = "damage" rows="1" cols = "10"  placeholder = "length">10</textarea>
 		
 		<p class="editbuttons bulletsettings pos1label">How large should the bullet be?</p>
 		<textarea class="editbuttons bulletsettings pos1" id = "size" rows="1" cols = "10"  placeholder = "width">15</textarea>

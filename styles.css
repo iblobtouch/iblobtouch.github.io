@@ -32,6 +32,19 @@
 	visibility: hidden;
 }
 
+#spawnlabel {
+	position:fixed;
+	margin-top: 0px;
+	margin-left: 150px;
+}
+
+#spawn {
+	font: ubuntu 32px;
+	position:fixed;
+	margin-top: 0px;
+	margin-left: 260px;
+}
+
 #bodybutton {
 	margin-top: 30px;
 	margin-left: 1px;
@@ -106,6 +119,12 @@
 	margin-left: 1px;
 }
 
+.pos10label {
+	font: ubuntu 32px;
+	margin-top: 310px;
+	margin-left: 400px;
+}
+
 .pos1 {
 	margin-top: 30px;
 	margin-left: 1px;
@@ -151,6 +170,11 @@
 .pos9 {
 	margin-top: 350px;
 	margin-left: 1px;
+}
+
+.pos10 {
+	margin-top: 350px;
+	margin-left: 400px;
 }
 
 #notes {

@@ -10,6 +10,7 @@ var autoangle = 0;
 var dronelimit = 0;
 var necrolimit = 0;
 var tankalpha = 1;
+var shapetimer = 120;
 
 var tankpointx = c.width / 2;
 var tankpointy = c.height / 2;
@@ -17,8 +18,8 @@ var tankpointy = c.height / 2;
 var offset = {};
 offset.x = 0;
 offset.y = 0;
-offset.totalx = 100;
-offset.totaly = 100;
+offset.totalx = 0;
+offset.totaly = 0;
 
 var accel = {};
 accel.x = 0;
@@ -69,6 +70,7 @@ function Barrel(a, type, size, speed, time) {
 	} else {
 		this.b = [parseFloat(validateField(document.getElementById("width").value, 20)) / 2, parseFloat(validateField(document.getElementById("length").value, 60)) / 10, 360];
 	}
+	this.damage = parseFloat(validateField(document.getElementById("damage").value, 10, false));
 }
 
 var barrels = [];
@@ -82,7 +84,7 @@ function Bullet(n, size, speed, time, x, y, targetx, targety, spr) {
 	this.bangle = barrels[n].angle + (Math.random() * spr) - (spr / 2);
 	this.size = size;
 	this.knockback = barrels[n].knockback;
-	this.damage = 10;
+	this.damage = barrels[n].damage;
 	this.speed = speed;
 	this.health = 100;
 	this.distance = barrels[n].length;
@@ -98,14 +100,29 @@ function Bullet(n, size, speed, time, x, y, targetx, targety, spr) {
 var bullets = [];
 //Array containing all the barrels, each entry is a Barrel object.
 
-function Shape(type) {
+function Shape(x, y, random) {
+	var stype = 0;
+	
+	if (random < 0.5) {
+		stype = 0;
+	} else if (random < 0.999) {
+		stype = 1;
+	} else {
+		stype = 2;
+	}
+	
 	this.initx = offset.totalx;
 	this.inity = offset.totaly;
-	this.x = mouse.x;
-	this.y = mouse.y;
-	this.type = type;
+	this.x = x;
+	this.y = y;
+	this.type = stype;
 	this.angle = 0;
+	this.rotatespeed = Math.random() - 0.5;
 	this.health = 100;
+	this.maxhealth = 100;
+	this.accelx = 0;
+	this.accely = 0;
+	this.size = random * 20 + 10;
 }
 
 var shapes = [];

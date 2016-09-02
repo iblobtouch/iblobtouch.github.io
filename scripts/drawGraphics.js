@@ -100,7 +100,7 @@ function drawDrone(x, y, size, angle, color) {
 	ctx.fillStyle = color;
 	ctx.translate(x, y);
 	ctx.beginPath();
-	ctx.rotate((angle + 10) * (Math.PI / 180));
+	ctx.rotate(angle * (Math.PI / 180));
 	ctx.moveTo(0, size);
 	ctx.rotate(120 * (Math.PI / 180));
 	ctx.lineTo(0, size);
@@ -136,4 +136,28 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, r)
 	this.closePath();
 	return this;
 };
-//This function draws a rectangle with rounded edges, x and y is the location of the top left point, width and height is the width and height for drawing and r is the radius of each edge.
+
+function drawPentagon(x, y, size, angle, color) {
+	ctx.save();
+	ctx.strokeStyle = "#555555";
+	ctx.lineWidth = 5;
+	ctx.fillStyle = color;
+	ctx.translate(x, y);
+	ctx.rotate(angle * (Math.PI / 180));
+	ctx.beginPath();
+	ctx.moveTo(0, size);
+	ctx.rotate(360 / 5 * (Math.PI / 180));
+	ctx.lineTo(0, size);
+	ctx.rotate(360 / 5 * (Math.PI / 180));
+	ctx.lineTo(0, size);
+	ctx.rotate(360 / 5 * (Math.PI / 180));
+	ctx.lineTo(0, size);
+	ctx.rotate(360 / 5 * (Math.PI / 180));
+	ctx.lineTo(0, size);
+	ctx.rotate(360 / 5 * (Math.PI / 180));
+	ctx.lineTo(0, size);
+	ctx.closePath();
+	ctx.fill();
+	ctx.stroke();
+	ctx.restore();
+}

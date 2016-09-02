@@ -103,12 +103,14 @@ var bullets = [];
 function Shape(x, y, random) {
 	var stype = 0;
 	
-	if (random < 0.5) {
+	if (random < 0.45) {
 		stype = 0;
-	} else if (random < 0.999) {
+	} else if (random < 0.9) {
 		stype = 1;
-	} else {
+	} else if (random < 0.999) {
 		stype = 2;
+	} else {
+		stype = 3;
 	}
 	
 	this.initx = offset.totalx;
@@ -118,8 +120,8 @@ function Shape(x, y, random) {
 	this.type = stype;
 	this.angle = 0;
 	this.rotatespeed = Math.random() - 0.5;
-	this.health = 100;
-	this.maxhealth = 100;
+	this.health = stype * 50;
+	this.maxhealth = stype * 50;
 	this.accelx = 0;
 	this.accely = 0;
 	this.size = random * 20 + 10;

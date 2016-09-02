@@ -94,8 +94,8 @@ function drawTank() {
 						console.log("Collision!");
 						if (shapes[n].health > bullets[i].damage) {
 							shapes[n].health -= bullets[i].damage;
-							shapes[n].accelx += Math.cos(angle(tankpointx, tankpointy, bullets[i].targetx, bullets[i].targety) * (Math.PI / 180)) * (bullets[i].size / 10);
-							shapes[n].accely += Math.sin(angle(tankpointx, tankpointy, bullets[i].targetx, bullets[i].targety) * (Math.PI / 180)) * (bullets[i].size / 10);
+							shapes[n].accelx += Math.cos(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
+							shapes[n].accely += Math.sin(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
 						} else {
 							shapes.splice(n, 1);
 						}

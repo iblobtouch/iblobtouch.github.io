@@ -107,9 +107,9 @@ function Shape(x, y, random) {
 		stype = 0;
 	} else if (random < 0.9) {
 		stype = 1;
-	} else if (random < 0.980) {
-		stype = 2;
 	} else if (random < 0.990) {
+		stype = 2;
+	} else if (random < 0.995) {
 		stype = 3;
 	} else {
 		stype = 4;
@@ -122,8 +122,8 @@ function Shape(x, y, random) {
 	this.type = stype;
 	this.angle = 0;
 	this.rotatespeed = Math.random() - 0.5;
-	this.health = stype * 50;
-	this.maxhealth = stype * 50;
+	this.health = stype * 50 + 50;
+	this.maxhealth = stype * 50 + 50;
 	this.accelx = 0;
 	this.accely = 0;
 	this.size = random * 20 + 10;

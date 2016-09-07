@@ -1,5 +1,6 @@
 body {
 	font: 13px ubuntu;
+	border: none;
 }
 
 #game {
@@ -19,14 +20,12 @@ body {
 
 textarea, select {
 	background-color: white;
-	border: solid black 2px;
-	border-radius: 2px;
 	resize: none;
 }
 
 button {
-	border: solid black 2px;
-	border-radius: 2px;
+	background-color: white;
+	border: 0;
 }
 
 #watermark {

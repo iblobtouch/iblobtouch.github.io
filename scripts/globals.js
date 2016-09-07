@@ -71,6 +71,7 @@ function Barrel(a, type, size, speed, time) {
 		this.b = [parseFloat(validateField(document.getElementById("width").value, 20)) / 2, parseFloat(validateField(document.getElementById("length").value, 60)) / 10, 360];
 	}
 	this.damage = parseFloat(validateField(document.getElementById("damage").value, 10, false));
+	this.comment = "";
 }
 
 var barrels = [];

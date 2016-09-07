@@ -89,8 +89,8 @@ function drawTank() {
 		}
 		for (var n = 0; n < shapes.length; n += 1) {
 			for (var i = 0; i < bullets.length; i += 1) {
-				if ((shapes[n].x + shapes[n].size >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size <= bullets[i].x + (offset.totalx - bullets[i].initoffx))) {
-					if ((shapes[n].y + shapes[n].size >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size <= bullets[i].y + (offset.totaly - bullets[i].initoffy))) {
+				if ((shapes[n].x + shapes[n].size + shapes[n].accelx >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size <= bullets[i].x + (offset.totalx - bullets[i].initoffx) +  + shapes[n].accelx)) {
+					if ((shapes[n].y + shapes[n].size + shapes[n].accely >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size <= bullets[i].y + (offset.totaly - bullets[i].initoffy) + shapes[n].accely)) {
 						console.log("Collision!");
 						if (shapes[n].health > bullets[i].damage) {
 							shapes[n].health -= bullets[i].damage;

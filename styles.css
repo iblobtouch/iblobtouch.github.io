@@ -1,3 +1,7 @@
+body {
+	font: 13px ubuntu;
+}
+
 #game {
     position: fixed; 
     top: 0; 
@@ -11,6 +15,18 @@
 
 .ubuntu {
 	font-family: 'Ubuntu', sans-serif;
+}
+
+textarea, select {
+	background-color: white;
+	border: solid black 2px;
+	border-radius: 2px;
+	resize: none;
+}
+
+button {
+	border: solid black 2px;
+	border-radius: 2px;
 }
 
 #watermark {
@@ -28,7 +44,6 @@
 .editbuttons {
 	z-index = 5;
 	position:fixed;
-	border:none;
 	visibility: hidden;
 }
 
@@ -39,7 +54,6 @@
 }
 
 #spawn {
-	font: ubuntu 32px;
 	position:fixed;
 	margin-top: 0px;
 	margin-left: 260px;
@@ -66,37 +80,31 @@
 }
 
 .pos1label {
-	font: ubuntu 32px;
-	margin-top: -10px;
+	margin-top: 10px;
 	margin-left: 1px;
 }
 
 .pos2label {
-	font: ubuntu 32px;
-	margin-top: -10px;
+	margin-top: 10px;
 	margin-left: 400px;
 }
 
 .pos3label {
-	font: ubuntu 32px;
 	margin-top: 70px;
 	margin-left: 1px;
 }
 
 .pos4label {
-	font: ubuntu 32px;
 	margin-top: 70px;
 	margin-left: 400px;
 }
 
 .pos5label {
-	font: ubuntu 32px;
 	margin-top: 150px;
 	margin-left: 1px;
 }
 
 .pos6label {
-	font: ubuntu 32px;
 	margin-top: 150px;
 	margin-left: 400px;
 }
@@ -178,7 +186,7 @@
 }
 
 #notes {
-	font: ubuntu 32px;
-	margin-top: 40%;
-	margin-left: 1px;
+	font: 16px ubuntu;
+	position: fixed;
+	bottom: 0;
 }

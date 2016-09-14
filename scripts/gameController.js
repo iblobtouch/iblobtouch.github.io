@@ -89,15 +89,20 @@ function drawTank() {
 		}
 		for (var n = 0; n < shapes.length; n += 1) {
 			for (var i = 0; i < bullets.length; i += 1) {
-				if ((shapes[n].x + shapes[n].size + shapes[n].accelx >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size <= bullets[i].x + (offset.totalx - bullets[i].initoffx) +  + shapes[n].accelx)) {
-					if ((shapes[n].y + shapes[n].size + shapes[n].accely >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size <= bullets[i].y + (offset.totaly - bullets[i].initoffy) + shapes[n].accely)) {
+				if ((shapes[n].x + shapes[n].size + shapes[n].accelx >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size <= bullets[i].x + bullets[i].size + (offset.totalx - bullets[i].initoffx) + shapes[n].accelx)) {
+					if ((shapes[n].y + shapes[n].size + shapes[n].accely >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size <= bullets[i].y + bullets[i].size + (offset.totaly - bullets[i].initoffy) + shapes[n].accely)) {
 						console.log("Collision!");
 						if (shapes[n].health > bullets[i].damage) {
 							shapes[n].health -= bullets[i].damage;
 							shapes[n].accelx += Math.cos(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
 							shapes[n].accely += Math.sin(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
 						} else {
-							shapes.splice(n, 1);
+							if ((bullets[i].type === 3) && (necrolimit < 20)) {
+								bullets[bullets.length] = bullets[i];
+								bullets[bullets.length - 1].x = shapes[n].x;
+								bullets[bullets.length - 1].y = shapes[n].y;
+								shapes.splice(n, 1);
+							}
 						}
 						if (bullets[i].type === 2) {
 							dronelimit -= 1;
@@ -434,17 +439,13 @@ function drawTank() {
 		if (editmode === false) {
 			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
 		}
-		ctx.moveTo(0, tanksize + (tanksize / 3));
-		ctx.rotate((360 / 5) * (Math.PI / 180));
-		ctx.lineTo(0, tanksize + (tanksize / 3));
-		ctx.rotate((360 / 5) * (Math.PI / 180));
-		ctx.lineTo(0, tanksize + (tanksize / 3));
-		ctx.rotate((360 / 5) * (Math.PI / 180));
-		ctx.lineTo(0, tanksize + (tanksize / 3));
-		ctx.rotate((360 / 5) * (Math.PI / 180));
-		ctx.lineTo(0, tanksize + (tanksize / 3));
-		ctx.rotate((360 / 5) * (Math.PI / 180));
-		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.moveTo(0, tanksize);
+		ctx.rotate(120 * (Math.PI / 180));
+		ctx.lineTo(0, tanksize);
+		ctx.rotate(120 * (Math.PI / 180));
+		ctx.lineTo(0, tanksize);
+		ctx.rotate(120 * (Math.PI / 180));
+		ctx.lineTo(0, tanksize);
 		ctx.closePath();
 		ctx.clip();
 		ctx.translate(-tankpointx, -tankpointy);

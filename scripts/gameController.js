@@ -101,8 +101,8 @@ function drawTank() {
 								bullets[bullets.length] = bullets[i];
 								bullets[bullets.length - 1].x = shapes[n].x;
 								bullets[bullets.length - 1].y = shapes[n].y;
-								shapes.splice(n, 1);
 							}
+							shapes.splice(n, 1);
 						}
 						if (bullets[i].type === 2) {
 							dronelimit -= 1;

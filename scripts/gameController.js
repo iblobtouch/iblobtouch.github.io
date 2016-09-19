@@ -115,7 +115,7 @@ function drawTank() {
 				}
 			}
 			if (shapes[n].type === 0) {
-				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#F14E54");
+				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FC7677");
 			} else if (shapes[n].type === 1) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");
 			} else if (shapes[n].type === 2) {

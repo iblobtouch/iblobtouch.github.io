@@ -114,14 +114,24 @@ function drawTank() {
 					}
 				}
 			}
+			
+			//Yellow Square
 			if (shapes[n].type === 0) {
-				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#F14E54");
-			} else if (shapes[n].type === 1) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");
+			
+			//Red Triangle
+			} else if (shapes[n].type === 1) {
+				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FC7677");
+			
+			//Blue Pentagon
 			} else if (shapes[n].type === 2) {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
+				
+			//Green Square
 			} else if (shapes[n].type === 3) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+				
+			//Green Pentagon
 			} else {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
 			}

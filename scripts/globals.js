@@ -104,16 +104,40 @@ var bullets = [];
 function Shape(x, y, random) {
 	var stype = 0;
 	
+	//Yellow Square
 	if (random < 0.45) {
 		stype = 0;
+		this.size = 25;
+		this.health = 100;
+		this.maxhealth = 100;
+
+	//Red Triangle
 	} else if (random < 0.9) {
 		stype = 1;
+		this.size = 18;
+		this.health = 300;
+		this.maxhealth = 300;
+
+	//Blue Pentagon
 	} else if (random < 0.990) {
 		stype = 2;
+		this.size = 30;
+		this.health = 1400;
+		this.maxhealth = 1400;
+	
+	//Green Square
 	} else if (random < 0.995) {
 		stype = 3;
+		this.size = 25;
+		this.health = 2000;
+		this.maxhealth = 2000;
+
+	//Green Pentagon
 	} else {
 		stype = 4;
+		this.size = 30;
+		this.health = 10000;
+		this.maxhealth = 10000;
 	}
 	
 	this.initx = offset.totalx;
@@ -123,11 +147,8 @@ function Shape(x, y, random) {
 	this.type = stype;
 	this.angle = 0;
 	this.rotatespeed = Math.random() - 0.5;
-	this.health = stype * 50 + 50;
-	this.maxhealth = stype * 50 + 50;
 	this.accelx = 0;
 	this.accely = 0;
-	this.size = random * 20 + 10;
 }
 
 var shapes = [];

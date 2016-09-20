@@ -127,8 +127,12 @@ function drawTank() {
 			} else if (shapes[n].type === 2) {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
 				
-			//Green Square
+			//Blue Alpha Pentagon
 			} else if (shapes[n].type === 3) {
+				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
+				
+			//Green Square
+			} else if (shapes[n].type === 4) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
 				
 			//Green Pentagon

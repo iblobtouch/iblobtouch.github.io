@@ -250,7 +250,7 @@ function validateField(value, returnval, ignoreneg) {
 
 function printObject() {
 	var barreltext = "";
-	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "[";
+	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "[";
 	if (barrels.length > 0) {
 		for (var i = 0; i < barrels.length; i += 1) {
 			outtext += JSON.stringify(barrels[i]);
@@ -286,9 +286,17 @@ function importObject() {
 			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
 			document.getElementById("shape").value = "circle";
 			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
+		} else if (inputtext.indexOf("*") === -1) {
+			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
+			document.getElementById("shape").value = "circle";
+			document.getElementById("color").value = "#00b2e1";
+			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
 		} else {
 			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("*"));
-			document.getElementById("shape").value = inputtext.substr(inputtext.indexOf("*") + 1, inputtext.indexOf("[") - 1 - inputtext.indexOf("*"));
+			var first = inputtext.indexOf("*");
+			var second = inputtext.indexOf("*", first+1);
+			document.getElementById("shape").value = inputtext.substr(first + 1, second -1 -first);
+			document.getElementById("color").value = inputtext.substr(second + 1, inputtext.indexOf("[") -1 -second);
 			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
 		}
 	}

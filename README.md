@@ -1,6 +1,7 @@
-# Acarii.github.io
-Test bed for changes I want to push to the main source "iblobtouch.github.io"
+# Custom tank builder for the game diep.io!
 
-This work is intended to test changes made to the primary source before pushing them into release. 
-It otherise functions exactly as the original source, and all identifying watermarks are left intact.
-All copyrights and ownerships are retained by their given parties.
+You can use this to make tanks that do not exist in the current game, and play around with them!
+
+WASD or arrows to move, E to autofire, C to autospin, click the edit button in the top to get started!
+
+Thanks to Acarii for contributions!

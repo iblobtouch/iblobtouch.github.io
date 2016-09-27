@@ -127,8 +127,12 @@ function drawTank() {
 			} else if (shapes[n].type === 2) {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
 				
-			//Green Square
+			//Blue Alpha Pentagon
 			} else if (shapes[n].type === 3) {
+				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
+				
+			//Green Square
+			} else if (shapes[n].type === 4) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
 				
 			//Green Pentagon
@@ -519,6 +523,103 @@ function drawTank() {
 		ctx.rotate((360 / 5) * (Math.PI / 180));
 		ctx.lineTo(0, tanksize + (tanksize / 3));
 		ctx.rotate((360 / 5) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.closePath();
+		ctx.fill();
+		ctx.stroke();
+		ctx.restore();
+		
+	}
+	if (shape === "mothership") {
+		ctx.save();
+		ctx.translate(tankpointx, tankpointy);
+		ctx.beginPath();
+		if (editmode === false) {
+			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
+		}
+		ctx.rotate(90 * (Math.PI / 180));
+		ctx.moveTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.closePath();
+		ctx.clip();
+		ctx.translate(-tankpointx, -tankpointy);
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.restore();
+		
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.strokeStyle = "#555555";
+		ctx.lineWidth = 5;
+		ctx.fillStyle = document.getElementById("color").value;
+		ctx.translate(tankpointx, tankpointy);
+		ctx.beginPath();
+		if (editmode === false) {
+			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
+		}
+		ctx.rotate(90 * (Math.PI / 180));
+		ctx.moveTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 16) * (Math.PI / 180));
 		ctx.lineTo(0, tanksize + (tanksize / 3));
 		ctx.closePath();
 		ctx.fill();

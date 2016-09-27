@@ -85,51 +85,51 @@ button {
 
 .pos2label {
 	margin-top: 10px;
-	margin-left: 400px;
+	margin-left: 150px;
 }
 
 .pos3label {
-	margin-top: 70px;
+	margin-top: 60px;
 	margin-left: 1px;
 }
 
 .pos4label {
-	margin-top: 70px;
-	margin-left: 400px;
+	margin-top: 60px;
+	margin-left: 150px;
 }
 
 .pos5label {
-	margin-top: 150px;
+	margin-top: 110px;
 	margin-left: 1px;
 }
 
 .pos6label {
-	margin-top: 150px;
-	margin-left: 400px;
+	margin-top: 110px;
+	margin-left: 150px;
 }
 
 .pos7label {
 	font: ubuntu 32px;
-	margin-top: 230px;
+	margin-top: 160px;
 	margin-left: 1px;
 }
 
 .pos8label {
 	font: ubuntu 32px;
-	margin-top: 230px;
-	margin-left: 400px;
+	margin-top: 160px;
+	margin-left: 150px;
 }
 
 .pos9label {
 	font: ubuntu 32px;
-	margin-top: 310px;
+	margin-top: 210px;
 	margin-left: 1px;
 }
 
 .pos10label {
 	font: ubuntu 32px;
-	margin-top: 310px;
-	margin-left: 400px;
+	margin-top: 210px;
+	margin-left: 150px;
 }
 
 .pos1 {
@@ -139,49 +139,49 @@ button {
 
 .pos2 {
 	margin-top: 30px;
-	margin-left: 400px;
+	margin-left: 150px;
 }
 
 .pos3 {
 	font: ubuntu 32px;
-	margin-top: 110px;
+	margin-top: 80px;
 	margin-left: 1px;
 }
 
 .pos4 {
 	font: ubuntu 32px;
-	margin-top: 110px;
-	margin-left: 400px;
+	margin-top: 80px;
+	margin-left: 150px;
 }
 
 .pos5 {
-	margin-top: 190px;
+	margin-top: 130px;
 	margin-left: 1px;
 }
 
 .pos6 {
-	margin-top: 190px;
-	margin-left: 400px;
+	margin-top: 130px;
+	margin-left: 150px;
 }
 
 .pos7 {
-	margin-top: 270px;
+	margin-top: 180px;
 	margin-left: 1px;
 }
 
 .pos8 {
-	margin-top: 270px;
-	margin-left: 400px;
+	margin-top: 180px;
+	margin-left: 150px;
 }
 
 .pos9 {
-	margin-top: 350px;
+	margin-top: 230px;
 	margin-left: 1px;
 }
 
 .pos10 {
-	margin-top: 350px;
-	margin-left: 400px;
+	margin-top: 230px;
+	margin-left: 150px;
 }
 
 #notes {

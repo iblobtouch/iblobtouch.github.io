@@ -105,39 +105,46 @@ function Shape(x, y, random) {
 	var stype = 0;
 	
 	//Yellow Square
-	if (random < 0.45) {
+	if (random < 0.65) {
 		stype = 0;
 		this.size = 25;
 		this.health = 100;
 		this.maxhealth = 100;
 
 	//Red Triangle
-	} else if (random < 0.9) {
+	} else if (random < 0.90) {
 		stype = 1;
-		this.size = 18;
+		this.size = 20;
 		this.health = 300;
 		this.maxhealth = 300;
 
 	//Blue Pentagon
-	} else if (random < 0.990) {
+	} else if (random < 0.995) {
 		stype = 2;
-		this.size = 30;
+		this.size = 36;
 		this.health = 1400;
 		this.maxhealth = 1400;
+
+	//Blue Alpha Pentagon
+	} else if (random < 0.9990) {
+		stype = 3;
+		this.size = 85;
+		this.health = 14000;
+		this.maxhealth = 14000;
 	
 	//Green Square
-	} else if (random < 0.995) {
-		stype = 3;
+	} else if (random < 0.9995) {
+		stype = 4;
 		this.size = 25;
 		this.health = 2000;
 		this.maxhealth = 2000;
 
 	//Green Pentagon
 	} else {
-		stype = 4;
-		this.size = 30;
-		this.health = 10000;
-		this.maxhealth = 10000;
+		stype = 5;
+		this.size = 36;
+		this.health = 14000;
+		this.maxhealth = 14000;
 	}
 	
 	this.initx = offset.totalx;
@@ -243,7 +250,7 @@ function validateField(value, returnval, ignoreneg) {
 
 function printObject() {
 	var barreltext = "";
-	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "[";
+	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "[";
 	if (barrels.length > 0) {
 		for (var i = 0; i < barrels.length; i += 1) {
 			outtext += JSON.stringify(barrels[i]);
@@ -279,9 +286,22 @@ function importObject() {
 			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
 			document.getElementById("shape").value = "circle";
 			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
-		} else {
+		} else if (inputtext.indexOf("*") === -1) {
+			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
+			document.getElementById("shape").value = "circle";
+			document.getElementById("color").value = "#00b2e1";
+			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
+		} else if (inputtext.indexOf("*", inputtext.indexOf("*")+1) === -1) {
 			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("*"));
 			document.getElementById("shape").value = inputtext.substr(inputtext.indexOf("*") + 1, inputtext.indexOf("[") - 1 - inputtext.indexOf("*"));
+			document.getElementById("color").value = "#00b2e1";
+			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
+		} else {
+			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("*"));
+			var first = inputtext.indexOf("*");
+			var second = inputtext.indexOf("*", first+1);
+			document.getElementById("shape").value = inputtext.substr(first + 1, second - 1 - first);
+			document.getElementById("color").value = inputtext.substr(second + 1, inputtext.indexOf("[") -1 -second);
 			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
 		}
 	}

@@ -184,7 +184,7 @@ function drawTank() {
 				damage = barrels[n].damage;
 			}
 			
-			if ((barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < 8)) || ((barrels[n].type === 3) && (necrolimit < 20))))) {
+			if ((barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
 				if (barrels[n].hasOwnProperty("knockback") === false) {
 					barrels[n].knockback = 0;
 				}

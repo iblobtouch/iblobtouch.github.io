@@ -132,6 +132,30 @@ button {
 	margin-left: 150px;
 }
 
+.pos11label {
+	font: ubuntu 32px;
+	margin-top: 260px;
+	margin-left: 1px;
+}
+
+.pos12label {
+	font: ubuntu 32px;
+	margin-top: 260px;
+	margin-left: 150px;
+}
+
+.pos13label {
+	font: ubuntu 32px;
+	margin-top: 310px;
+	margin-left: 1px;
+}
+
+.pos14label {
+	font: ubuntu 32px;
+	margin-top: 310px;
+	margin-left: 150px;
+}
+
 .pos1 {
 	margin-top: 30px;
 	margin-left: 1px;
@@ -184,8 +208,35 @@ button {
 	margin-left: 150px;
 }
 
+.pos11 {
+	margin-top: 280px;
+	margin-left: 1px;
+}
+
+.pos12 {
+	margin-top: 280px;
+	margin-left: 150px;
+}
+
+.pos13 {
+	margin-top: 330px;
+	margin-left: 1px;
+}
+
+.pos14 {
+	margin-top: 330px;
+	margin-left: 150px;
+}
+
 #notes {
-	font: 16px ubuntu;
+	font: 14px ubuntu;
 	position: fixed;
+	bottom: 0;
+}
+
+#version {
+	font: 8px ubuntu;
+	position: fixed;
+	margin-left: 80%;
 	bottom: 0;
 }

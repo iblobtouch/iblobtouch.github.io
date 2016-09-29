@@ -23,8 +23,12 @@ body {
 
 textarea, select {
 	background-color: white;
-	resize: none;
+    color: black;
+    resize: none;
+	border: 2px solid black;
+    border-radius: 3px;
 }
+
 
 button {
 	background-color: #7a7a7a; 
@@ -260,6 +264,9 @@ button:hover {
 
 #notes {
 	font: 13px ubuntu;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: #888;
 	position: fixed;
 	bottom: 0;
 }

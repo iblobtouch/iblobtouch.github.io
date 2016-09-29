@@ -266,7 +266,8 @@ button:hover {
 	font: 13px ubuntu;
 	border: 2px solid black;
 	border-radius: 5px;
-	background-color: #888;
+	background-color: #555;
+	padding: 3px;
 	position: fixed;
 	bottom: 0;
 }

@@ -24,8 +24,22 @@ textarea, select {
 }
 
 button {
-	background-color: white;
-	border: 0;
+	background-color: #3d3d3d; 
+	border: none;
+	color: white;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	border-radius: 6px;
+	-webkit-transition-duration: 0.1s;
+	transition-duration: 0.1s;
+}
+
+button:hover {
+	background-color: #1d1d1d;
+	color: white;
 }
 
 #watermark {
@@ -37,7 +51,6 @@ button {
 #editbutton {
 	z-index = 5;
 	position:fixed;
-	border: solid black 1px;
 }
 
 .editbuttons {
@@ -49,13 +62,13 @@ button {
 #spawnlabel {
 	position:fixed;
 	margin-top: 0px;
-	margin-left: 150px;
+	margin-left: 110px;
 }
 
 #spawn {
 	position:fixed;
 	margin-top: 0px;
-	margin-left: 260px;
+	margin-left: 210px;
 }
 
 #bodybutton {
@@ -65,17 +78,17 @@ button {
 
 #barrelbutton {
 	margin-top: 30px;
-	margin-left: 130px;
+	margin-left: 110px;
 }
 
 #bulletbutton {
 	margin-top: 30px;
-	margin-left: 228px;
+	margin-left: 220px;
 }
 
 #savebutton {
 	margin-top: 30px;
-	margin-left: 325px;
+	margin-left: 330px;
 }
 
 .pos1label {
@@ -85,75 +98,87 @@ button {
 
 .pos2label {
 	margin-top: 10px;
-	margin-left: 150px;
+	margin-left: 110px;
 }
 
 .pos3label {
-	margin-top: 60px;
-	margin-left: 1px;
+	margin-top: 10px;
+	margin-left: 220px;
 }
 
 .pos4label {
-	margin-top: 60px;
-	margin-left: 150px;
+	margin-top: 10px;
+	margin-left: 330px;
 }
 
 .pos5label {
-	margin-top: 110px;
+	margin-top: 60px;
 	margin-left: 1px;
 }
 
 .pos6label {
-	margin-top: 110px;
-	margin-left: 150px;
+	margin-top: 60px;
+	margin-left: 110px;
 }
 
 .pos7label {
 	font: ubuntu 32px;
-	margin-top: 160px;
-	margin-left: 1px;
+	margin-top: 60px;
+	margin-left: 220px;
 }
 
 .pos8label {
 	font: ubuntu 32px;
-	margin-top: 160px;
-	margin-left: 150px;
+	margin-top: 60px;
+	margin-left: 330px;
 }
 
 .pos9label {
 	font: ubuntu 32px;
-	margin-top: 210px;
+	margin-top: 110px;
 	margin-left: 1px;
 }
 
 .pos10label {
 	font: ubuntu 32px;
-	margin-top: 210px;
-	margin-left: 150px;
+	margin-top: 110px;
+	margin-left: 110px;
 }
 
 .pos11label {
 	font: ubuntu 32px;
-	margin-top: 260px;
-	margin-left: 1px;
+	margin-top: 110px;
+	margin-left: 220px;
 }
 
 .pos12label {
 	font: ubuntu 32px;
-	margin-top: 260px;
-	margin-left: 150px;
+	margin-top: 110px;
+	margin-left: 330px;
 }
 
 .pos13label {
 	font: ubuntu 32px;
-	margin-top: 310px;
+	margin-top: 160px;
 	margin-left: 1px;
 }
 
 .pos14label {
 	font: ubuntu 32px;
-	margin-top: 310px;
-	margin-left: 150px;
+	margin-top: 160px;
+	margin-left: 110px;
+}
+
+.pos15label {
+	font: ubuntu 32px;
+	margin-top: 160px;
+	margin-left: 220px;
+}
+
+.pos16label {
+	font: ubuntu 32px;
+	margin-top: 160px;
+	margin-left: 330px;
 }
 
 .pos1 {
@@ -163,69 +188,79 @@ button {
 
 .pos2 {
 	margin-top: 30px;
-	margin-left: 150px;
+	margin-left: 110px;
 }
 
 .pos3 {
 	font: ubuntu 32px;
-	margin-top: 80px;
-	margin-left: 1px;
+	margin-top: 30px;
+	margin-left: 220px;
 }
 
 .pos4 {
 	font: ubuntu 32px;
-	margin-top: 80px;
-	margin-left: 150px;
+	margin-top: 30px;
+	margin-left: 330px;
 }
 
 .pos5 {
-	margin-top: 130px;
+	margin-top: 80px;
 	margin-left: 1px;
 }
 
 .pos6 {
-	margin-top: 130px;
-	margin-left: 150px;
+	margin-top: 80px;
+	margin-left: 110px;
 }
 
 .pos7 {
-	margin-top: 180px;
-	margin-left: 1px;
+	margin-top: 80px;
+	margin-left: 220px;
 }
 
 .pos8 {
-	margin-top: 180px;
-	margin-left: 150px;
+	margin-top: 80px;
+	margin-left: 330px;
 }
 
 .pos9 {
-	margin-top: 230px;
+	margin-top: 130px;
 	margin-left: 1px;
 }
 
 .pos10 {
-	margin-top: 230px;
-	margin-left: 150px;
+	margin-top: 130px;
+	margin-left: 110px;
 }
 
 .pos11 {
-	margin-top: 280px;
-	margin-left: 1px;
+	margin-top: 130px;
+	margin-left: 220px;
 }
 
 .pos12 {
-	margin-top: 280px;
-	margin-left: 150px;
+	margin-top: 130px;
+	margin-left: 330px;
 }
 
 .pos13 {
-	margin-top: 330px;
+	margin-top: 180px;
 	margin-left: 1px;
 }
 
 .pos14 {
-	margin-top: 330px;
-	margin-left: 150px;
+	margin-top: 180px;
+	margin-left: 110px;
+}
+
+.pos15 {
+	margin-top: 180px;
+	margin-left: 220px;
+}
+
+.pos16 {
+	margin-top: 180px;
+	margin-left: 330px;
 }
 
 #notes {
@@ -240,3 +275,4 @@ button {
 	margin-left: 80%;
 	bottom: 0;
 }
+

@@ -82,9 +82,6 @@
 		<p class="editbuttons barrelsettings pos9label"><b>Spread </b><span title="Specifies the accuracy of this cannon in degrees. 0 = Fires in a straight line. 360 = fires randomly in any direction. Recommended values are between 0-30." style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
 		<textarea class="editbuttons barrelsettings pos9" id = "spread" rows="1" cols = "10"  placeholder = "Knockback" title="Specifies the accuracy of this cannon in degrees. 0 = Fires in a straight line. 360 = fires randomly in any direction. Recommended values are between 0-30.">0</textarea>
 		
-		<p class="editbuttons barrelsettings pos10label"><b>Bullet Damage </b><span title="Specifies the damage of the bullets this cannon fires. Squares = 100HP  Triangles = 300HP  Pentagons = 1400HP" style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos10" id = "damage" rows="1" cols = "10"  placeholder = "length" title="Specifies the damage of the bullets this cannon fires. Squares = 100HP  Triangles = 300HP  Pentagons = 1400HP">65</textarea>
-		
 		<p class="editbuttons bulletsettings pos1label"><b>Bullet Size </b><span title="Specifies the size of the projectiles this cannon fires." style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
 		<textarea class="editbuttons bulletsettings pos1" id = "size" rows="1" cols = "10"  placeholder = "width" title="Specifies the size of the projectiles this cannon fires.">15</textarea>
 		
@@ -94,8 +91,11 @@
 		<p class="editbuttons bulletsettings pos3label"><b>Bullet Lifespan </b><span title="Specifies the lifetime of the projectiles this cannon fires. Does not effect drones. Value is in seconds." style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
 		<textarea class="editbuttons bulletsettings pos3" id = "time" rows="1" cols = "10"  placeholder = "length" title="Specifies the lifetime of the projectiles this cannon fires. Does not effect drones. Value is in seconds.">1</textarea>
 		
-		<p class="editbuttons bulletsettings pos4label"><b>Toggle Inherit </b><span title="Toggles if these values are ignored by the barrel. Uncheck to use these values." style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
-		<input type="checkbox" class = "editbuttons bulletsettings pos4" id="use" checked title="Toggles if these values are ignored by the barrel. Uncheck to use these values.">
+		<p class="editbuttons bulletsettings pos4label"><b>Bullet Damage </b><span title="Specifies the damage of the bullets this cannon fires. Squares = 100HP  Triangles = 300HP  Pentagons = 1400HP" style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
+		<textarea class="editbuttons bulletsettings pos4" id = "damage" rows="1" cols = "10"  placeholder = "length" title="Specifies the damage of the bullets this cannon fires. Squares = 100HP  Triangles = 300HP  Pentagons = 1400HP">65</textarea>
+		
+		<p class="editbuttons bulletsettings pos5label"><b>Toggle Inherit </b><span title="Toggles if these values are ignored by the barrel. Uncheck to use these values." style="color:#0022C8;text-decoration:none;">ⓘ</span></p>
+		<input type="checkbox" class = "editbuttons bulletsettings pos5" id="use" checked title="Toggles if these values are ignored by the barrel. Uncheck to use these values.">
 		
 		<button class = "editbuttons savesettings pos1label" onclick = "printObject()" >Export tank.</button>
 		<button class = "editbuttons savesettings " style = "margin-left: 100px; margin-top: 10px;" onclick = "importObject()" >Import tank.</button>

@@ -17,10 +17,10 @@
 		<p id="spawnlabel" >Spawn shapes?</p>
 		<input type="checkbox" id="spawn">
 		
-		<button id = "editbutton" onclick = "editButtonClick()">Toggle edit mode.</button>
-		<button class="editbuttons" id = "bodybutton" onclick = "bodyClick()">Body/Color settings</button>
-		<button class="editbuttons" id = "barrelbutton" onclick = "barrelClick()">Barrel settings</button>
-		<button class="editbuttons" id = "bulletbutton" onclick = "bulletClick()">Bullet settings</button>
+		<button id = "editbutton" onclick = "editButtonClick()">Edit Mode</button>
+		<button class="editbuttons" id = "bodybutton" onclick = "bodyClick()">Body/Color</button>
+		<button class="editbuttons" id = "barrelbutton" onclick = "barrelClick()">Barrel</button>
+		<button class="editbuttons" id = "bulletbutton" onclick = "bulletClick()">Bullet</button>
 		<button class="editbuttons" id = "savebutton" onclick = "saveClick()">Export/Import</button>
 		
 		<p id = "note">Press the edit mode button to edit the tank. <br> Press e to autofire and c to autospin. <br> Refresh the page to get a new tank. </p>
@@ -98,7 +98,7 @@
 		<input type="checkbox" class = "editbuttons bulletsettings pos5" id="use" checked title="Toggles if these values are ignored by the barrel. Uncheck to use these values.">
 		
 		<button class = "editbuttons savesettings pos1label" onclick = "printObject()" >Export tank.</button>
-		<button class = "editbuttons savesettings " style = "margin-left: 100px; margin-top: 10px;" onclick = "importObject()" >Import tank.</button>
+		<button class = "editbuttons savesettings pos2label" onclick = "importObject()" >Import tank.</button>
 		<textarea class="editbuttons savesettings pos1" id = "save" rows="10" cols = "56"  placeholder = "Save Codes go here..." style = "resize: both" ></textarea>
 		
 		<p class="editbuttons" id = "notes">Q to place barrels. Barrels place in order of last placed to first. <br> F to remove barrels. WARNING: Removes all barrels within 1° at once! <br> Hold Shift to align in 15° increments. Red line determines front of tank. <br> Ctrl + Scroll Wheel to adjust zoom (Limited in some browsers) <br> Click outside of textboxes before placing or removing barrels. </p>

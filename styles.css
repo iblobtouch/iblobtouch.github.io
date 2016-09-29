@@ -1,5 +1,8 @@
 body {
-	font: 13px ubuntu;
+	font: 12px ubuntu;
+	font-weight: bold;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	border: none;
 }
 
@@ -24,17 +27,21 @@ textarea, select {
 }
 
 button {
-	background-color: #3d3d3d; 
-	border: none;
+	background-color: #7a7a7a; 
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 50%);
+	border: 2px solid #222222;
 	color: white;
 	width: 100px;
 	text-align: center;
 	text-decoration: none;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	display: inline-block;
-	font-size: 12px;
-	border-radius: 6px;
+	font-size: 11px;
+	font-weight: bold;
+	border-radius: 2px;
 	-webkit-transition-duration: 0.1s;
 	transition-duration: 0.1s;
+	
 }
 
 button:hover {
@@ -122,61 +129,51 @@ button:hover {
 }
 
 .pos7label {
-	font: ubuntu 32px;
 	margin-top: 60px;
 	margin-left: 220px;
 }
 
 .pos8label {
-	font: ubuntu 32px;
 	margin-top: 60px;
 	margin-left: 330px;
 }
 
 .pos9label {
-	font: ubuntu 32px;
 	margin-top: 110px;
 	margin-left: 1px;
 }
 
 .pos10label {
-	font: ubuntu 32px;
 	margin-top: 110px;
 	margin-left: 110px;
 }
 
 .pos11label {
-	font: ubuntu 32px;
 	margin-top: 110px;
 	margin-left: 220px;
 }
 
 .pos12label {
-	font: ubuntu 32px;
 	margin-top: 110px;
 	margin-left: 330px;
 }
 
 .pos13label {
-	font: ubuntu 32px;
 	margin-top: 160px;
 	margin-left: 1px;
 }
 
 .pos14label {
-	font: ubuntu 32px;
 	margin-top: 160px;
 	margin-left: 110px;
 }
 
 .pos15label {
-	font: ubuntu 32px;
 	margin-top: 160px;
 	margin-left: 220px;
 }
 
 .pos16label {
-	font: ubuntu 32px;
 	margin-top: 160px;
 	margin-left: 330px;
 }
@@ -192,13 +189,11 @@ button:hover {
 }
 
 .pos3 {
-	font: ubuntu 32px;
 	margin-top: 30px;
 	margin-left: 220px;
 }
 
 .pos4 {
-	font: ubuntu 32px;
 	margin-top: 30px;
 	margin-left: 330px;
 }
@@ -264,7 +259,7 @@ button:hover {
 }
 
 #notes {
-	font: 14px ubuntu;
+	font: 13px ubuntu;
 	position: fixed;
 	bottom: 0;
 }

@@ -54,8 +54,8 @@ button:hover {
 }
 
 #watermark {
-	position:fixed;
-	margin-left: 80%;
+	position: absolute;
+	right: 10px;
 	font: ubuntu 32px;
 }
 
@@ -274,7 +274,7 @@ button:hover {
 
 #version {
 	font: 8px ubuntu;
-	position: fixed;
-	margin-left: 80%;
+	position: absolute;
+	right: 10px;
 	bottom: 0;
 }

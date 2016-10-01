@@ -797,6 +797,20 @@ function mouseup(e) {
 	}
 }
 
+function undo() {
+	if (barrels.length > 0) {
+		undos[undos.length] = barrels[barrels.length - 1];
+		barrels.splice(barrels.length - 1, 1);
+	}
+}
+
+function redo() {
+	if (undos.length > 0) {
+		barrels[barrels.length] = undos[undos.length - 1];
+		undos.splice(undos.length - 1, 1);
+	}
+}
+
 document.addEventListener("mousemove", mousemove, false);
 document.addEventListener("mousedown", mousedown, false);
 document.addEventListener("mouseup", mouseup, false);

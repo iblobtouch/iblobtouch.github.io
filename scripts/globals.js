@@ -11,6 +11,7 @@ var dronelimit = 0;
 var necrolimit = 0;
 var tankalpha = 1;
 var shapetimer = 120;
+var undos = [];
 
 var tankpointx = c.width / 2;
 var tankpointy = c.height / 2;
@@ -304,5 +305,6 @@ function importObject() {
 			document.getElementById("color").value = inputtext.substr(second + 1, inputtext.indexOf("[") -1 -second);
 			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
 		}
+		undos = [];
 	}
 }

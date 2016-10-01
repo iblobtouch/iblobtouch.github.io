@@ -115,6 +115,19 @@ function drawTank() {
 				}
 			}
 			
+			if (Math.hypot(shapes[n].x - tankpointx, shapes[n].y - tankpointy) < parseFloat(validateField(document.getElementById("body").value, 32)) + shapes[n].size / 2) {
+				console.log("collude");
+				if (shapes[n].health > parseFloat(validateField(document.getElementById("bodydamage").value, 50))) {
+					shapes[n].health -= parseFloat(validateField(document.getElementById("bodydamage").value, 50));
+					shapes[n].accelx += Math.cos(angle(tankpointx, tankpointy, shapes[n].x, shapes[n].y) * (Math.PI / 180));
+					shapes[n].accely += Math.sin(angle(tankpointx, tankpointy, shapes[n].x, shapes[n].y) * (Math.PI / 180));
+					accel.x += Math.cos(angle(tankpointx, tankpointy, shapes[n].x, shapes[n].y) * (Math.PI / 180)) / 5;
+					accel.y += Math.sin(angle(tankpointx, tankpointy, shapes[n].x, shapes[n].y) * (Math.PI / 180)) / 5;
+				} else {
+					shapes.splice(n, 1);
+				}
+			}
+			
 			//Yellow Square
 			if (shapes[n].type === 0) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");

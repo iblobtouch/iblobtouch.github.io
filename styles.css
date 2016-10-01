@@ -2,7 +2,7 @@ body {
 	font: 12px ubuntu;
 	font-weight: bold;
 	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
 	border: none;
 }
 
@@ -37,7 +37,7 @@ button {
 	width: 100px;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
 	display: inline-block;
 	font-size: 11px;
 	font-weight: bold;

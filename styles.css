@@ -1,5 +1,5 @@
 body {
-	font: 12px ubuntu;
+	font: 12px 'ubuntu', sans-serif;
 	font-weight: bold;
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
@@ -18,13 +18,15 @@ body {
 }
 
 .ubuntu {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'ubuntu', sans-serif;
 }
 
 textarea, select {
 	background-color: white;
 	color: black;
 	resize: none;
+	font: 12px 'ubuntu', sans-serif;
+	font-weight: bold;
 	border: 2px solid black;
 	border-radius: 3px;
 }
@@ -299,7 +301,7 @@ button:active {
 }
 
 #notes {
-	font: 13px ubuntu;
+	font: 13px 'ubuntu', sans-serif;
 	border: 2px solid black;
 	border-radius: 5px;
 	background-color: #555;
@@ -309,7 +311,7 @@ button:active {
 }
 
 #version {
-	font: 8px ubuntu;
+	font: 8px 'ubuntu', sans-serif;
 	position: absolute;
 	right: 10px;
 	bottom: 0;

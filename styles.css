@@ -107,13 +107,13 @@ button:active {
 }
 
 #undobutton {
-	margin-top: 30px;
-	margin-left: 440px;
+	bottom: 100px;
+	margin-left: 110px;
 }
 
 #redobutton {
-	margin-top: 30px;
-	margin-left: 550px;
+	bottom: 100px;
+	margin-left: 220px;
 }
 
 .pos1label {

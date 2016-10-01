@@ -54,7 +54,7 @@ button:hover {
 button:active {
 	background-color: #444;
 	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%);
-	color: #ddd;
+	color: #eee;
 }
 
 #watermark {
@@ -109,11 +109,33 @@ button:active {
 #undobutton {
 	bottom: 100px;
 	margin-left: 110px;
+	background-color: #7a7a7a; 
+}
+
+#undobutton:hover {
+	background-color: #f66;
+	color: white;
+}
+
+#undobutton:active {
+	background-color: #a33;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%);
 }
 
 #redobutton {
 	bottom: 100px;
 	margin-left: 220px;
+	background-color: #7a7a7a; 
+}
+
+#redobutton:hover {
+	background-color: #4b4;
+	color: white;
+}
+
+#redobutton:active {
+	background-color: #181;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%);
 }
 
 .pos1label {

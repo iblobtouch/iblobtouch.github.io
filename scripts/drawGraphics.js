@@ -1,7 +1,7 @@
 function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type) {
 	ctx.save();
 	ctx.strokeStyle = "rgba(85, 85, 85, " + alpha + ")";
-	ctx.lineWidth = 5;
+	ctx.lineWidth = 3.5;
 	ctx.fillStyle = "rgba(153, 153, 153, " + alpha + ")";
 	ctx.translate(tankpointx, tankpointy, 0);
 	if (editmode === false) {

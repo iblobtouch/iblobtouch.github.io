@@ -6,6 +6,10 @@ body {
 	border: none;
 }
 
+body {
+  margin: 5px;
+}
+
 #game {
 	position: fixed; 
 	top: 0; 
@@ -53,6 +57,7 @@ button {
 	border: 2px solid #222222;
 	color: white;
 	width: 100px;
+	line-height: 15px;
 	text-align: center;
 	text-decoration: none;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
@@ -157,7 +162,7 @@ button:active {
 
 .pos1label {
 	margin-top: 10px;
-	margin-left: 1px;
+	margin-left: 0px;
 }
 
 .pos2label {
@@ -176,142 +181,142 @@ button:active {
 }
 
 .pos5label {
-	margin-top: 60px;
-	margin-left: 1px;
+	margin-top: 65px;
+	margin-left: 0px;
 }
 
 .pos6label {
-	margin-top: 60px;
+	margin-top: 65px;
 	margin-left: 110px;
 }
 
 .pos7label {
-	margin-top: 60px;
+	margin-top: 65px;
 	margin-left: 220px;
 }
 
 .pos8label {
-	margin-top: 60px;
+	margin-top: 65px;
 	margin-left: 330px;
 }
 
 .pos9label {
-	margin-top: 110px;
-	margin-left: 1px;
+	margin-top: 120px;
+	margin-left: 0px;
 }
 
 .pos10label {
-	margin-top: 110px;
+	margin-top: 120px;
 	margin-left: 110px;
 }
 
 .pos11label {
-	margin-top: 110px;
+	margin-top: 120px;
 	margin-left: 220px;
 }
 
 .pos12label {
-	margin-top: 110px;
+	margin-top: 120px;
 	margin-left: 330px;
 }
 
 .pos13label {
-	margin-top: 160px;
-	margin-left: 1px;
+	margin-top: 175px;
+	margin-left: 0px;
 }
 
 .pos14label {
-	margin-top: 160px;
+	margin-top: 175px;
 	margin-left: 110px;
 }
 
 .pos15label {
-	margin-top: 160px;
+	margin-top: 175px;
 	margin-left: 220px;
 }
 
 .pos16label {
-	margin-top: 160px;
+	margin-top: 175px;
 	margin-left: 330px;
 }
 
 .pos1 {
-	margin-top: 30px;
-	margin-left: 1px;
+	margin-top: 35px;
+	margin-left: 0px;
 }
 
 .pos2 {
-	margin-top: 30px;
+	margin-top: 35px;
 	margin-left: 110px;
 }
 
 .pos3 {
-	margin-top: 30px;
+	margin-top: 35px;
 	margin-left: 220px;
 }
 
 .pos4 {
-	margin-top: 30px;
+	margin-top: 35px;
 	margin-left: 330px;
 }
 
 .pos5 {
-	margin-top: 80px;
-	margin-left: 1px;
+	margin-top: 90px;
+	margin-left: 0px;
 }
 
 .pos6 {
-	margin-top: 80px;
+	margin-top: 90px;
 	margin-left: 110px;
 }
 
 .pos7 {
-	margin-top: 80px;
+	margin-top: 90px;
 	margin-left: 220px;
 }
 
 .pos8 {
-	margin-top: 80px;
+	margin-top: 90px;
 	margin-left: 330px;
 }
 
 .pos9 {
-	margin-top: 130px;
-	margin-left: 1px;
+	margin-top: 145px;
+	margin-left: 0px;
 }
 
 .pos10 {
-	margin-top: 130px;
+	margin-top: 145px;
 	margin-left: 110px;
 }
 
 .pos11 {
-	margin-top: 130px;
+	margin-top: 145px;
 	margin-left: 220px;
 }
 
 .pos12 {
-	margin-top: 130px;
+	margin-top: 145px;
 	margin-left: 330px;
 }
 
 .pos13 {
-	margin-top: 180px;
-	margin-left: 1px;
+	margin-top: 200px;
+	margin-left: 0px;
 }
 
 .pos14 {
-	margin-top: 180px;
+	margin-top: 200px;
 	margin-left: 110px;
 }
 
 .pos15 {
-	margin-top: 180px;
+	margin-top: 200px;
 	margin-left: 220px;
 }
 
 .pos16 {
-	margin-top: 180px;
+	margin-top: 200px;
 	margin-left: 330px;
 }
 

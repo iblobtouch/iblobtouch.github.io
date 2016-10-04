@@ -51,10 +51,12 @@ select {
 	border-radius: 3px;
 }
 
+/* Default for all buttons */
 button {
-	background-color: #7a7a7a; 
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 50%);
-	border: 2px solid #222222;
+	background-color: #8B8B8B; 
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
+	border: 2px solid #333333;
+	border-radius: 2px;
 	color: white;
 	width: 100px;
 	line-height: 15px;
@@ -64,19 +66,17 @@ button {
 	display: inline-block;
 	font-size: 11px;
 	font-weight: bold;
-	border-radius: 2px;
 	transition-duration: 0.1s;
 }
 
 button:hover {
-	background-color: #999;
-	color: white;
+	background-color: #989898;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(198,198,198,1) 50%);
 }
 
 button:active {
-	background-color: #444;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%);
-	color: #eee;
+	background-color: #8A8A8A;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
 }
 
 #watermark {
@@ -113,9 +113,29 @@ button:active {
 	margin-left: 1px;
 }
 
+#bodybutton:hover {
+	background-color: #9D84CD;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(195,164,255,1) 50%);
+}
+
+#bodybutton:active {
+	background-color: #9272CD;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,91,164,1) 50%);
+}
+
 #barrelbutton {
 	margin-top: 30px;
 	margin-left: 110px;
+}
+
+#barrelbutton:hover {
+	background-color: #849BCD;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(164,193,255,1) 50%);
+}
+
+#barrelbutton:active {
+	background-color: #728FCD;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(91,114,164,1) 50%);
 }
 
 #bulletbutton {
@@ -123,41 +143,59 @@ button:active {
 	margin-left: 220px;
 }
 
+#bulletbutton:hover {
+	background-color: #CD8484;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(255,164,164,1) 50%);
+}
+
+#bulletbutton:active {
+	background-color: #CC7171;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(164,91,91,1) 50%);
+}
+
 #savebutton {
 	margin-top: 30px;
 	margin-left: 330px;
 }
 
+#savebutton:hover {
+	background-color: #84CDCA;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(164,225,251,1) 50%);
+}
+
+#savebutton:active {
+	background-color: #71CCC8;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(91,164,161,1) 50%);
+}
+
 #undobutton {
 	bottom: 100px;
 	margin-left: 110px;
-	background-color: #7a7a7a; 
 }
 
 #undobutton:hover {
-	background-color: #f66;
-	color: white;
+	background-color: #CD8484;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(255,164,164,1) 50%);
 }
 
 #undobutton:active {
-	background-color: #a33;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%);
+	background-color: #CC7171;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(164,91,91,1) 50%);
 }
 
 #redobutton {
 	bottom: 100px;
 	margin-left: 220px;
-	background-color: #7a7a7a; 
 }
 
 #redobutton:hover {
-	background-color: #4b4;
-	color: white;
+	background-color: #9DCD84;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(195,255,164,1) 50%);
 }
 
 #redobutton:active {
-	background-color: #181;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%);
+	background-color: #90CC71;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,164,91,1) 50%);
 }
 
 .pos1label {

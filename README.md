@@ -43,7 +43,7 @@ Click outside of textboxes before placing or removing barrels.
 
 **Likcoras** - Colour Code Export
 
-**Normalize.CSS*8 - Multi-browser support w/ less headaches
+**Normalize.CSS** - Multi-browser support w/ less headaches
 
 --
 

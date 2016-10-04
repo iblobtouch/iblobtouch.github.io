@@ -37,14 +37,14 @@ Click outside of textboxes before placing or removing barrels.
 
 ## Credits
 
-IBlobTouch - Project Creator/Lead
+**IBlobTouch** - Project Creator/Lead
 
-Acarii - Misc. Changes & Improvements / CSS
+**Acarii** - Misc. Changes & Improvements / CSS
 
-Likcoras - Colour Code Export
+**Likcoras** - Colour Code Export
 
-Normalize.CSS - Multi-browser support w/ less headaches
+**Normalize.CSS*8 - Multi-browser support w/ less headaches
 
 --
 
-One off/Minor Changes: Aryamanarora
+One off/Minor Changes: **Aryamanarora**

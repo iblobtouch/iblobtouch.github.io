@@ -66,7 +66,6 @@ button {
 	display: inline-block;
 	font-size: 11px;
 	font-weight: bold;
-	transition-duration: 0.1s;
 }
 
 button:hover {

@@ -197,6 +197,14 @@ button:active {
 	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,164,91,1) 50%);
 }
 
+.info {
+	font:14px ubuntu;
+	font-weight:bold;
+	color:#0022C8;
+	text-shadow:none;
+	margin-left: 3px;
+}
+
 .pos1label {
 	margin-top: 10px;
 	margin-left: 0px;

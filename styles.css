@@ -205,6 +205,12 @@ button:active {
 	margin-left: 3px;
 }
 
+.textexport {
+	resize: both;
+	width: 420px;
+	height: 90px;
+}
+
 .pos1label {
 	margin-top: 10px;
 	margin-left: 0px;

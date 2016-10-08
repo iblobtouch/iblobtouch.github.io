@@ -1,390 +1,61 @@
-body {
-	font: 12px 'ubuntu', sans-serif;
-	font-weight: bold;
-	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	border: none;
-}
+/* Preset colour buttons */
 
-body {
-  margin: 5px;
-}
-
-#game {
-	position: fixed; 
-	top: 0; 
-	left: 0; 
-	padding:0;
-	margin: 0;
-	width:100%;
-	height:100%;
-	background-color: #CDCDCD;
-}
-
-.ubuntu {
-	font-family: 'ubuntu', sans-serif;
-}
-
-textarea {
-	background-color: white;
-	color: black;
-	resize: none;
-	width: 90px;
-	height: 17px;
-	line-height: 14px;
-	font: 12px 'ubuntu', sans-serif;
-	font-weight: bold;
-	border: 2px solid black;
-	border-radius: 3px;
-}
-
-select {
-	background-color: white;
-	color: black;
-	resize: none;
-	width: 96px;
-	height: 21px;
-	line-height: 14px;
-	font: 12px 'ubuntu', sans-serif;
-	font-weight: bold;
-	border: 2px solid black;
-	border-radius: 3px;
-}
-
-/* Default for all buttons */
-button {
-	background-color: #8B8B8B; 
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
-	border: 2px solid #333333;
-	border-radius: 2px;
-	color: white;
-	width: 100px;
-	line-height: 15px;
-	text-align: center;
-	text-decoration: none;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	display: inline-block;
-	font-size: 11px;
-	font-weight: bold;
-}
-
-button:hover {
-	background-color: #989898;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(198,198,198,1) 50%);
-}
-
-button:active {
-	background-color: #8A8A8A;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
-}
-
-#watermark {
-	position: absolute;
-	right: 10px;
-	font: 'ubuntu', sans-serif;
-}
-
-#editbutton {
-	z-index = 5;
-	position:fixed;
-}
-
-.editbuttons {
-	z-index = 5;
-	position:fixed;
-	visibility: hidden;
-}
-
-#spawnlabel {
-	position:fixed;
-	margin-top: 0px;
-	margin-left: 110px;
-}
-
-#spawn {
-	position:fixed;
-	margin-top: 0px;
-	margin-left: 210px;
-}
-
-#bodybutton {
-	margin-top: 30px;
-	margin-left: 1px;
-}
-
-#bodybutton:hover {
-	background-color: #9D84CD;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(195,164,255,1) 50%);
-}
-
-#bodybutton:active {
-	background-color: #9272CD;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,91,164,1) 50%);
-}
-
-#barrelbutton {
-	margin-top: 30px;
-	margin-left: 110px;
-}
-
-#barrelbutton:hover {
-	background-color: #849BCD;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(164,193,255,1) 50%);
-}
-
-#barrelbutton:active {
-	background-color: #728FCD;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(91,114,164,1) 50%);
-}
-
-#bulletbutton {
-	margin-top: 30px;
-	margin-left: 220px;
-}
-
-#bulletbutton:hover {
-	background-color: #CD8484;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(255,164,164,1) 50%);
-}
-
-#bulletbutton:active {
-	background-color: #CC7171;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(164,91,91,1) 50%);
-}
-
-#savebutton {
-	margin-top: 30px;
-	margin-left: 330px;
-}
-
-#savebutton:hover {
-	background-color: #84CDCA;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(164,225,251,1) 50%);
-}
-
-#savebutton:active {
-	background-color: #71CCC8;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(91,164,161,1) 50%);
-}
-
-#undobutton {
-	bottom: 100px;
-	margin-left: 110px;
-}
-
-#undobutton:hover {
-	background-color: #CD8484;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(255,164,164,1) 50%);
-}
-
-#undobutton:active {
-	background-color: #CC7171;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(164,91,91,1) 50%);
-}
-
-#redobutton {
-	bottom: 100px;
-	margin-left: 220px;
-}
-
-#redobutton:hover {
-	background-color: #9DCD84;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(195,255,164,1) 50%);
-}
-
-#redobutton:active {
-	background-color: #90CC71;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,164,91,1) 50%);
-}
-
-.info {
-	font:14px ubuntu;
-	font-weight:bold;
-	color:#0022C8;
-	text-shadow:none;
-	margin-left: 3px;
-}
-
-.textexport {
-	resize: both;
-	width: 420px;
-	height: 90px;
-}
-
-.pos1label {
-	margin-top: 10px;
-	margin-left: 0px;
-}
-
-.pos2label {
-	margin-top: 10px;
-	margin-left: 110px;
-}
-
-.pos3label {
-	margin-top: 10px;
-	margin-left: 220px;
-}
-
-.pos4label {
-	margin-top: 10px;
-	margin-left: 330px;
-}
-
-.pos5label {
-	margin-top: 65px;
-	margin-left: 0px;
-}
-
-.pos6label {
-	margin-top: 65px;
-	margin-left: 110px;
-}
-
-.pos7label {
-	margin-top: 65px;
-	margin-left: 220px;
-}
-
-.pos8label {
-	margin-top: 65px;
-	margin-left: 330px;
-}
-
-.pos9label {
-	margin-top: 120px;
-	margin-left: 0px;
-}
-
-.pos10label {
-	margin-top: 120px;
-	margin-left: 110px;
-}
-
-.pos11label {
-	margin-top: 120px;
-	margin-left: 220px;
-}
-
-.pos12label {
-	margin-top: 120px;
-	margin-left: 330px;
-}
-
-.pos13label {
-	margin-top: 175px;
-	margin-left: 0px;
-}
-
-.pos14label {
-	margin-top: 175px;
-	margin-left: 110px;
-}
-
-.pos15label {
-	margin-top: 175px;
-	margin-left: 220px;
-}
-
-.pos16label {
-	margin-top: 175px;
-	margin-left: 330px;
-}
-
-.pos1 {
+.presetred {
 	margin-top: 35px;
-	margin-left: 0px;
+	margin-left: 255px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #F14E54;
 }
 
-.pos2 {
+.presetblue {
+	margin-top: 46px;
+	margin-left: 255px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #00B2E1;
+}
+
+.presetgreen {
 	margin-top: 35px;
-	margin-left: 110px;
+	margin-left: 266px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #00E16E;
 }
 
-.pos3 {
+.presetpurple {
+	margin-top: 46px;
+	margin-left: 266px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #BF7FF5;
+}
+
+.presetyellow {
 	margin-top: 35px;
-	margin-left: 220px;
+	margin-left: 277px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: yellow;
 }
 
-.pos4 {
-	margin-top: 35px;
-	margin-left: 330px;
-}
-
-.pos5 {
-	margin-top: 90px;
-	margin-left: 0px;
-}
-
-.pos6 {
-	margin-top: 90px;
-	margin-left: 110px;
-}
-
-.pos7 {
-	margin-top: 90px;
-	margin-left: 220px;
-}
-
-.pos8 {
-	margin-top: 90px;
-	margin-left: 330px;
-}
-
-.pos9 {
-	margin-top: 145px;
-	margin-left: 0px;
-}
-
-.pos10 {
-	margin-top: 145px;
-	margin-left: 110px;
-}
-
-.pos11 {
-	margin-top: 145px;
-	margin-left: 220px;
-}
-
-.pos12 {
-	margin-top: 145px;
-	margin-left: 330px;
-}
-
-.pos13 {
-	margin-top: 200px;
-	margin-left: 0px;
-}
-
-.pos14 {
-	margin-top: 200px;
-	margin-left: 110px;
-}
-
-.pos15 {
-	margin-top: 200px;
-	margin-left: 220px;
-}
-
-.pos16 {
-	margin-top: 200px;
-	margin-left: 330px;
-}
-
-#notes {
-	font: 13px 'ubuntu', sans-serif;
-	border: 2px solid black;
-	border-radius: 5px;
-	background-color: #555;
-	line-height: 14px;
-	padding: 3px;
-	position: fixed;
-	bottom: 0;
-}
-
-#version {
-	font: 8px 'ubuntu', sans-serif;
-	position: absolute;
-	right: 10px;
-	bottom: 0;
+.presetlightgrey {
+	margin-top: 46px;
+	margin-left: 277px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: lightgray;
 }

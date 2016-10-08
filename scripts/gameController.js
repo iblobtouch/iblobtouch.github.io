@@ -913,8 +913,26 @@ function redo() {
 }
 
 function setcolorred() {
-	if (document.getElementById("color").value != "#FF0000") {
-		document.getElementById("color").value = "#FF0000";
+	if (document.getElementById("color").value != "#F14E54") {
+		document.getElementById("color").value = "#F14E54";
+	}
+}
+
+function setcolorblue() {
+	if (document.getElementById("color").value != "#00B2E1") {
+		document.getElementById("color").value = "#00B2E1";
+	}
+}
+
+function setcolorgreen() {
+	if (document.getElementById("color").value != "#00E16E") {
+		document.getElementById("color").value = "#00E16E";
+	}
+}
+
+function setcolorpurple() {
+	if (document.getElementById("color").value != "#BF7FF5") {
+		document.getElementById("color").value = "#BF7FF5";
 	}
 }
 

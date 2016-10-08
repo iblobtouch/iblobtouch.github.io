@@ -197,6 +197,93 @@ button:active {
 	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,164,91,1) 50%);
 }
 
+#color {
+	padding: 0;
+	width: 30px;
+}
+
+/* Preset colour buttons */
+
+.presetred {
+	margin-top: 35px;
+	margin-left: 255px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #F14E54;
+}
+
+.presetblue {
+	margin-top: 46px;
+	margin-left: 255px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #00B2E1;
+}
+
+.presetgreen {
+	margin-top: 35px;
+	margin-left: 266px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #00E16E;
+}
+
+.presetpurple {
+	margin-top: 46px;
+	margin-left: 266px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #BF7FF5;
+}
+
+.presetyellow {
+	margin-top: 35px;
+	margin-left: 277px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #FFEB69;
+}
+
+.presetlightgrey {
+	margin-top: 46px;
+	margin-left: 277px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #C0C0C0;
+}
+
+.presetpalered {
+	margin-top: 35px;
+	margin-left: 288px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #FC7677;
+}
+
+.presetviolet {
+	margin-top: 46px;
+	margin-left: 288px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #F177DD;
+}
+
 .info {
 	font:14px ubuntu;
 	font-weight:bold;

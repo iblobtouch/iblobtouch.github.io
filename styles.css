@@ -251,7 +251,7 @@ button:active {
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
-	background-color: yellow;
+	background-color: #FFEB69;
 }
 
 .presetlightgrey {
@@ -261,7 +261,27 @@ button:active {
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
-	background-color: lightgray;
+	background-color: #C0C0C0;
+}
+
+.presetpalered {
+	margin-top: 35px;
+	margin-left: 288px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #FC7677;
+}
+
+.presetviolet {
+	margin-top: 46px;
+	margin-left: 288px;
+	padding: 0;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #F177DD;
 }
 
 .info {

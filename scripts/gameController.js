@@ -936,6 +936,30 @@ function setcolorpurple() {
 	}
 }
 
+function setcoloryellow() {
+	if (document.getElementById("color").value != "#FFEB69") {
+		document.getElementById("color").value = "#FFEB69";
+	}
+}
+
+function setcolorlightgrey() {
+	if (document.getElementById("color").value != "#C0C0C0") {
+		document.getElementById("color").value = "#C0C0C0";
+	}
+}
+
+function setcolorpalered() {
+	if (document.getElementById("color").value != "#FC7677") {
+		document.getElementById("color").value = "#FC7677";
+	}
+}
+
+function setcolorviolet() {
+	if (document.getElementById("color").value != "#F177DD") {
+		document.getElementById("color").value = "#F177DD";
+	}
+}
+
 document.addEventListener("mousemove", mousemove, false);
 document.addEventListener("mousedown", mousedown, false);
 document.addEventListener("mouseup", mouseup, false);

@@ -901,6 +901,7 @@ function undo() {
 	if (barrels.length > 0) {
 		undos[undos.length] = barrels[barrels.length - 1];
 		barrels.splice(barrels.length - 1, 1);
+		document.getElementById("color").value = "#FF0000";
 	}
 }
 
@@ -908,6 +909,12 @@ function redo() {
 	if (undos.length > 0) {
 		barrels[barrels.length] = undos[undos.length - 1];
 		undos.splice(undos.length - 1, 1);
+	}
+}
+
+function setcolorred() {
+	if (document.getElementById("color").value != "#FF0000") {
+		document.getElementById("color").value = "#FF0000";
 	}
 }
 

@@ -58,6 +58,12 @@ function Barrel(a, type, size, speed, time) {
 	//basereload is the maximum delay between shots in frames.
 	this.reload = 0;
 	//Reload is how many frames until the barrel can fire again.
+	this.basedelay = parseFloat(validateField(document.getElementById("delay").value * 60, 120));
+	//basedelay is the maximum delay before first shot.
+	this.delay = 0;
+	//delay is how many frames until the barrel first fire.
+	this.delayed = true;
+	//delayed is a toggle to ensure the delay script runs only once each time it's needed.
 	this.hasKnockBack = true;
 	//Does firing a bullet from this barrel knock you back?
 	this.type = type;

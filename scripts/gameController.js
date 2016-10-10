@@ -197,7 +197,13 @@ function drawTank() {
 				damage = barrels[n].damage;
 			}
 			
-			if ((barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
+			//Starts delay timer & disables it being run a second time
+			if ((barrels[n].delay <= 0) &&  (barrels[n].basedelay > 0) && (barrels[n].delayed === true)) {
+				barrels[n].delay = barrels[n].basedelay;
+				barrels[n].delayed = false;
+			}
+			
+			if ((barrels[n].delay === 0)  && (barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
 				if (barrels[n].hasOwnProperty("knockback") === false) {
 					barrels[n].knockback = 0;
 				}
@@ -236,6 +242,20 @@ function drawTank() {
 					necrolimit += 1;
 				}
 			}
+		} 
+
+	//Reenables delay timer
+	} else for (var n = 0; n < barrels.length; n += 1) {
+		if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
+			barrels[n].delayed = true;
+		}
+	} 
+	
+	
+	//Delay timer
+	for (var n = 0; n < barrels.length; n += 1) {
+		if (barrels[n].delay > 0) {
+			barrels[n].delay -= 1;
 		}
 	}
 

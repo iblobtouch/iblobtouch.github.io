@@ -260,6 +260,12 @@ function printObject() {
 	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "[";
 	if (barrels.length > 0) {
 		for (var i = 0; i < barrels.length; i += 1) {
+			
+			//Prevents timers from outputting current times to code.
+			barrels[i].reload = 0;
+			barrels[i].delay = 0;
+			barrels[i].delayed = true;
+			
 			outtext += JSON.stringify(barrels[i]);
 			if (i < barrels.length - 1) {
 				outtext += ", ";

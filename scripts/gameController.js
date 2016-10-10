@@ -243,13 +243,16 @@ function drawTank() {
 				}
 			}
 		} 
-		
-	//Reenables delay timer
-	} else for (var n = 0; n < barrels.length; n += 1) {
-		if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
-			barrels[n].delayed === true;
-		}
 	} 
+
+	//Reenables delay timer
+	if ((mouse.held === false) && (autofire === false)) {
+		for (var n = 0; n < barrels.length; n += 1) {
+			if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
+				barrels[n].delayed = true;
+			}
+		} 
+	}
 	
 	//Delay timer
 	for (var n = 0; n < barrels.length; n += 1) {

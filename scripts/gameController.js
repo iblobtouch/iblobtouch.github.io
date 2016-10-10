@@ -199,8 +199,8 @@ function drawTank() {
 			
 			//Starts delay timer & disables it being run a second time
 			if ((barrels[n].delay <= 0) &&  (barrels[n].basedelay > 0) && (barrels[n].delayed === true)) {
-				barrels[n].delay = barrels[n].basedelay
-				barrels[n].delayed = false
+				barrels[n].delay = barrels[n].basedelay;
+				barrels[n].delayed = false;
 			}
 			
 			if ((barrels[n].delay === 0)  && (barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
@@ -246,12 +246,12 @@ function drawTank() {
 		
 	//Reenables delay timer
 	} else if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
-		barrels[n].delayed === true
+		barrels[n].delayed === true;
 	} 
 	
 	//Delay timer
 	if (barrels[n].delay >= 0) {
-		barrels[n].delay -= 1
+		barrels[n].delay -= 1;
 	}
 
 	if ((autospin === true)) {

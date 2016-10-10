@@ -245,13 +245,17 @@ function drawTank() {
 		} 
 		
 	//Reenables delay timer
-	} else if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
-		barrels[n].delayed === true;
+	} else for (var n = 0; n < barrels.length; n += 1) {
+		if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
+			barrels[n].delayed === true;
+		}
 	} 
 	
 	//Delay timer
-	if (barrels[n].delay >= 0) {
-		barrels[n].delay -= 1;
+	for (var n = 0; n < barrels.length; n += 1) {
+		if (barrels[n].delay > 0) {
+			barrels[n].delay -= 1;
+		}
 	}
 
 	if ((autospin === true)) {

@@ -913,38 +913,8 @@ function redo() {
 }
 
 //Set colour functions. Used in presets
-function setcolorred() {
-	document.getElementById("color").value = "#F14E54";
-}
-
-function setcolorblue() {
-	document.getElementById("color").value = "#00B2E1";
-}
-
-function setcolorgreen() {
-	document.getElementById("color").value = "#00E16E";
-}
-
-function setcolorpurple() {
-	document.getElementById("color").value = "#BF7FF5";
-}
-
-function setcoloryellow() {
-	document.getElementById("color").value = "#FFEB69";
-}
-
-function setcolorlightgrey() {
-	document.getElementById("color").value = "#C0C0C0";
-}
-
-function setcolorpalered() {
-	document.getElementById("color").value = "#FC7677";
-}
-
-function setcolorviolet() {
-	if (document.getElementById("color").value != "#F177DD") {
-		document.getElementById("color").value = "#F177DD";
-	}
+function setColor(color) {
+	document.getElementById("color").value = color;
 }
 
 document.addEventListener("mousemove", mousemove, false);

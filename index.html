@@ -2,13 +2,13 @@
 <html lang="en">
 	<title>Fantasy Tank Builder</title>
 	<head>
-		<link rel="stylesheet" href="normalize.css">
-		<link rel="stylesheet" href="styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
-		<meta name="description" content="Build a fantasy diep.io tank! Made by iblobtouch on Github.">
-		<meta name="keywords" content="diep.io,tank,ftb,fantasy tank,io">
-		<meta name="author" content="iblobtouch">
+		<link rel="stylesheet" href="normalize.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<meta name="description" content="Build a fantasy diep.io tank! Made by iblobtouch on Github." />
+		<meta name="keywords" content="diep.io,tank,ftb,fantasy tank,io" />
+		<meta name="author" content="iblobtouch" />
 	</head>
 	<body onload="onload()">
 		<canvas id="game"></canvas>
@@ -19,24 +19,24 @@
 		
 		<p id="watermark">Play at iblobtouch.github.io!</p>
 		
-		<p id="spawnlabel" >Spawn shapes?</p>
+		<p id="spawnlabel">Spawn shapes?</p>
 		<input type="checkbox" id="spawn">
 		
-		<button id = "editbutton" onclick = "editButtonClick()">Edit Mode</button>
-		<button class="editbuttons" id = "bodybutton" onclick = "bodyClick()">Body/Color</button>
-		<button class="editbuttons" id = "barrelbutton" onclick = "barrelClick()">Barrel</button>
-		<button class="editbuttons" id = "bulletbutton" onclick = "bulletClick()">Bullet</button>
-		<button class="editbuttons" id = "savebutton" onclick = "saveClick()">Export/Import</button>
-		<button class="editbuttons" id = "undobutton" onclick = "undo()">⟲ Undo</button>
-		<button class="editbuttons" id = "redobutton" onclick = "redo()">Redo ⟳</button>
+		<button id="editbutton" onclick="editButtonClick()">Edit Mode</button>
+		<button class="editbuttons" id="bodybutton" onclick="bodyClick()">Body/Color</button>
+		<button class="editbuttons" id="barrelbutton" onclick="barrelClick()">Barrel</button>
+		<button class="editbuttons" id="bulletbutton" onclick="bulletClick()">Bullet</button>
+		<button class="editbuttons" id="savebutton" onclick="saveClick()">Export/Import</button>
+		<button class="editbuttons" id="undobutton" onclick="undo()">⟲ Undo</button>
+		<button class="editbuttons" id="redobutton" onclick="redo()">Redo ⟳</button>
 		
-		<p id = "note">Press the edit mode button to edit the tank. <br> Press e to autofire and c to autospin. <br> Refresh the page to get a new tank. </p>
+		<p id="note">Press the edit mode button to edit the tank. <br> Press e to autofire and c to autospin. <br> Refresh the page to get a new tank. </p>
 		
 		<p class="editbuttons tanksettings pos1label"><b>Radius </b><span title="Specifies the radius of the tank's main body." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos1" id = "body" rows="1" cols = "10" placeholder = "0" title="Specifies the radius of the tank's main body.">32</textarea>
+		<textarea class="editbuttons tanksettings pos1" id="body" rows="1" cols="10" placeholder="0" title="Specifies the radius of the tank's main body.">32</textarea>
 		
 		<p class="editbuttons tanksettings pos2label"><b>Body </b><span title="Specifies the type of body should be used." class="info">ⓘ</span></p>
-		<select class = "editbuttons tanksettings pos2" id = "shape" title="Specifies the type of body should be used.">
+		<select class="editbuttons tanksettings pos2" id="shape" title="Specifies the type of body should be used.">
 			<option value="circle">Circle</option> 
   			<option value="square">Square</option>
   			<option value="smasher">Smasher</option>
@@ -47,31 +47,31 @@
 		</select>
 		
 		<p class="editbuttons tanksettings pos3label"><b>Colour </b><span title="Specifies what colour should be used for the tank and bullets." class="info">ⓘ</span></p>
-		<input type = "color" class="editbuttons tanksettings pos3" id = "color" value = "#00B2E1" title="Specifies what colour should be used for the tank and bullets.">
+		<input type="color" class="editbuttons tanksettings pos3" id="color" value="#00B2E1" title="Specifies what colour should be used for the tank and bullets.">
 		
-		<input type="button" class="editbuttons tanksettings presetred" id="setcolorred" onclick="setColor('#F14E54')" title="Red Team">
-		<input type="button" class="editbuttons tanksettings presetblue" id="setcolorblue" onclick="setColor('#00B2E1')" title="Blue Team">
-		<input type="button" class="editbuttons tanksettings presetgreen" id="setcolorgreen" onclick="setColor('#00E16E')" title="Green Team">
-		<input type="button" class="editbuttons tanksettings presetpurple" id="setcolorpurple" onclick="setColor('#BF7FF5')" title="Purple Team">
-		<input type="button" class="editbuttons tanksettings presetyellow" id="setcoloryellow" onclick="setColor('#FFEB69')" title="Arena Closer/No Team">
-		<input type="button" class="editbuttons tanksettings presetlightgrey" id="setcolorlightgrey" onclick="setColor('#C0C0C0')" title="Fallen Tank">
-		<input type="button" class="editbuttons tanksettings presetpalered" id="setcolorpalered" onclick="setColor('#FC7677')" title="Defender">
-		<input type="button" class="editbuttons tanksettings presetviolet" id="setcolorviolet" onclick="setColor('#F177DD')" title="Protecter of Pentagons">
+		<input type="button" class="editbuttons tanksettings presetred" id="setcolorred" onclick="setColor('#F14E54')" title="Red Team" />
+		<input type="button" class="editbuttons tanksettings presetblue" id="setcolorblue" onclick="setColor('#00B2E1')" title="Blue Team" />
+		<input type="button" class="editbuttons tanksettings presetgreen" id="setcolorgreen" onclick="setColor('#00E16E')" title="Green Team" />
+		<input type="button" class="editbuttons tanksettings presetpurple" id="setcolorpurple" onclick="setColor('#BF7FF5')" title="Purple Team" />
+		<input type="button" class="editbuttons tanksettings presetyellow" id="setcoloryellow" onclick="setColor('#FFEB69')" title="Arena Closer/No Team" />
+		<input type="button" class="editbuttons tanksettings presetlightgrey" id="setcolorlightgrey" onclick="setColor('#C0C0C0')" title="Fallen Tank" />
+		<input type="button" class="editbuttons tanksettings presetpalered" id="setcolorpalered" onclick="setColor('#FC7677')" title="Defender" />
+		<input type="button" class="editbuttons tanksettings presetviolet" id="setcolorviolet" onclick="setColor('#F177DD')" title="Protecter of Pentagons" />
 		
 		<p class="editbuttons tanksettings pos4label"><b>Invisibility </b><span title="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet." class="info">ⓘ</span></p>
-		<input type="checkbox" class = "editbuttons tanksettings pos4" id="invis" title="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet.">
+		<input type="checkbox" class="editbuttons tanksettings pos4" id="invis" title="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet.">
 		
 		<p class="editbuttons tanksettings pos5label"><b>Drone Limit </b><span title="Specifies the maximum number of drones that can be on screen. NOTE: Does not save. Yet." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos5" id = "drones" rows="1" cols = "10" placeholder = "0" title="Specifies the maximum number of drones that can be on screen. NOTE: Does not save. Yet.">8</textarea>
+		<textarea class="editbuttons tanksettings pos5" id="drones" rows="1" cols="10" placeholder="0" title="Specifies the maximum number of drones that can be on screen. NOTE: Does not save. Yet.">8</textarea>
 		
 		<p class="editbuttons tanksettings pos6label"><b>Necro Limit </b><span title="Specifies the maximum number of Necromancer type drones that can be on screen. NOTE: Does not save. Yet." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos6" id = "necrodrones" rows="1" cols = "10" placeholder = "0" title="Specifies the maximum number of Necromancer type drones that can be on screen. NOTE: Does not save. Yet.">16</textarea>
+		<textarea class="editbuttons tanksettings pos6" id="necrodrones" rows="1" cols="10" placeholder="0" title="Specifies the maximum number of Necromancer type drones that can be on screen. NOTE: Does not save. Yet.">16</textarea>
 		
 		<p class="editbuttons tanksettings pos7label"><b>Body Damage </b><span title="Specifies the damage the body of the tank does to a shape on collision. NOTE: Does not save. Yet." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos7" id = "bodydamage" rows="1" cols = "10" placeholder = "0" title="Specifies the damage the body of the tank does to a shape on collision. NOTE: Does not save. Yet.">50</textarea>
+		<textarea class="editbuttons tanksettings pos7" id="bodydamage" rows="1" cols="10" placeholder="0" title="Specifies the damage the body of the tank does to a shape on collision. NOTE: Does not save. Yet.">50</textarea>
 		
-		<p class="editbuttons barrelsettings pos1label" id = "traplabel"><b>Barrel </b><span title="Specifies what type of barrel you want to place." class="info">ⓘ</span></p>
-		<select class = "editbuttons barrelsettings pos1" id = "bullet" title="Specifies what type of barrel you want to place.">
+		<p class="editbuttons barrelsettings pos1label" id="traplabel"><b>Barrel </b><span title="Specifies what type of barrel you want to place." class="info">ⓘ</span></p>
+		<select class="editbuttons barrelsettings pos1" id="bullet" title="Specifies what type of barrel you want to place.">
 			<option value="bullet">Gun</option> 
   			<option value="trap">Trap Layer</option>
   			<option value="drone">Drone Maker</option>
@@ -79,51 +79,51 @@
 		</select>
 		
 		<p class="editbuttons barrelsettings pos2label"><b>Can Shoot? </b><span title="Toggles this cannon's ability to shoot." class="info">ⓘ</span></p>
-		<input type="checkbox" class = "editbuttons barrelsettings pos2" id="disable" checked title="Toggles this cannon's ability to shoot.">
+		<input type="checkbox" class="editbuttons barrelsettings pos2" id="disable" checked title="Toggles this cannon's ability to shoot.">
 		
 		<p class="editbuttons barrelsettings pos3label"><b>Width </b><span title="Specifies the width of the cannon." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos3" id = "width" rows="1" cols = "10"  placeholder = "0" title="Specifies the width of the cannon.">15</textarea>
+		<textarea class="editbuttons barrelsettings pos3" id="width" rows="1" cols="10"  placeholder="0" title="Specifies the width of the cannon.">15</textarea>
 		
 		<p class="editbuttons barrelsettings pos4label"><b>Length </b><span title="Specifies the length of the cannon." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos4" id = "length" rows="1" cols = "10"  placeholder = "0" title="Specifies the length of the cannon.">60</textarea>
+		<textarea class="editbuttons barrelsettings pos4" id="length" rows="1" cols="10"  placeholder="0" title="Specifies the length of the cannon.">60</textarea>
 		
 		<p class="editbuttons barrelsettings pos5label"><b>X Offset </b><span title="Specifies the distance above or below the center. Negative values moves to the right, positive to the left." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos5" id = "offset" rows="1" cols = "10"  placeholder = "0" title="Specifies the distance above or below the center. Negative values moves to the right, positive to the left.">0</textarea>
+		<textarea class="editbuttons barrelsettings pos5" id="offset" rows="1" cols="10"  placeholder="0" title="Specifies the distance above or below the center. Negative values moves to the right, positive to the left.">0</textarea>
 		
 		<p class="editbuttons barrelsettings pos6label"><b>Y Offset </b><span title="Specifies the distance from the center of the tank. Negative values moves down, positive moves up." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos6" id = "offsetx" rows="1" cols = "10"  placeholder = "0" title="Specifies the distance from the center of the tank. Negative values moves down, positive moves up.">0</textarea>
+		<textarea class="editbuttons barrelsettings pos6" id="offsetx" rows="1" cols="10"  placeholder="0" title="Specifies the distance from the center of the tank. Negative values moves down, positive moves up.">0</textarea>
 		
 		<p class="editbuttons barrelsettings pos7label"><b>Reload </b><span title="Specifies the time it takes to fire again, in seconds." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos7" id = "reload" rows="1" cols = "10"  placeholder = "0" title="Specifies the time it takes to fire again, in seconds.">2</textarea>
+		<textarea class="editbuttons barrelsettings pos7" id="reload" rows="1" cols="10"  placeholder="0" title="Specifies the time it takes to fire again, in seconds.">2</textarea>
 		
 		<p class="editbuttons barrelsettings pos8label"><b>Recoil </b><span title="Specifies how much recoil/knockback this cannon gives." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos8" id = "knockback" rows="1" cols = "10"  placeholder = "0" title="Specifies how much recoil/knockback this cannon gives.">0</textarea>
+		<textarea class="editbuttons barrelsettings pos8" id="knockback" rows="1" cols="10"  placeholder="0" title="Specifies how much recoil/knockback this cannon gives.">0</textarea>
 		
-		<p class="editbuttons barrelsettings pos9label"><b>Spread </b><span title="Specifies the accuracy of this cannon in degrees. 0 = Fires in a straight line. 360 = fires randomly in any direction. Recommended values are between 0-30." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos9" id = "spread" rows="1" cols = "10"  placeholder = "0" title="Specifies the accuracy of this cannon in degrees. 0 = Fires in a straight line. 360 = fires randomly in any direction. Recommended values are between 0-30.">0</textarea>
+		<p class="editbuttons barrelsettings pos9label"><b>Spread </b><span title="Specifies the accuracy of this cannon in degrees. 0=Fires in a straight line. 360=fires randomly in any direction. Recommended values are between 0-30." class="info">ⓘ</span></p>
+		<textarea class="editbuttons barrelsettings pos9" id="spread" rows="1" cols="10"  placeholder="0" title="Specifies the accuracy of this cannon in degrees. 0=Fires in a straight line. 360=fires randomly in any direction. Recommended values are between 0-30.">0</textarea>
 		
 		<p class="editbuttons barrelsettings pos10label"><b>Delay </b><span title="Specifies the delay before the cannon can first fire." class="info">ⓘ</span></p>
-		<textarea class="editbuttons barrelsettings pos10" id = "basedelay" rows="1" cols = "10"  placeholder = "0" title="Specifies the delay before the cannon can first fire.">0</textarea>
+		<textarea class="editbuttons barrelsettings pos10" id="basedelay" rows="1" cols="10"  placeholder="0" title="Specifies the delay before the cannon can first fire.">0</textarea>
 		
 		<p class="editbuttons bulletsettings pos1label"><b>Bullet Size </b><span title="Specifies the size of the projectiles this cannon fires." class="info">ⓘ</span></p>
-		<textarea class="editbuttons bulletsettings pos1" id = "size" rows="1" cols = "10"  placeholder = "0" title="Specifies the size of the projectiles this cannon fires.">15</textarea>
+		<textarea class="editbuttons bulletsettings pos1" id="size" rows="1" cols="10"  placeholder="0" title="Specifies the size of the projectiles this cannon fires.">15</textarea>
 		
 		<p class="editbuttons bulletsettings pos2label"><b>Bullet Speed </b><span title="Specifies the speed of the projectiles this cannon fires." class="info">ⓘ</span></p>
-		<textarea class="editbuttons bulletsettings pos2" id = "speed" rows="1" cols = "10"  placeholder = "0" title="Specifies the speed of the projectiles this cannon fires.">50</textarea>
+		<textarea class="editbuttons bulletsettings pos2" id="speed" rows="1" cols="10"  placeholder="0" title="Specifies the speed of the projectiles this cannon fires.">50</textarea>
 		
 		<p class="editbuttons bulletsettings pos3label"><b>Bullet Lifespan </b><span title="Specifies the lifetime of the projectiles this cannon fires. Does not effect drones. Value is in seconds." class="info">ⓘ</span></p>
-		<textarea class="editbuttons bulletsettings pos3" id = "time" rows="1" cols = "10"  placeholder = "0" title="Specifies the lifetime of the projectiles this cannon fires. Does not effect drones. Value is in seconds.">1</textarea>
+		<textarea class="editbuttons bulletsettings pos3" id="time" rows="1" cols="10"  placeholder="0" title="Specifies the lifetime of the projectiles this cannon fires. Does not effect drones. Value is in seconds.">1</textarea>
 		
-		<p class="editbuttons bulletsettings pos4label"><b>Bullet Damage </b><span title="Specifies the damage of the bullets this cannon fires. Squares = 100HP  Triangles = 300HP  Pentagons = 1400HP" class="info">ⓘ</span></p>
-		<textarea class="editbuttons bulletsettings pos4" id = "damage" rows="1" cols = "10"  placeholder = "0" title="Specifies the damage of the bullets this cannon fires. Squares = 100HP  Triangles = 300HP  Pentagons = 1400HP">65</textarea>
+		<p class="editbuttons bulletsettings pos4label"><b>Bullet Damage </b><span title="Specifies the damage of the bullets this cannon fires. Squares=100HP  Triangles=300HP  Pentagons=1400HP" class="info">ⓘ</span></p>
+		<textarea class="editbuttons bulletsettings pos4" id="damage" rows="1" cols="10"  placeholder="0" title="Specifies the damage of the bullets this cannon fires. Squares=100HP  Triangles=300HP  Pentagons=1400HP">65</textarea>
 		
 		<p class="editbuttons bulletsettings pos5label"><b>Toggle Inherit </b><span title="Toggles if these values are ignored by the barrel. Uncheck to use these values." class="info">ⓘ</span></p>
-		<input type="checkbox" class = "editbuttons bulletsettings pos5" id="use" checked title="Toggles if these values are ignored by the barrel. Uncheck to use these values.">
+		<input type="checkbox" class="editbuttons bulletsettings pos5" id="use" checked title="Toggles if these values are ignored by the barrel. Uncheck to use these values.">
 		
-		<button class = "editbuttons savesettings pos1label" onclick = "printObject()" >Export tank.</button>
-		<button class = "editbuttons savesettings pos2label" onclick = "importObject()" >Import tank.</button>
-		<textarea class="editbuttons savesettings pos1 textexport" id = "save" placeholder = "Save Codes go here..."></textarea>
+		<button class="editbuttons savesettings pos1label" onclick="printObject()" >Export tank.</button>
+		<button class="editbuttons savesettings pos2label" onclick="importObject()" >Import tank.</button>
+		<textarea class="editbuttons savesettings pos1 textexport" id="save" placeholder="Save Codes go here..."></textarea>
 		
-		<p class="editbuttons" id = "notes">Q to place barrels. Barrels place in order of last placed to first. <br> F to remove barrels. WARNING: Removes all barrels within 1° at once! <br> Hold Shift to align in 15° increments. Red line determines front of tank. <br> Ctrl + Scroll Wheel to adjust zoom (Limited in some browsers) <br> Click outside of textboxes before placing or removing barrels. </p>
+		<p class="editbuttons" id="notes">Q to place barrels. Barrels place in order of last placed to first. <br> F to remove barrels. WARNING: Removes all barrels within 1° at once! <br> Hold Shift to align in 15° increments. Red line determines front of tank. <br> Ctrl + Scroll Wheel to adjust zoom (Limited in some browsers) <br> Click outside of textboxes before placing or removing barrels. </p>
 	</body>
 </html>

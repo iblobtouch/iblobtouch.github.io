@@ -253,7 +253,9 @@ function drawTank() {
 
 	//Delay timer
 	for (var n = 0; n < barrels.length; n += 1) {
-		if (barrels[n].delay > 0) {
+		if (barrels[n].hasOwnProperty("delay") === false) {
+			barrels[n].delay = 0
+		} else if (barrels[n].delay > 0) {
 			barrels[n].delay -= 1;
 		}
 	}

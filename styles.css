@@ -78,6 +78,17 @@ button:active {
 	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
 }
 
+kbd {
+	background-color: #e1e3e5;
+	border: 1px solid gray;
+	border-radius: 3px;
+	box-shadow: 0px 1px 0px rgba(12,13,14,0.2), 0px 0px 0px 2px #FFF inset;
+	font-size: 1em;
+	line-height: 1.75;
+	margin: 0em 0.1em;
+	padding: 0.1em 0.6em;
+}
+
 #watermark {
 	position: absolute;
 	right: 10px;
@@ -168,7 +179,7 @@ button:active {
 }
 
 #undobutton {
-	bottom: 100px;
+	bottom: 150px;
 	margin-left: 110px;
 }
 
@@ -183,7 +194,7 @@ button:active {
 }
 
 #redobutton {
-	bottom: 100px;
+	bottom: 150px;
 	margin-left: 220px;
 }
 

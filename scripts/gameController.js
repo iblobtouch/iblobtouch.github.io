@@ -77,7 +77,7 @@ function drawMovement() {
 function drawTank() {
 	var tankpointx = c.width / 2 - accel.x * 20;
 	var tankpointy = c.height / 2 - accel.y * 20;
-	
+
 	if (editmode === false) {
 		if (document.getElementById("spawn").checked === true) {
 			if (shapetimer > 1) {
@@ -114,7 +114,7 @@ function drawTank() {
 					}
 				}
 			}
-			
+
 			if (Math.sqrt(Math.pow(shapes[n].x - tankpointx, 2) + Math.pow(shapes[n].y - tankpointy, 2)) < parseFloat(validateField(document.getElementById("body").value, 32)) + shapes[n].size / 2) {
 				if (shapes[n].health > parseFloat(validateField(document.getElementById("bodydamage").value, 50))) {
 					shapes[n].health -= parseFloat(validateField(document.getElementById("bodydamage").value, 50));
@@ -126,27 +126,27 @@ function drawTank() {
 					shapes.splice(n, 1);
 				}
 			}
-			
+
 			//Yellow Square
 			if (shapes[n].type === 0) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");
-			
+
 			//Red Triangle
 			} else if (shapes[n].type === 1) {
 				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FC7677");
-			
+
 			//Blue Pentagon
 			} else if (shapes[n].type === 2) {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
-				
+
 			//Blue Alpha Pentagon
 			} else if (shapes[n].type === 3) {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
-				
+
 			//Green Square
 			} else if (shapes[n].type === 4) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
-				
+
 			//Green Pentagon
 			} else {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
@@ -180,8 +180,8 @@ function drawTank() {
 			}
 		}
 	}
-	
-	
+
+
 	if (((mouse.held === true) || (autofire === true)) && (editmode === false)) {
 		for (var n = 0; n < barrels.length; n += 1) {
 			var canfire = true;
@@ -190,37 +190,37 @@ function drawTank() {
 					var canfire = false;
 				}
 			}
-			
+
 			var damage = 10;
 			if (barrels[n].hasOwnProperty("damage") === true) {
 				damage = barrels[n].damage;
 			}
-			
+
 			//Starts delay timer & disables it being run a second time
 			if ((barrels[n].delay <= 0) &&  (barrels[n].basedelay > 0) && (barrels[n].delayed === true)) {
 				barrels[n].delay = barrels[n].basedelay;
 				barrels[n].delayed = false;
 			}
-			
+
 			if ((barrels[n].delay === 0)  && (barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
 				if (barrels[n].hasOwnProperty("knockback") === false) {
 					barrels[n].knockback = 0;
 				}
-				
+
 				var ydif = xdistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				var xdif = ydistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
-				
+
 				if (barrels[n].hasOwnProperty("b") === true) {
 					bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
 					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
 					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
-					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x, 
+					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
 					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, barrels[n].spread);
 				} else {
 					bullets[bullets.length] = new Bullet(n, barrels[n].width / 2, 5, 360,
 					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
 					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
-					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x, 
+					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
 					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, 0);
 				}
 
@@ -241,16 +241,16 @@ function drawTank() {
 					necrolimit += 1;
 				}
 			}
-		} 
+		}
 
 	//Reenables delay timer
 	} else for (var n = 0; n < barrels.length; n += 1) {
 		if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
 			barrels[n].delayed = true;
 		}
-	} 
-	
-	
+	}
+
+
 	//Delay timer
 	for (var n = 0; n < barrels.length; n += 1) {
 		if (barrels[n].delay > 0) {
@@ -265,9 +265,9 @@ function drawTank() {
 
 	for (var n = 0; n < bullets.length; n += 1) {
 		//Loop through each bullet.
-		
+
 		var isclose = false;
-		
+
 		if (bullets[n].type > 1) {
 			for (var i = 0; i < bullets.length; i += 1) {
 				if ((bullets[i].type > 1) && (i != n) && (bullets[n].x >= bullets[i].x - bullets[i].size) && (bullets[n].x <= bullets[i].x + bullets[i].size) && (bullets[n].y >= bullets[i].y - bullets[i].size) && (bullets[n].y <= bullets[i].y + bullets[i].size)) {
@@ -306,24 +306,24 @@ function drawTank() {
 
 			bullets[n].targetx += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
 			bullets[n].targety += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
-			
+
 			bullets[n].x += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totalx - bullets[n].initoffx);
 
 			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totaly - bullets[n].initoffy);
-			
+
 			bullets[n].initoffx = offset.totalx;
 			bullets[n].initoffy = offset.totaly;
 
 			//Get the bullets current x and y based on distance, offset and angle.
 		} else {
-			
+
 			bullets[n].targetx += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
 			bullets[n].targety += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
-			
+
 			bullets[n].x += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totalx - bullets[n].initoffx);
 
 			bullets[n].y += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle) + (offset.totaly - bullets[n].initoffy);
-			
+
 			bullets[n].initoffx = offset.totalx;
 			bullets[n].initoffy = offset.totaly;
 		}
@@ -403,7 +403,7 @@ function drawTank() {
 		mouse.x = (Math.cos((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointx;
 		mouse.y = (Math.sin((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointy;
 	}
-	
+
 	var tanksize = parseFloat(validateField(document.getElementById("body").value, 32));
 	var shape = document.getElementById("shape").value;
 
@@ -481,7 +481,7 @@ function drawTank() {
 		ctx.fill();
 		ctx.restore();
 	}
-	
+
 	if (shape === "triangle") {
 		ctx.save();
 		ctx.globalAlpha = tankalpha;
@@ -503,7 +503,7 @@ function drawTank() {
 		ctx.translate(-tankpointx, -tankpointy);
 		ctx.clearRect(0, 0, c.width, c.height);
 		ctx.restore();
-		
+
 		ctx.save();
 		ctx.globalAlpha = tankalpha;
 		ctx.translate(tankpointx, tankpointy);
@@ -514,7 +514,7 @@ function drawTank() {
 		drawDrone(0, 0, tanksize, 0, document.getElementById("color").value);
 		ctx.restore();
 	}
-	
+
 	if (shape === "pentagon") {
 		ctx.save();
 		ctx.translate(tankpointx, tankpointy);
@@ -539,7 +539,7 @@ function drawTank() {
 		ctx.translate(-tankpointx, -tankpointy);
 		ctx.clearRect(0, 0, c.width, c.height);
 		ctx.restore();
-		
+
 		ctx.save();
 		ctx.globalAlpha = tankalpha;
 		ctx.strokeStyle = "#555555";
@@ -566,9 +566,9 @@ function drawTank() {
 		ctx.fill();
 		ctx.stroke();
 		ctx.restore();
-		
+
 	}
-	
+
 	if (shape === "mothership") {
 		ctx.save();
 		ctx.translate(tankpointx, tankpointy);
@@ -615,7 +615,7 @@ function drawTank() {
 		ctx.translate(-tankpointx, -tankpointy);
 		ctx.clearRect(0, 0, c.width, c.height);
 		ctx.restore();
-		
+
 		ctx.save();
 		ctx.globalAlpha = tankalpha;
 		ctx.strokeStyle = "#555555";

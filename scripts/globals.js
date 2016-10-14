@@ -298,7 +298,7 @@ function importObject() {
 	var firstAst = inputtext.indexOf("*");
 	var secondAst = inputtext.indexOf("*", firstAst+1);
 	var bracketOpen = inputtext.indexOf("[", secondAst);
-	var bracketClose = inputtext.indexOf("]", bracketOpen);
+	var bracketClose = inputtext.lastIndexOf("]");
 
 	// Defaults
 	document.getElementById("body").value = 32;

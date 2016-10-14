@@ -290,33 +290,53 @@ function ydistancefrom(x, y, cx, cy, distance, aoffset) {
 
 function importObject() {
 	var inputtext = "" + document.getElementById("save").value;
-	if (inputtext.length > 0) {
-		if (inputtext.substr(0, 1) === "[") {
-			console.log("notfound");
-			document.getElementById("body").value = 32;
-			barrels = JSON.parse(inputtext);
-		} else if (inputtext.indexOf("*") === -1) {
-			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
-			document.getElementById("shape").value = "circle";
-			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
-		} else if (inputtext.indexOf("*") === -1) {
-			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("["));
-			document.getElementById("shape").value = "circle";
-			document.getElementById("color").value = "#00b2e1";
-			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
-		} else if (inputtext.indexOf("*", inputtext.indexOf("*")+1) === -1) {
-			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("*"));
-			document.getElementById("shape").value = inputtext.substr(inputtext.indexOf("*") + 1, inputtext.indexOf("[") - 1 - inputtext.indexOf("*"));
-			document.getElementById("color").value = "#00b2e1";
-			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
-		} else {
-			document.getElementById("body").value = inputtext.substr(0, inputtext.indexOf("*"));
-			var first = inputtext.indexOf("*");
-			var second = inputtext.indexOf("*", first+1);
-			document.getElementById("shape").value = inputtext.substr(first + 1, second - 1 - first);
-			document.getElementById("color").value = inputtext.substr(second + 1, inputtext.indexOf("[") -1 -second);
-			barrels = JSON.parse(inputtext.substr(inputtext.indexOf("[")));
-		}
-		undos = [];
+
+	if (inputtext.length < 1) {
+		return;
 	}
+
+	var firstAst = inputtext.indexOf("*");
+	var secondAst = inputtext.indexOf("*", firstAst+1);
+	var bracketOpen = inputtext.indexOf("[", secondAst);
+	var bracketClose = inputtext.indexOf("]", bracketOpen);
+
+	// Defaults
+	document.getElementById("body").value = 32;
+	document.getElementById("shape").value = "circle";
+	document.getElementById("color").value = "#00b2e1";
+	barrels = [];
+
+	// Barrels
+	if (bracketOpen > -1, bracketClose > -1) {
+		barrels = JSON.parse(inputtext.substr(bracketOpen, bracketClose - bracketOpen + 1));
+		// Ignore everything after the brackts
+		inputtext = inputtext.substr(0, bracketOpen);
+	}
+
+	// Find color location
+	var colorIndex = -1;
+	if (secondAst > -1 && inputtext[secondAst+1] === "#") {
+		colorIndex = secondAst;
+	} else if (firstAst > -1 && inputtext[firstAst+1] === "#") {
+		colorIndex = firstAst;
+	}
+
+	if (colorIndex > -1) {
+		var colorCode = inputtext.substr(colorIndex+1,7);
+		if (colorCode.length === 7) {
+			document.getElementById("color").value = colorCode
+		}
+		inputtext = inputtext.substr(0, colorIndex);
+	}
+
+	if (firstAst > -1 && inputtext.length > firstAst) {
+		document.getElementById("shape").value = inputtext.substr(firstAst+1);
+		inputtext = inputtext.substr(0, firstAst);
+	}
+
+	if (inputtext.length > 0 && !isNaN(inputtext)) {
+		document.getElementById("body").value = inputtext
+	}
+
+	undos = [];
 }

@@ -41,7 +41,7 @@ Click outside of textboxes before placing or removing barrels.
 
 **Acarii** - Misc. Changes & Improvements / CSS
 
-**Likcoras** - Colour Code Export
+**Likcoras** - Something something pale moon, something something sacrafice.
 
 **Normalize.CSS** - Multi-browser support w/ less headaches
 

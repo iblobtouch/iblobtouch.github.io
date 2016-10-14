@@ -71,7 +71,7 @@ function Barrel(a, type, size, speed, time) {
 	this.knockback = parseFloat(validateField(document.getElementById("knockback").value, 0, false)) / 10;
 	this.disabled = document.getElementById("disable").checked;
 	this.spread = parseFloat(validateField(document.getElementById("spread").value, 0, false));
-	
+
 	if (document.getElementById("use").checked === false) {
 		this.b = [size, speed, time];
 	} else {
@@ -110,7 +110,7 @@ var bullets = [];
 
 function Shape(x, y, random) {
 	var stype = 0;
-	
+
 	//Yellow Square
 	if (random < 0.65) {
 		stype = 0;
@@ -138,7 +138,7 @@ function Shape(x, y, random) {
 		this.size = 85;
 		this.health = 14000;
 		this.maxhealth = 14000;
-	
+
 	//Green Square
 	} else if (random < 0.9995) {
 		stype = 4;
@@ -153,7 +153,7 @@ function Shape(x, y, random) {
 		this.health = 14000;
 		this.maxhealth = 14000;
 	}
-	
+
 	this.initx = offset.totalx;
 	this.inity = offset.totaly;
 	this.x = x;
@@ -215,25 +215,25 @@ function showhide(e, bo, ba, bu, s) {
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = e;
 	}
-	
+
 	elements = document.getElementsByClassName("tanksettings");
 
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = bo;
 	}
-	
+
 	elements = document.getElementsByClassName("barrelsettings");
 
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = ba;
 	}
-	
+
 	elements = document.getElementsByClassName("bulletsettings");
 
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = bu;
 	}
-	
+
 	elements = document.getElementsByClassName("savesettings");
 
 	for (var i = 0; i < elements.length; i++) {
@@ -260,12 +260,12 @@ function printObject() {
 	var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "[";
 	if (barrels.length > 0) {
 		for (var i = 0; i < barrels.length; i += 1) {
-			
+
 			//Prevents timers from outputting current times to code.
 			barrels[i].reload = 0;
 			barrels[i].delay = 0;
 			barrels[i].delayed = true;
-			
+
 			outtext += JSON.stringify(barrels[i]);
 			if (i < barrels.length - 1) {
 				outtext += ", ";

@@ -81,9 +81,9 @@ function drawTank() {
 	if (editmode === false) {
 		if (document.getElementById("spawn").checked === true) {
 			if (shapetimer > 1) {
-				shapetimer -= 1;
+				shapetimer -= 120;
 			} else {
-				shapetimer = 120;
+				shapetimer = 1;
 				shapes[shapes.length] = new Shape((Math.random() * c.width),  (Math.random() * c.height), Math.random());
 			}
 		}
@@ -146,6 +146,10 @@ function drawTank() {
 			//Green Square
 			} else if (shapes[n].type === 4) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+
+			//Green Triangle
+			} else if (shapes[n].type === 5) {
+				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
 
 			//Green Pentagon
 			} else {

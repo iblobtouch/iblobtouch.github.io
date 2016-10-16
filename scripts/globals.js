@@ -136,22 +136,29 @@ function Shape(x, y, random) {
 	} else if (random < 0.9990) {
 		stype = 3;
 		this.size = 85;
-		this.health = 14000;
-		this.maxhealth = 14000;
+		this.health = 20000;
+		this.maxhealth = 20000;
 
 	//Green Square
-	} else if (random < 0.9995) {
+	} else if (random < 0.9993) {
 		stype = 4;
 		this.size = 25;
 		this.health = 2000;
 		this.maxhealth = 2000;
 
+	//Green Triangle
+	} else if (random < 0.9996) {
+		stype = 5;
+		this.size = 25;
+		this.health = 6000;
+		this.maxhealth = 6000;
+
 	//Green Pentagon
 	} else {
-		stype = 5;
+		stype = 6;
 		this.size = 36;
-		this.health = 14000;
-		this.maxhealth = 14000;
+		this.health = 24000;
+		this.maxhealth = 24000;
 	}
 
 	this.initx = offset.totalx;

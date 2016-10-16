@@ -311,7 +311,7 @@ kbd {
 }
 
 /* Tooltips */
-.info {
+.info , .warninginfo{
 	position: relative;
 	font: 14px ubuntu;
 	font-weight: bold;
@@ -341,7 +341,28 @@ kbd {
 	transition: visibility 0.3s, opacity 0.3s;
 }
 
-.info:after {
+.warninginfo:before {
+	content: attr(data-tooltip);
+	position: absolute;
+	background-color: rgba(255,20,20,0.9);
+	border: 2px solid black;
+	color: yellow;
+	border-radius: 10px;
+	padding: 4px 7px;
+	font-size: 11px;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+	line-height: 1.2em;
+	width: 140px;
+	margin-left: -70px;
+	bottom: 150%;
+	left: 50%;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.3s, opacity 0.3s;
+}
+
+.info:after, .warninginfo:after {
 	content: "";
 	position: absolute;
 	border-style: solid;
@@ -355,7 +376,7 @@ kbd {
 	transition: visibility 0.3s, opacity 0.3s;
 }
 
-.info:hover:before, .info:hover:after {
+.info:hover:before, .info:hover:after, .warninginfo:hover:before, .warninginfo:hover:after {
 	visibility: visible;
 	opacity: 1;
 	transition: visibility 0.3s, opacity 0.5s;

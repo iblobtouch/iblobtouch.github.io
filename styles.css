@@ -311,11 +311,51 @@ kbd {
 }
 
 .info {
+	position: relative;
 	font: 14px ubuntu;
 	font-weight: bold;
 	color: #0022C8;
 	text-shadow: none;
 	margin-left: 3px;
+}
+
+/* New and improved tooltips */
+.info:before {
+	content: attr(data-tooltip);
+	position: absolute;
+	background-color: #00B2E1;
+	color: white;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 12px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+	width: 150px;
+	margin-left: -75px;
+	bottom: 150%;
+	left: 50%;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.5s, opacity 0.5s;
+}
+
+.info:after {
+	content: "";
+	position: absolute;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #005970 transparent transparent transparent;
+	margin-left: 0px;
+	bottom: 100%;
+	left: 50%;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.5s, opacity 0.5s;
+}
+
+.info:hover:before, .info:hover:after {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0.5s, opacity 0.5s;
 }
 
 .textexport {

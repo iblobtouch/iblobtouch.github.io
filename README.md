@@ -9,9 +9,9 @@ Remember when you said you wanted a cool flamethrower in game? Or that time when
 
 `W` `A` `S` `D` or `Arrow` keys to move.
 
-`Left Click` to fire
+`Left Click` to fire.
 
-`Right Click` to altfire (Drones only)
+`Right Click` to repel drones.
 
 `E` to auto-fire. Press again to turn off.
 
@@ -51,4 +51,5 @@ Click outside of textboxes before placing or removing barrels.
 
 **Aryamanarora** - Metadata
 
-**Ericw31415** - Tidying up & improving info stuff
+[//]: # (Note: ericw31415 doesn't like having his username capitalized.)
+**ericw31415** - Tidying up & improving info stuff

@@ -37,6 +37,7 @@ Click outside of textboxes before placing or removing barrels.
 
 ## Credits
 
+
 **IBlobTouch** - Project Creator/Lead
 
 **Acarii** - Misc. Changes & Improvements / CSS
@@ -44,10 +45,6 @@ Click outside of textboxes before placing or removing barrels.
 **Likcoras** - Constant help and guidance (& voodoo export code.)
 
 **Normalize.CSS** - Multi-browser support w/ less headaches
-
---
-
-**One off/Minor Changes:**
 
 **Aryamanarora** - Metadata
 

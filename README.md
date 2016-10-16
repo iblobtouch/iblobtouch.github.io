@@ -51,5 +51,5 @@ Click outside of textboxes before placing or removing barrels.
 
 **Aryamanarora** - Metadata
 
-# (Note: ericw31415 doesn't like having his username capitalized.)
+[//]: # (Note: ericw31415 doesn't like having his username capitalized.)
 **ericw31415** - Tidying up & improving info stuff

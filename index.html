@@ -55,29 +55,29 @@
 			<option value="mothership">Mothership</option>
 		</select>
 		
-		<p class="editbuttons tanksettings pos3label"><b>Colour </b><span data-tooltip="Specifies what colour should be used for the tank and bullets." class="info">ⓘ</span></p>
+     		<p class="editbuttons tanksettings pos3label"><b>Colour </b><span data-tooltip="Specifies what colour should be used for the tank and bullets." class="info">ⓘ</span></p>
 		<input type="color" class="editbuttons tanksettings pos3" id="color" value="#00B2E1" data-tooltip="Specifies what colour should be used for the tank and bullets.">
 		
-		<input type="button" class="editbuttons tanksettings presetred" id="setcolorred" onclick="setColor('#F14E54')" data-tooltip="Red Team" />
-		<input type="button" class="editbuttons tanksettings presetblue" id="setcolorblue" onclick="setColor('#00B2E1')" data-tooltip="Blue Team" />
-		<input type="button" class="editbuttons tanksettings presetgreen" id="setcolorgreen" onclick="setColor('#00E16E')" data-tooltip="Green Team" />
-		<input type="button" class="editbuttons tanksettings presetpurple" id="setcolorpurple" onclick="setColor('#BF7FF5')" data-tooltip="Purple Team" />
-		<input type="button" class="editbuttons tanksettings presetyellow" id="setcoloryellow" onclick="setColor('#FFEB69')" data-tooltip="Arena Closer/No Team" />
-		<input type="button" class="editbuttons tanksettings presetlightgrey" id="setcolorlightgrey" onclick="setColor('#C0C0C0')" data-tooltip="Fallen Tank" />
-		<input type="button" class="editbuttons tanksettings presetpalered" id="setcolorpalered" onclick="setColor('#FC7677')" data-tooltip="Defender" />
-		<input type="button" class="editbuttons tanksettings presetviolet" id="setcolorviolet" onclick="setColor('#F177DD')" data-tooltip="Protecter of Pentagons" />
+		<input type="button" class="editbuttons tanksettings presetred" id="setcolorred" onclick="setColor('#F14E54')" title="Red Team" />
+		<input type="button" class="editbuttons tanksettings presetblue" id="setcolorblue" onclick="setColor('#00B2E1')" title="Blue Team" />
+		<input type="button" class="editbuttons tanksettings presetgreen" id="setcolorgreen" onclick="setColor('#00E16E')" title="Green Team" />
+		<input type="button" class="editbuttons tanksettings presetpurple" id="setcolorpurple" onclick="setColor('#BF7FF5')" title="Purple Team" />
+		<input type="button" class="editbuttons tanksettings presetyellow" id="setcoloryellow" onclick="setColor('#FFEB69')" title="Arena Closer/No Team" />
+		<input type="button" class="editbuttons tanksettings presetlightgrey" id="setcolorlightgrey" onclick="setColor('#C0C0C0')" title="Fallen Tank" />
+		<input type="button" class="editbuttons tanksettings presetpalered" id="setcolorpalered" onclick="setColor('#FC7677')" title="Defender" />
+		<input type="button" class="editbuttons tanksettings presetviolet" id="setcolorviolet" onclick="setColor('#F177DD')" title="Protecter of Pentagons" />
 		
 		<p class="editbuttons tanksettings pos4label"><b>Invisibility </b><span data-tooltip="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet." class="info">ⓘ</span></p>
 		<input type="checkbox" class="editbuttons tanksettings pos4" id="invis" data-tooltip="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet.">
 		
-		<p class="editbuttons tanksettings pos5label"><b>Drone Limit </b><span data-tooltip="Specifies the maximum number of drones that can be on screen. NOTE: Does not save. Yet." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos5" id="drones" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the maximum number of drones that can be on screen. NOTE: Does not save. Yet.">8</textarea>
+		<p class="editbuttons tanksettings pos5label"><b>Drone Limit </b><span data-tooltip="Specifies the maximum number of drones that can be on screen. WARNING: Does not save to export. Yet." class="info">ⓘ</span></p>
+		<textarea class="editbuttons tanksettings pos5" id="drones" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the maximum number of drones that can be on screen. WARNING: Does not save to export. Yet.">8</textarea>
 		
-		<p class="editbuttons tanksettings pos6label"><b>Necro Drone Limit </b><span data-tooltip="Specifies the maximum number of Necromancer type drones that can be on screen. NOTE: Does not save. Yet." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos6" id="necrodrones" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the maximum number of Necromancer type drones that can be on screen. NOTE: Does not save. Yet.">16</textarea>
+		<p class="editbuttons tanksettings pos6label"><b>Necro Limit </b><span data-tooltip="Specifies the maximum number of Necromancer type drones that can be on screen. WARNING: Does not save to export. Yet." class="info">ⓘ</span></p>
+		<textarea class="editbuttons tanksettings pos6" id="necrodrones" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the maximum number of Necromancer type drones that can be on screen. WARNING: Does not save to export. Yet.">16</textarea>
 		
-		<p class="editbuttons tanksettings pos7label"><b>Body Damage </b><span data-tooltip="Specifies the damage the body of the tank does to a shape on collision. NOTE: Does not save. Yet." class="info">ⓘ</span></p>
-		<textarea class="editbuttons tanksettings pos7" id="bodydamage" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the damage the body of the tank does to a shape on collision. NOTE: Does not save. Yet.">50</textarea>
+		<p class="editbuttons tanksettings pos7label"><b>Body Damage </b><span data-tooltip="Specifies the damage the body of the tank does to a shape on collision. WARNING: Does not save to export. Yet." class="info">ⓘ</span></p>
+		<textarea class="editbuttons tanksettings pos7" id="bodydamage" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the damage the body of the tank does to a shape on collision. WARNING: Does not save to export. Yet.">50</textarea>
 		
 		<p class="editbuttons barrelsettings pos1label" id="traplabel"><b>Barrel </b><span data-tooltip="Specifies what type of barrel you want to place." class="info">ⓘ</span></p>
 		<select class="editbuttons barrelsettings pos1" id="bullet" data-tooltip="Specifies what type of barrel you want to place.">
@@ -127,7 +127,7 @@
 		<textarea class="editbuttons bulletsettings pos4" id="damage" rows="1" cols="10"  placeholder="0" data-tooltip="Specifies the damage of the bullets this cannon fires. Squares=100HP  Triangles=300HP  Pentagons=1400HP">65</textarea>
 		
 		<p class="editbuttons bulletsettings pos5label"><b>Toggle Inherit </b><span data-tooltip="Toggles if these values are used by the barrel or not. Uncheck to use these values. If left checked, these values will automatically be generated by the editor." class="info">ⓘ</span></p>
-		<input type="checkbox" class="editbuttons bulletsettings pos5" id="use" checked data-tooltip="Toggles if these values are ignored by the barrel. Uncheck to use these values.">
+		<input type="checkbox" class="editbuttons bulletsettings pos5" id="use" checked data-tooltip="Toggles if these values are ignored by the barrel. Uncheck to use these values. If left checked, these values will automatically be generated by the editor.">
 		
 		<button class="editbuttons savesettings pos1label" onclick="printObject()" >Export tank.</button>
 		<button class="editbuttons savesettings pos2label" onclick="importObject()" >Import tank.</button>

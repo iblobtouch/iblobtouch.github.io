@@ -310,7 +310,8 @@ kbd {
 	background-color: #F177DD;
 }
 
-.info {
+/* Tooltips */
+.info , .warninginfo{
 	position: relative;
 	font: 14px ubuntu;
 	font-weight: bold;
@@ -319,43 +320,66 @@ kbd {
 	margin-left: 3px;
 }
 
-/* New and improved tooltips */
 .info:before {
 	content: attr(data-tooltip);
 	position: absolute;
-	background-color: #00B2E1;
+	background-color: rgba(20,105,255,0.9);
+	border: 2px solid black;
 	color: white;
-	border-radius: 5px;
-	padding: 5px 10px;
-	font-size: 12px;
+	border-radius: 10px;
+	padding: 4px 7px;
+	font-size: 11px;
+	text-align: center;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	width: 150px;
-	margin-left: -75px;
+	line-height: 1.2em;
+	width: 140px;
+	margin-left: -70px;
 	bottom: 150%;
 	left: 50%;
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility 0.5s, opacity 0.5s;
+	transition: visibility 0.3s, opacity 0.3s;
 }
 
-.info:after {
-	content: "";
+.warninginfo:before {
+	content: attr(data-tooltip);
 	position: absolute;
-	border-style: solid;
-	border-width: 5px;
-	border-color: #005970 transparent transparent transparent;
-	margin-left: 0px;
-	bottom: 100%;
+	background-color: rgba(255,20,20,0.9);
+	border: 2px solid black;
+	color: yellow;
+	border-radius: 10px;
+	padding: 4px 7px;
+	font-size: 11px;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+	line-height: 1.2em;
+	width: 140px;
+	margin-left: -70px;
+	bottom: 150%;
 	left: 50%;
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility 0.5s, opacity 0.5s;
+	transition: visibility 0.3s, opacity 0.3s;
 }
 
-.info:hover:before, .info:hover:after {
+.info:after, .warninginfo:after {
+	content: "";
+	position: absolute;
+	border-style: solid;
+	border-width: 8px;
+	border-color: black transparent transparent transparent;
+	margin-left: 0px;
+	bottom: 65%;
+	left: 50%;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.3s, opacity 0.3s;
+}
+
+.info:hover:before, .info:hover:after, .warninginfo:hover:before, .warninginfo:hover:after {
 	visibility: visible;
 	opacity: 1;
-	transition: visibility 0.5s, opacity 0.5s;
+	transition: visibility 0.3s, opacity 0.5s;
 }
 
 .textexport {

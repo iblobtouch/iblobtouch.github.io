@@ -41,10 +41,14 @@ Click outside of textboxes before placing or removing barrels.
 
 **Acarii** - Misc. Changes & Improvements / CSS
 
-**Likcoras** - Something something pale moon, something something sacrafice.
+**Likcoras** - Constant help and guidance (& voodoo export code.)
 
 **Normalize.CSS** - Multi-browser support w/ less headaches
 
 --
 
-One off/Minor Changes: **Aryamanarora**
+**One off/Minor Changes:**
+
+**Aryamanarora** - Metadata
+
+**Ericw31415** - Tidying up & improving info stuff

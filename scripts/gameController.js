@@ -147,6 +147,10 @@ function drawTank() {
 			} else if (shapes[n].type === 4) {
 				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
 
+			//Green Triangle
+			} else if (shapes[n].type === 5) {
+				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+
 			//Green Pentagon
 			} else {
 				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
@@ -253,7 +257,9 @@ function drawTank() {
 
 	//Delay timer
 	for (var n = 0; n < barrels.length; n += 1) {
-		if (barrels[n].delay > 0) {
+		if (barrels[n].hasOwnProperty("delay") === false) {
+			barrels[n].delay = 0
+		} else if (barrels[n].delay > 0) {
 			barrels[n].delay -= 1;
 		}
 	}

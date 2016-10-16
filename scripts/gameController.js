@@ -81,9 +81,9 @@ function drawTank() {
 	if (editmode === false) {
 		if (document.getElementById("spawn").checked === true) {
 			if (shapetimer > 1) {
-				shapetimer -= 120;
+				shapetimer -= 0;
 			} else {
-				shapetimer = 1;
+				shapetimer = 120;
 				shapes[shapes.length] = new Shape((Math.random() * c.width),  (Math.random() * c.height), Math.random());
 			}
 		}

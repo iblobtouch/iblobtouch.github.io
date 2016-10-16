@@ -1,5 +1,5 @@
 body {
-	font: 12px 'ubuntu', sans-serif;
+	font: 12px ubuntu, sans-serif;
 	font-weight: bold;
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
@@ -8,6 +8,17 @@ body {
 
 body {
 	margin: 5px;
+}
+
+#noscript {
+	background-color: red;
+	left: 0;
+	text-align: center;
+	top: 0;
+	padding: 5px;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
 }
 
 #game {
@@ -22,7 +33,7 @@ body {
 }
 
 .ubuntu {
-	font-family: 'ubuntu', sans-serif;
+	font-family: ubuntu, sans-serif;
 }
 
 textarea {
@@ -32,7 +43,7 @@ textarea {
 	width: 90px;
 	height: 17px;
 	line-height: 14px;
-	font: 12px 'ubuntu', sans-serif;
+	font: 12px ubuntu, sans-serif;
 	font-weight: bold;
 	border: 2px solid black;
 	border-radius: 3px;
@@ -45,7 +56,7 @@ select {
 	width: 96px;
 	height: 21px;
 	line-height: 14px;
-	font: 12px 'ubuntu', sans-serif;
+	font: 12px ubuntu, sans-serif;
 	font-weight: bold;
 	border: 2px solid black;
 	border-radius: 3px;
@@ -100,24 +111,24 @@ kbd {
 }
 
 #editbutton {
-	z-index = 5;
+	z-index: 5;
 	position:fixed;
 }
 
 .editbuttons {
-	z-index = 5;
+	z-index: 5;
 	position:fixed;
 	visibility: hidden;
 }
 
 #spawnlabel {
-	position:fixed;
+	position: fixed;
 	margin-top: 0px;
 	margin-left: 110px;
 }
 
 #spawn {
-	position:fixed;
+	position: fixed;
 	margin-top: 0px;
 	margin-left: 210px;
 }
@@ -213,7 +224,7 @@ kbd {
 }
 
 #color {
-	padding: 0;
+	padding: 0px;
 	width: 30px;
 }
 
@@ -222,7 +233,7 @@ kbd {
 .presetred {
 	margin-top: 35px;
 	margin-left: 255px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -232,7 +243,7 @@ kbd {
 .presetblue {
 	margin-top: 46px;
 	margin-left: 255px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -252,7 +263,7 @@ kbd {
 .presetpurple {
 	margin-top: 46px;
 	margin-left: 266px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -262,7 +273,7 @@ kbd {
 .presetyellow {
 	margin-top: 35px;
 	margin-left: 277px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -272,7 +283,7 @@ kbd {
 .presetlightgrey {
 	margin-top: 46px;
 	margin-left: 277px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -282,7 +293,7 @@ kbd {
 .presetpalered {
 	margin-top: 35px;
 	margin-left: 288px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -292,7 +303,7 @@ kbd {
 .presetviolet {
 	margin-top: 46px;
 	margin-left: 288px;
-	padding: 0;
+	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
 	width: 12px;
@@ -300,10 +311,10 @@ kbd {
 }
 
 .info {
-	font:14px ubuntu;
-	font-weight:bold;
-	color:#0022C8;
-	text-shadow:none;
+	font: 14px ubuntu;
+	font-weight: bold;
+	color: #0022C8;
+	text-shadow: none;
 	margin-left: 3px;
 }
 
@@ -474,7 +485,7 @@ kbd {
 }
 
 #notes {
-	font: 13px 'ubuntu', sans-serif;
+	font: 13px ubuntu, sans-serif;
 	border: 2px solid black;
 	border-radius: 5px;
 	background-color: #555;
@@ -485,7 +496,7 @@ kbd {
 }
 
 #version {
-	font: 8px 'ubuntu', sans-serif;
+	font: 8px ubuntu, sans-serif;
 	position: absolute;
 	right: 10px;
 	bottom: 0;

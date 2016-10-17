@@ -313,8 +313,9 @@ kbd {
 /* Tooltips */
 .info , .warninginfo{
 	position: relative;
-	font: 14px ubuntu;
+	font: 16px ubuntu;
 	font-weight: bold;
+	line-height: 0px;
 	color: #0022C8;
 	text-shadow: none;
 	margin-left: 3px;

@@ -21,6 +21,10 @@ body {
 	z-index: 10;
 }
 
+#noscript h1 {
+	font-size: 1.8em;
+}
+
 #game {
 	position: fixed; 
 	top: 0; 

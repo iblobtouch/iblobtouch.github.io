@@ -327,7 +327,7 @@ kbd {
 	background-color: rgba(20,105,255,0.9);
 	border: 2px solid black;
 	color: white;
-	border-radius: 10px;
+	border-radius: 5px;
 	padding: 4px 7px;
 	font-size: 11px;
 	text-align: center;
@@ -348,7 +348,7 @@ kbd {
 	background-color: rgba(255,20,20,0.9);
 	border: 2px solid black;
 	color: yellow;
-	border-radius: 10px;
+	border-radius: 5px;
 	padding: 4px 7px;
 	font-size: 11px;
 	text-align: center;

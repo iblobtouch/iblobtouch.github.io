@@ -7,9 +7,9 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type) {
 	if (editmode === false) {
 		ctx.rotate((angle(tankpointx, tankpointy, mouse.x, mouse.y) + a) * (Math.PI / 180));
 	} else if ((isghost === true) && (shiftheld === true)) {
-		if ((a <= -172.5) || (a >= 172.5)) {
-			a = 180;
-		}
+		//if ((a <= -172.5) || (a >= 172.5)) {
+			//a = 180;
+		//}
 		a -= a % 15;
 		ctx.rotate(a * (Math.PI / 180));
 	} else {

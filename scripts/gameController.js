@@ -403,8 +403,10 @@ function drawTank() {
 	}
 
 	if (editmode === true) {
-		drawBarrel(angle(tankpointx, tankpointy, mouse.x, mouse.y), parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 1)), parseFloat(validateField(document.getElementById("length").value, 1)), 0.5, true, btype);
-		//Draw a ghosted barrel while in edit mode above the normal barrels.
+		for (var n = 1; n <= mirrorBarrels; n += 1) {
+			drawBarrel((angle(tankpointx, tankpointy, mouse.x, mouse.y) + 360 + ((360 / mirrorBarrels) * n)) % 360, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 1)), parseFloat(validateField(document.getElementById("length").value, 1)), 0.5, true, btype);
+			//Draw a ghosted barrel while in edit mode above the normal barrels.
+		}
 	} else if (autospin === true) {
 		mouse.x = (Math.cos((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointx;
 		mouse.y = (Math.sin((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointy;
@@ -817,17 +819,11 @@ function drawManager() {
 }
 
 function placeBarrel() {
-	var rangle = angle(tankpointx, tankpointy, mouse.x, mouse.y);
-	console.log(rangle);
+	var rangle = angle(tankpointx, tankpointy, mouse.x, mouse.y) + 360;
 
 	if (shiftheld === true) {
-		if ((rangle <= -172.5) || (rangle >= 172.5)) {
-			rangle = 180;
-		} else {
 			rangle -= rangle % 15;
-		}
 	}
-	console.log(rangle);
 	var btype = 0;
 
 	if (document.getElementById("bullet").value === "trap") {
@@ -838,7 +834,9 @@ function placeBarrel() {
 		btype = 3;
 	}
 
-	barrels[barrels.length] = new Barrel(rangle, btype, parseFloat(validateField(document.getElementById("size").value - 10, 5, false)), parseFloat(validateField(document.getElementById("speed").value, 1, false)) / 10, parseFloat(validateField(document.getElementById("time").value * 60, 180, false)));
+	for (var n = 1; n <= mirrorBarrels; n += 1) {
+		barrels[barrels.length] = new Barrel((rangle + 360 + ((360 / mirrorBarrels) * n)) % 360, btype, parseFloat(validateField(document.getElementById("size").value - 10, 5, false)), parseFloat(validateField(document.getElementById("speed").value, 1, false)) / 10, parseFloat(validateField(document.getElementById("time").value * 60, 180, false)));
+	}
 }
 
 function keyDownHandler(e) {
@@ -880,6 +878,20 @@ function keyDownHandler(e) {
 	}
 	if (e.keyCode === 70) {
 		input.f = true;
+	}
+	if (editmode === true) {
+		if (e.keyCode === 90) {
+			undo();
+		}
+		if (e.keyCode === 88) {
+			redo();
+		}
+		if (e.keyCode === 79) {
+			mirrorBarrels += 1;
+		}
+		if ((e.keyCode === 80) && (mirrorBarrels > 1)) {
+			mirrorBarrels -= 1;
+		}
 	}
 }
 
@@ -932,7 +944,6 @@ function undo() {
 	if (barrels.length > 0) {
 		undos[undos.length] = barrels[barrels.length - 1];
 		barrels.splice(barrels.length - 1, 1);
-		document.getElementById("color").value = "#FF0000";
 	}
 }
 

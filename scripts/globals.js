@@ -12,6 +12,7 @@ var necrolimit = 0;
 var tankalpha = 1;
 var shapetimer = 120;
 var undos = [];
+var mirrorBarrels = 1;
 
 var tankpointx = c.width / 2;
 var tankpointy = c.height / 2;

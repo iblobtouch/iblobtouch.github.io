@@ -255,13 +255,13 @@ function showhide(e, bo, ba, bu, sa, inf, se) {
 		elements[i].style.visibility = sa;
 	}
 	
-	elements = document.getElementsByClassName("savesettings");
+	elements = document.getElementsByClassName("infosettings");
 
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = inf;
 	}
 	
-	elements = document.getElementsByClassName("savesettings");
+	elements = document.getElementsByClassName("settingssettings");
 
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = se;

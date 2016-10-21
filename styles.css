@@ -4,9 +4,6 @@ body {
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
 	border: none;
-}
-
-body {
 	margin: 5px;
 }
 
@@ -117,6 +114,34 @@ kbd {
 #editbutton {
 	z-index: 5;
 	position:fixed;
+	width: 80px;
+}
+
+#infobutton {
+	z-index: 5;
+	position:fixed;
+	font-size: 16px;
+	width: 25px;
+	margin-left: 78px;
+	padding: 1px;
+}
+
+#shapesbutton {
+	z-index: 5;
+	position:fixed;
+	font-size: 16px;
+	width: 25px;
+	margin-left: 101px;
+	padding: 1px;
+}
+
+#settingsbutton {
+	z-index: 5;
+	position:fixed;
+	font-size: 16px;
+	width: 25px;
+	margin-left: 124px;
+	padding: 1px;
 }
 
 .editbuttons {
@@ -198,8 +223,8 @@ kbd {
 }
 
 #undobutton {
-	bottom: 175px;
-	margin-left: 110px;
+	margin-left: 147px;
+	width: 60px;
 }
 
 #undobutton:hover {
@@ -213,8 +238,8 @@ kbd {
 }
 
 #redobutton {
-	bottom: 175px;
-	margin-left: 220px;
+	margin-left: 205px;
+	width: 60px;
 }
 
 #redobutton:hover {

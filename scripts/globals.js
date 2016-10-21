@@ -193,31 +193,38 @@ function editButtonClick() {
 		accel.x = 0;
 		accel.y = 0;
 		tankalpha = 1.0;
-		showhide("visible", "hidden", "hidden", "hidden", "visible");
+		showhide("visible", "hidden", "hidden", "hidden", "visible", "hidden", "hidden");
 	} else {
 		editmode = false;
-		showhide("hidden", "hidden", "hidden", "hidden", "hidden");
+		showhide("hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden");
 	}
 }
 
 function bodyClick() {
-	showhide("visible", "visible", "hidden", "hidden", "hidden");
+	showhide("visible", "visible", "hidden", "hidden", "hidden", "hidden", "hidden");
 }
 
 function barrelClick() {
-	showhide("visible", "hidden", "visible", "hidden", "hidden");
+	showhide("visible", "hidden", "visible", "hidden", "hidden", "hidden", "hidden");
 }
 
 function bulletClick() {
-	showhide("visible", "hidden", "hidden", "visible", "hidden");
+	showhide("visible", "hidden", "hidden", "visible", "hidden", "hidden", "hidden");
 }
-
 
 function saveClick() {
-	showhide("visible", "hidden", "hidden", "hidden", "visible");
+	showhide("visible", "hidden", "hidden", "hidden", "visible", "hidden", "hidden");
 }
 
-function showhide(e, bo, ba, bu, s) {
+function infoClick() {
+	showhide("visible", "hidden", "hidden", "hidden", "hidden", "visible", "hidden");
+}
+
+function settingsClick() {
+	showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "visible");
+}
+
+function showhide(e, bo, ba, bu, s, inf, se) {
 	var elements = document.getElementsByClassName("editbuttons");
 
 	for (var i = 0; i < elements.length; i++) {
@@ -246,6 +253,18 @@ function showhide(e, bo, ba, bu, s) {
 
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.visibility = s;
+	}
+	
+	elements = document.getElementsByClassName("savesettings");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = inf;
+	}
+	
+	elements = document.getElementsByClassName("savesettings");
+
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.visibility = se;
 	}
 }
 

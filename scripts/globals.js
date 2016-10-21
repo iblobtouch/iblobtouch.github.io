@@ -224,7 +224,7 @@ function settingsClick() {
 	showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "visible");
 }
 
-function showhide(e, bo, ba, bu, s, inf, se) {
+function showhide(e, bo, ba, bu, sa, inf, se) {
 	var elements = document.getElementsByClassName("editbuttons");
 
 	for (var i = 0; i < elements.length; i++) {
@@ -252,7 +252,7 @@ function showhide(e, bo, ba, bu, s, inf, se) {
 	elements = document.getElementsByClassName("savesettings");
 
 	for (var i = 0; i < elements.length; i++) {
-		elements[i].style.visibility = s;
+		elements[i].style.visibility = sa;
 	}
 	
 	elements = document.getElementsByClassName("savesettings");

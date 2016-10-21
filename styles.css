@@ -657,6 +657,19 @@ kbd {
 	margin-left: 330px;
 }
 
+.infomation {
+	font: 13px ubuntu, sans-serif;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: #555;
+	line-height: 14px;
+	padding: 3px;
+	position: fixed;
+	margin-top: 60px;
+	margin-left: 0px;
+	width: 420px;
+}
+
 #notes {
 	font: 13px ubuntu, sans-serif;
 	border: 2px solid black;

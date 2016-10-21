@@ -339,7 +339,7 @@ kbd {
 /* Preset colour buttons */
 
 .presetred {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 255px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -349,7 +349,7 @@ kbd {
 }
 
 .presetblue {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 255px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -359,7 +359,7 @@ kbd {
 }
 
 .presetgreen {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 266px;
 	padding: 0;
 	border: 1px solid #555555;
@@ -369,7 +369,7 @@ kbd {
 }
 
 .presetpurple {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 266px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -379,7 +379,7 @@ kbd {
 }
 
 .presetyellow {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 277px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -389,7 +389,7 @@ kbd {
 }
 
 .presetlightgrey {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 277px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -399,7 +399,7 @@ kbd {
 }
 
 .presetpalered {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 288px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -409,7 +409,7 @@ kbd {
 }
 
 .presetviolet {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 288px;
 	padding: 0px;
 	border: 1px solid #555555;

@@ -1,12 +1,9 @@
 body {
 	font: 12px ubuntu, sans-serif;
-	font-weight: bold;
+	font-weight: 600;
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
 	border: none;
-}
-
-body {
 	margin: 5px;
 }
 
@@ -48,7 +45,7 @@ textarea {
 	height: 17px;
 	line-height: 14px;
 	font: 12px ubuntu, sans-serif;
-	font-weight: bold;
+	font-weight: 600;
 	border: 2px solid black;
 	border-radius: 3px;
 }
@@ -61,7 +58,7 @@ select {
 	height: 21px;
 	line-height: 14px;
 	font: 12px ubuntu, sans-serif;
-	font-weight: bold;
+	font-weight: 600;
 	border: 2px solid black;
 	border-radius: 3px;
 }
@@ -80,7 +77,8 @@ button {
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
 	display: inline-block;
 	font-size: 11px;
-	font-weight: bold;
+	font-weight: 600;
+	padding: 1px;
 }
 
 button:hover {
@@ -92,13 +90,69 @@ button:active {
 	background-color: #8A8A8A;
 	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
 }
+/* End buttons */
+
+/* Checkboxes - use for default */
+.toggle {
+	width: 55px;
+	height: 20px;
+	background: #333333;
+	margin: 20px auto;
+	position: relative;
+	border-radius: 2px;
+}
+
+.toggle:after {
+	content: 'OFF';
+	color: #F14E54;
+	position: absolute;
+	right: 3px;
+	z-index: 0;
+	font: 12px/19px ubuntu, sans-serif;
+	font-weight: 600;
+}
+
+.toggle:before {
+  content: 'ON';
+  color: #00E16E;
+  position: absolute;
+  left: 3px;
+  z-index: 0;
+	font: 12px/19px ubuntu, sans-serif;
+	font-weight: 600;
+}
+
+.toggle label {
+	display: block;
+	width: 25px;
+	height: 16px;
+	cursor: pointer;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	z-index: 1;
+	background-color: #8B8B8B; 
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
+	border: 1px solid #333333;
+	border-radius: 2px;
+	transition: all 0.1s ease;
+}
+
+.toggle input[type=checkbox] {
+  visibility: hidden;
+}
+
+.toggle input[type=checkbox]:checked + label {
+	left: 27px;
+}
+/* End checkboxes */
 
 kbd {
 	background-color: #ddd;
 	border: 1px solid #bbb;
 	border-radius: 0.2em;
 	color: black;
-	font-weight: bolder;
+	font-weight: 600;
 	line-height: 1.5em;
 	text-align: center;
 	text-decoration: none;
@@ -117,24 +171,75 @@ kbd {
 #editbutton {
 	z-index: 5;
 	position:fixed;
+	width: 80px;
+}
+
+#infobutton {
+	z-index: 5;
+	position:fixed;
+	font-size: 16px;
+	width: 25px;
+	margin-left: 78px;
+	padding: 1px;
+}
+
+.spawn {
+	z-index: 0;
+	position:fixed;
+	font-size: 16px;
+	width: 19px;
+	margin-left: 101px;
+	background-color: #8B8B8B; 
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
+	border: 2px solid #333333;
+	border-radius: 2px;
+	line-height: 15px;
+	text-align: center;
+	padding: 1px;
+}
+
+.spawn label {
+	position: absolute;
+	top: 0px;
+	left:4px;
+}
+
+.spawn label:after {
+	content: '⬟';
+	color: #00E16E;
+	text-shadow: none;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: -2px;
+	opacity: 0;
+}
+
+.spawn label:hover::after {
+	opacity: 0.3;
+}
+
+.spawn input[type=checkbox] {
+	visibility: hidden;
+}
+
+.spawn input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+
+#settingsbutton {
+	z-index: 5;
+	position:fixed;
+	font-size: 16px;
+	width: 25px;
+	margin-left: 124px;
+	padding: 1px;
 }
 
 .editbuttons {
 	z-index: 5;
 	position:fixed;
 	visibility: hidden;
-}
-
-#spawnlabel {
-	position: fixed;
-	margin-top: 0px;
-	margin-left: 110px;
-}
-
-#spawn {
-	position: fixed;
-	margin-top: 0px;
-	margin-left: 210px;
 }
 
 #bodybutton {
@@ -198,8 +303,8 @@ kbd {
 }
 
 #undobutton {
-	bottom: 175px;
-	margin-left: 110px;
+	margin-left: 147px;
+	width: 60px;
 }
 
 #undobutton:hover {
@@ -213,8 +318,8 @@ kbd {
 }
 
 #redobutton {
-	bottom: 175px;
-	margin-left: 220px;
+	margin-left: 205px;
+	width: 60px;
 }
 
 #redobutton:hover {
@@ -235,7 +340,7 @@ kbd {
 /* Preset colour buttons */
 
 .presetred {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 255px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -245,7 +350,7 @@ kbd {
 }
 
 .presetblue {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 255px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -255,7 +360,7 @@ kbd {
 }
 
 .presetgreen {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 266px;
 	padding: 0;
 	border: 1px solid #555555;
@@ -265,7 +370,7 @@ kbd {
 }
 
 .presetpurple {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 266px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -275,7 +380,7 @@ kbd {
 }
 
 .presetyellow {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 277px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -285,7 +390,7 @@ kbd {
 }
 
 .presetlightgrey {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 277px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -295,7 +400,7 @@ kbd {
 }
 
 .presetpalered {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 288px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -305,7 +410,7 @@ kbd {
 }
 
 .presetviolet {
-	margin-top: 46px;
+	margin-top: 96px;
 	margin-left: 288px;
 	padding: 0px;
 	border: 1px solid #555555;
@@ -318,7 +423,7 @@ kbd {
 .info , .warninginfo{
 	position: relative;
 	font: 16px ubuntu;
-	font-weight: bold;
+	font-weight: 600;
 	line-height: 0px;
 	color: #0022C8;
 	text-shadow: none;
@@ -394,167 +499,188 @@ kbd {
 }
 
 .pos1label {
-	margin-top: 10px;
+	margin-top: 60px;
 	margin-left: 0px;
 }
 
 .pos2label {
-	margin-top: 10px;
+	margin-top: 60px;
 	margin-left: 110px;
 }
 
 .pos3label {
-	margin-top: 10px;
+	margin-top: 60px;
 	margin-left: 220px;
 }
 
 .pos4label {
-	margin-top: 10px;
+	margin-top: 60px;
 	margin-left: 330px;
 }
 
 .pos5label {
-	margin-top: 65px;
+	margin-top: 120px;
 	margin-left: 0px;
 }
 
 .pos6label {
-	margin-top: 65px;
+	margin-top: 120px;
 	margin-left: 110px;
 }
 
 .pos7label {
-	margin-top: 65px;
+	margin-top: 120px;
 	margin-left: 220px;
 }
 
 .pos8label {
-	margin-top: 65px;
+	margin-top: 120px;
 	margin-left: 330px;
 }
 
 .pos9label {
-	margin-top: 120px;
+	margin-top: 180px;
 	margin-left: 0px;
 }
 
 .pos10label {
-	margin-top: 120px;
+	margin-top: 180px;
 	margin-left: 110px;
 }
 
 .pos11label {
-	margin-top: 120px;
+	margin-top: 180px;
 	margin-left: 220px;
 }
 
 .pos12label {
-	margin-top: 120px;
+	margin-top: 180px;
 	margin-left: 330px;
 }
 
 .pos13label {
-	margin-top: 175px;
+	margin-top: 240px;
 	margin-left: 0px;
 }
 
 .pos14label {
-	margin-top: 175px;
+	margin-top: 240px;
 	margin-left: 110px;
 }
 
 .pos15label {
-	margin-top: 175px;
+	margin-top: 240px;
 	margin-left: 220px;
 }
 
 .pos16label {
-	margin-top: 175px;
+	margin-top: 240px;
 	margin-left: 330px;
 }
 
 .pos1 {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 0px;
 }
 
 .pos2 {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 110px;
 }
 
 .pos3 {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 220px;
 }
 
 .pos4 {
-	margin-top: 35px;
+	margin-top: 85px;
 	margin-left: 330px;
 }
 
 .pos5 {
-	margin-top: 90px;
+	margin-top: 145px;
 	margin-left: 0px;
 }
 
 .pos6 {
-	margin-top: 90px;
+	margin-top: 145px;
 	margin-left: 110px;
 }
 
 .pos7 {
-	margin-top: 90px;
+	margin-top: 145px;
 	margin-left: 220px;
 }
 
 .pos8 {
-	margin-top: 90px;
+	margin-top: 145px;
 	margin-left: 330px;
 }
 
 .pos9 {
-	margin-top: 145px;
+	margin-top: 205px;
 	margin-left: 0px;
 }
 
 .pos10 {
-	margin-top: 145px;
+	margin-top: 205px;
 	margin-left: 110px;
 }
 
 .pos11 {
-	margin-top: 145px;
+	margin-top: 205px;
 	margin-left: 220px;
 }
 
 .pos12 {
-	margin-top: 145px;
+	margin-top: 205px;
 	margin-left: 330px;
 }
 
 .pos13 {
-	margin-top: 200px;
+	margin-top: 260px;
 	margin-left: 0px;
 }
 
 .pos14 {
-	margin-top: 200px;
+	margin-top: 260px;
 	margin-left: 110px;
 }
 
 .pos15 {
-	margin-top: 200px;
+	margin-top: 260px;
 	margin-left: 220px;
 }
 
 .pos16 {
-	margin-top: 200px;
+	margin-top: 260px;
 	margin-left: 330px;
 }
 
+.infomation {
+	font: 12px ubuntu, sans-serif;
+	font-weight: 600;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: #555;
+	line-height: 14px;
+	padding: 3px;
+	position: fixed;
+	margin-top: 60px;
+	margin-left: 0px;
+	width: 420px;
+}
+
+.warning {
+	background-color: rgba(255,20,20,0.9);
+	color: yellow;
+	text-align: center;
+}
+
 #notes {
-	font: 13px ubuntu, sans-serif;
+	font: 12px ubuntu, sans-serif;
+	font-weight: 600;
 	border: 2px solid black;
 	border-radius: 5px;
 	background-color: #555;
@@ -562,6 +688,7 @@ kbd {
 	padding: 3px;
 	position: fixed;
 	bottom: 0;
+	width: 420px;
 }
 
 #version {

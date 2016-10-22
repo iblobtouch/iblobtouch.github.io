@@ -28,10 +28,13 @@
 		
 		<p id="watermark">Play at iblobtouch.github.io!</p>
 		
-		<p id="spawnlabel">Spawn shapes?</p>
-		<input type="checkbox" id="spawn">
-		
 		<button id="editbutton" onclick="editButtonClick()">Edit Mode</button>
+		<button id="infobutton" onclick="infoClick()">ⓘ</button>
+		<div class="spawn">
+			<input type="checkbox" value="None" id="spawn" name="check" />
+			<label for="spawn">⬟</label>
+		</div>
+		<button class="editbuttons" id="settingsbutton" onclick="settingsClick()">⚙</button>
 		<button class="editbuttons" id="bodybutton" onclick="bodyClick()">Body/Color</button>
 		<button class="editbuttons" id="barrelbutton" onclick="barrelClick()">Barrel</button>
 		<button class="editbuttons" id="bulletbutton" onclick="bulletClick()">Bullet</button>
@@ -39,8 +42,15 @@
 		<button class="editbuttons" id="undobutton" onclick="undo()">⟲ Undo</button>
 		<button class="editbuttons" id="redobutton" onclick="redo()">Redo ⟳</button>
 		
-		<p id="note">Press the edit mode button to edit the tank. <br /> Press e to autofire and c to autospin. <br /> Refresh the page to get a new tank. </p>
+		<!-- Info menu -->
+		<p class="editbuttons infosettings infomation">Press the edit mode button to edit the tank. <br /> Press <kbd>E</kbd> to autofire and <kbd>C</kbd> to autospin. <br /> Refresh the page to get a new tank. <br /> <kbd>Z</kbd>/<kbd>X</kbd> To undo/redo. <br /> <kbd>O</kbd>/<kbd>P</kbd> To Increase/decrease the number of barrels places at once. </p>
 		
+		<!-- Settings menu -->
+		<p class="editbuttons settingssettings infomation warning">These options can break the game!<br /> None of the settings here will ever be saved to export.</p>
+		<p class="editbuttons settingssettings pos5label"><b>Shape spawn rate </b><span data-tooltip="Specifies the rate that shapes spawn. Default: 120" class="info">ⓘ</span></p>
+		<textarea class="editbuttons settingssettings pos5" id="shaperate" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the rate that shapes spawn. Default: 120">120</textarea>
+		
+		<!-- Body menu -->
 		<p class="editbuttons tanksettings pos1label"><b>Radius </b><span data-tooltip="Specifies the radius of the tank's main body." class="info">ⓘ</span></p>
 		<textarea class="editbuttons tanksettings pos1" id="body" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">32</textarea>
 		
@@ -68,7 +78,10 @@
 		<input type="button" class="editbuttons tanksettings presetviolet" id="setcolorviolet" onclick="setColor('#F177DD')" title="Protecter of Pentagons" />
 		
 		<p class="editbuttons tanksettings pos4label"><b>Invisibility </b><span data-tooltip="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-		<input type="checkbox" class="editbuttons tanksettings pos4" id="invis" data-tooltip="Toggles fadeout invisibility for tanks. WARNING: Does not save to export. Yet.">
+		<div class="editbuttons tanksettings pos4 toggle">
+			<input type="checkbox" value="None" id="invis" name="check" />
+			<label for="invis"></label>
+		</div>
 		
 		<p class="editbuttons tanksettings pos5label"><b>Drone Limit </b><span data-tooltip="Specifies the maximum number of drones that can be on screen. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
 		<textarea class="editbuttons tanksettings pos5" id="drones" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the maximum number of drones that can be on screen. WARNING: Does not save to export. Yet.">8</textarea>
@@ -79,6 +92,7 @@
 		<p class="editbuttons tanksettings pos7label"><b>Body Damage </b><span data-tooltip="Specifies the damage the body of the tank does to a shape on collision. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
 		<textarea class="editbuttons tanksettings pos7" id="bodydamage" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the damage the body of the tank does to a shape on collision. WARNING: Does not save to export. Yet.">50</textarea>
 		
+		<!-- Barrel menu -->
 		<p class="editbuttons barrelsettings pos1label" id="traplabel"><b>Barrel </b><span data-tooltip="Specifies what type of barrel you want to place." class="info">ⓘ</span></p>
 		<select class="editbuttons barrelsettings pos1" id="bullet" data-tooltip="Specifies what type of barrel you want to place.">
 			<option value="bullet">Gun</option> 
@@ -88,7 +102,10 @@
 		</select>
 		
 		<p class="editbuttons barrelsettings pos2label"><b>Can Shoot? </b><span data-tooltip="Toggles this cannon's ability to shoot." class="info">ⓘ</span></p>
-		<input type="checkbox" class="editbuttons barrelsettings pos2" id="disable" checked data-tooltip="Toggles this cannon's ability to shoot.">
+		<div class="editbuttons barrelsettings pos2 toggle" style="visibility: hidden;">
+			<input type="checkbox" value="None" id="disable" name="check" checked="" />
+			<label for="disable"></label>
+		</div>
 		
 		<p class="editbuttons barrelsettings pos3label"><b>Width </b><span data-tooltip="Specifies the width of the cannon." class="info">ⓘ</span></p>
 		<textarea class="editbuttons barrelsettings pos3" id="width" rows="1" cols="10"  placeholder="0" data-tooltip="Specifies the width of the cannon.">15</textarea>
@@ -114,6 +131,7 @@
 		<p class="editbuttons barrelsettings pos10label"><b>Delay </b><span data-tooltip="Specifies the delay before the cannon can first fire." class="info">ⓘ</span></p>
 		<textarea class="editbuttons barrelsettings pos10" id="basedelay" rows="1" cols="10"  placeholder="0" data-tooltip="Specifies the delay before the cannon can first fire.">0</textarea>
 		
+		<!-- Bullet menu -->
 		<p class="editbuttons bulletsettings pos1label"><b>Bullet Size </b><span data-tooltip="Specifies the size of the projectiles this cannon fires." class="info">ⓘ</span></p>
 		<textarea class="editbuttons bulletsettings pos1" id="size" rows="1" cols="10"  placeholder="0" data-tooltip="Specifies the size of the projectiles this cannon fires.">15</textarea>
 		
@@ -127,12 +145,16 @@
 		<textarea class="editbuttons bulletsettings pos4" id="damage" rows="1" cols="10"  placeholder="0" data-tooltip="Specifies the damage of the bullets this cannon fires. Squares=100HP  Triangles=300HP  Pentagons=1400HP">65</textarea>
 		
 		<p class="editbuttons bulletsettings pos5label"><b>Toggle Inherit </b><span data-tooltip="Toggles if these values are used by the barrel or not. Uncheck to use these values. If left checked, these values will automatically be generated by the editor." class="info">ⓘ</span></p>
-		<input type="checkbox" class="editbuttons bulletsettings pos5" id="use" checked data-tooltip="Toggles if these values are ignored by the barrel. Uncheck to use these values. If left checked, these values will automatically be generated by the editor.">
+		<div class="editbuttons bulletsettings pos5 toggle" style="visibility: hidden;">
+			<input type="checkbox" value="None" id="use" name="check" checked="" />
+			<label for="use"></label>
+		</div>
 		
-		<button class="editbuttons savesettings pos1label" onclick="printObject()" >Export tank.</button>
-		<button class="editbuttons savesettings pos2label" onclick="importObject()" >Import tank.</button>
+		<!-- Save menu -->
+		<button class="editbuttons savesettings pos1label" onclick="printObject()" >Export tank</button>
+		<button class="editbuttons savesettings pos2label" onclick="importObject()" >Import tank</button>
 		<textarea class="editbuttons savesettings pos1 textexport" id="save" placeholder="Save Codes go here..."></textarea>
 		
-		<p class="editbuttons" id="notes"><kbd>Q</kbd> to place barrels. Barrels place in order of last placed to first. <br /> <kbd>F</kbd> to remove barrels. WARNING: Removes all barrels within 1° at once! <br /> Hold <kbd>Shift</kbd> to align in 15° increments. Red line determines front of tank. <br /> <kbd>Ctrl</kbd> + Scroll Wheel to adjust zoom (limited in some browsers). <br /> Alternatively, try <kbd>Ctrl</kbd> + <kbd>+</kbd> to zoom in, and <kbd>Ctrl</kbd> + <kbd>-</kbd> to zoom out. <br /> Click outside of textboxes before placing or removing barrels. <br> <kbd>Z</kbd>/<kbd>X</kbd> To undo/redo. <br> <kbd>O</kbd>/<kbd>P</kbd> To Increase/decrease the number of barrels places at once.</p>
+		<p class="editbuttons" id="notes"><kbd>Q</kbd> to place barrels. Barrels place in order of last placed to first. <br /> <kbd>F</kbd> to remove barrels. WARNING: Removes all barrels within 1° at once! <br /> Hold <kbd>Shift</kbd> to align in 15° increments. Red line determines front of tank. <br /> <kbd>Ctrl</kbd> + Scroll Wheel to adjust zoom (limited in some browsers). <br /> Alternatively, try <kbd>Ctrl</kbd> + <kbd>+</kbd> to zoom in, and <kbd>Ctrl</kbd> + <kbd>-</kbd> to zoom out. <br /> Click outside of textboxes before placing or removing barrels. </p>
 	</body>
 </html>

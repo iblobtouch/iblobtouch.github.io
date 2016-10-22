@@ -86,6 +86,7 @@ function drawTank() {
 				shapetimer -= 1;
 			} else {
 				shapetimer = document.getElementById("shaperate").value;
+				shapetimer = 120;
 				shapes[shapes.length] = new Shape((Math.random() * c.width),  (Math.random() * c.height), Math.random());
 			}
 		}
@@ -105,6 +106,7 @@ function drawTank() {
 								bullets[bullets.length - 1].y = shapes[n].y;
 							}
 							shapes.splice(n, 1);
+							nShape = 0;
 						}
 						if (bullets[i].type === 2) {
 							dronelimit -= 1;
@@ -126,7 +128,12 @@ function drawTank() {
 					accel.y += Math.sin(angle(tankpointx, tankpointy, shapes[n].x, shapes[n].y) * (Math.PI / 180)) / 5;
 				} else {
 					shapes.splice(n, 1);
+					nShape = 0;
 				}
+			}
+			
+			if (Math.sqrt(Math.pow(shapes[n].x - tankpointx, 2) + Math.pow(shapes[n].y - tankpointy, 2)) < (Math.sqrt(Math.pow(shapes[nShape].x - tankpointx, 2) + Math.pow(shapes[nShape].y - tankpointy, 2)))) {
+				nShape = n;
 			}
 
 			//Yellow Square
@@ -208,28 +215,36 @@ function drawTank() {
 				barrels[n].delayed = false;
 			}
 
-			if ((barrels[n].delay === 0)  && (barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
+			if ((barrels[n].delay === 0) && (barrels[n].reload === 0) && (canfire === true) && (barrels[n].type < 2 || barrels[n].type === 4 || (((barrels[n].type === 2) && (dronelimit < parseFloat(validateField(document.getElementById("drones").value, 8, false)))) || ((barrels[n].type === 3) && (necrolimit < parseFloat(validateField(document.getElementById("necrodrones").value, 20, false))))))) {
 				if (barrels[n].hasOwnProperty("knockback") === false) {
 					barrels[n].knockback = 0;
 				}
 
 				var ydif = xdistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				var xdif = ydistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
+				var tanksize = parseFloat(validateField(document.getElementById("body").value, 32));
 
 				if (barrels[n].hasOwnProperty("b") === true) {
-					bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
-					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
-					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
-					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
-					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, barrels[n].spread);
-				} else {
+					if ((barrels[n].type < 4) || (shapes.length === 0)) {
+						bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
+						xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
+						ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
+						mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
+						mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread);
+					} else {
+						bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
+						xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, tanksize, barrels[n].angle) + tankpointx + xdif,
+						ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, tanksize, barrels[n].angle) + tankpointy - ydif,
+						shapes[nShape].x + ((shapes[nShape].x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
+						shapes[nShape].y + ((shapes[nShape].y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread);
+					}
+				} else{
 					bullets[bullets.length] = new Bullet(n, barrels[n].width / 2, 5, 360,
 					xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
 					ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
 					mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
 					mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset)  - accel.y, 0);
 				}
-
 				barrels[n].reload = barrels[n].basereload;
 
 				tankalpha = 1.0;
@@ -290,7 +305,7 @@ function drawTank() {
 			//If it's a trap, decrease speed each tick.
 		}
 
-		if ((bullets[n].type > 1) && (mouse.rightdown === false)) {
+		if (((bullets[n].type === 2) || (bullets[n].type === 3)) && (mouse.rightdown === false)) {
 			bullets[n].targetx = mouse.x;
 			bullets[n].targety = mouse.y;
 
@@ -300,7 +315,7 @@ function drawTank() {
 
 			bullets[n].initoffx = offset.totalx;
 			bullets[n].initoffy = offset.totaly;
-		} else if ((bullets[n].type > 1) && (mouse.rightdown === true)) {
+		} else if (((bullets[n].type === 2) || (bullets[n].type === 3)) && (mouse.rightdown === true)) {
 			bullets[n].targetx = mouse.x;
 			bullets[n].targety = mouse.y;
 
@@ -310,7 +325,7 @@ function drawTank() {
 
 			bullets[n].initoffx = offset.totalx;
 			bullets[n].initoffy = offset.totaly;
-		} else if (bullets[n].type === 1) {
+		} else if ((bullets[n].type === 1) || (bullets[n].type === 4)) {
 
 			bullets[n].targetx += xdistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
 			bullets[n].targety += ydistancefrom(bullets[n].x, bullets[n].y, bullets[n].targetx, bullets[n].targety, bullets[n].speed, bullets[n].bangle);
@@ -355,6 +370,11 @@ function drawTank() {
 				drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value);
 			}
 			//Display as a trap if it's a drone.
+			
+			if (bullets[n].type === 4) {
+				drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency);
+			}
+			//Display as a bullet if it's a bullet.
 		}
 		if (bullets[n].time <= 20) {
 			bullets[n].transparency = bullets[n].time / 20;
@@ -389,7 +409,7 @@ function drawTank() {
 			if (input.f === true) {
 				barrels.splice(n, 1);
 			}
-		} else {
+		} else if ((barrels[n].type < 4) || ((barrels[n].xoffset >= 0) || (barrels[n].xoffset < -1 * parseFloat(validateField(document.getElementById("body").value, 32))))) {
 			drawBarrel(barrels[n].angle, barrels[n].xoffset, barrels[n].yoffset, barrels[n].width, barrels[n].length, tankalpha, false, barrels[n].type);
 		}
 	}
@@ -402,12 +422,16 @@ function drawTank() {
 		btype = 2;
 	} else if (document.getElementById("bullet").value === "necro") {
 		btype = 3;
+	} else if (document.getElementById("bullet").value === "auto") {
+		btype = 4;
 	}
 
 	if (editmode === true) {
-		for (var n = 1; n <= mirrorBarrels; n += 1) {
-			drawBarrel((angle(tankpointx, tankpointy, mouse.x, mouse.y) + 360 + ((360 / mirrorBarrels) * n)) % 360, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 1)), parseFloat(validateField(document.getElementById("length").value, 1)), 0.5, true, btype);
-			//Draw a ghosted barrel while in edit mode above the normal barrels.
+		if ((btype < 4) || ((parseFloat(validateField(document.getElementById("offsetx").value, 0, true)) >= 0) || (parseFloat(validateField(document.getElementById("offsetx").value, 0, true)) < -1 * parseFloat(validateField(document.getElementById("body").value, 32))))) {
+			for (var n = 1; n <= mirrorBarrels; n += 1) {
+				drawBarrel((angle(tankpointx, tankpointy, mouse.x, mouse.y) + 360 + ((360 / mirrorBarrels) * n)) % 360, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 1)), parseFloat(validateField(document.getElementById("length").value, 1)), 0.5, true, btype);
+				//Draw a ghosted barrel while in edit mode above the normal barrels.
+			}
 		}
 	} else if (autospin === true) {
 		mouse.x = (Math.cos((autoangle + 180) * (Math.PI / 180)) * 200) + tankpointx;
@@ -775,6 +799,27 @@ function drawTank() {
 		ctx.restore();
 	}
 	//Draw the body of the tank on top of everything.
+	
+	for (var n = 0; n < barrels.length; n += 1) {
+		//Loop through each barrel.
+		if ((angle(tankpointx, tankpointy, mouse.x, mouse.y) >= barrels[n].angle - 1) && (angle(tankpointx, tankpointy, mouse.x, mouse.y) <= barrels[n].angle + 1) && (editmode === true)) {
+			drawBarrel(barrels[n].angle, barrels[n].xoffset, barrels[n].yoffset, barrels[n].width, barrels[n].length, 0.5, false, barrels[n].type);
+			if (input.f === true) {
+				barrels.splice(n, 1);
+			}
+		} else if ((barrels[n].type === 4) && ((barrels[n].xoffset < 0) && (barrels[n].xoffset > -2 * parseFloat(validateField(document.getElementById("body").value, 32))))) {
+			drawBarrel(barrels[n].angle, barrels[n].xoffset, barrels[n].yoffset, barrels[n].width, barrels[n].length, tankalpha, false, barrels[n].type);
+		}
+	}
+	
+	if (editmode === true) {
+		if ((btype === 4) && ((parseFloat(validateField(document.getElementById("offsetx").value, 0, true)) < 0) && (parseFloat(validateField(document.getElementById("offsetx").value, 0, true)) > -2 * parseFloat(validateField(document.getElementById("body").value, 32))))) {
+			for (var n = 1; n <= mirrorBarrels; n += 1) {
+				drawBarrel((angle(tankpointx, tankpointy, mouse.x, mouse.y) + 360 + ((360 / mirrorBarrels) * n)) % 360, parseFloat(validateField(document.getElementById("offsetx").value, 0, true)), parseFloat(validateField(document.getElementById("offset").value, 0, true)), parseFloat(validateField(document.getElementById("width").value, 1)), parseFloat(validateField(document.getElementById("length").value, 1)), 0.5, true, btype);
+				//Draw a ghosted barrel while in edit mode above the normal barrels.
+			}
+		}
+	}
 }
 
 function drawUI() {
@@ -834,6 +879,8 @@ function placeBarrel() {
 		btype = 2;
 	} else if (document.getElementById("bullet").value === "necro") {
 		btype = 3;
+	} else if (document.getElementById("bullet").value === "auto") {
+		btype = 4;
 	}
 
 	for (var n = 1; n <= mirrorBarrels; n += 1) {

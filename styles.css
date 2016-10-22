@@ -85,12 +85,12 @@ button {
 	padding: 1px;
 }
 
-button:hover {
+button:hover, .toggle label:hover {
 	background-color: #989898;
 	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(198,198,198,1) 50%);
 }
 
-button:active {
+button:active, .toggle label:active {
 	background-color: #8A8A8A;
 	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
 }
@@ -200,6 +200,16 @@ kbd {
 	line-height: 15px;
 	text-align: center;
 	padding: 1px;
+}
+
+.spawn:hover {
+		background-color: #989898;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(198,198,198,1) 50%);
+}
+
+.spawn:active {
+	background-color: #8A8A8A;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
 }
 
 .spawn label {

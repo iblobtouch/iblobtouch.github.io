@@ -48,6 +48,10 @@ textarea {
 	font-weight: 600;
 	border: 2px solid black;
 	border-radius: 3px;
+	user-select: text;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	-ms-user-select: text;
 }
 
 select {

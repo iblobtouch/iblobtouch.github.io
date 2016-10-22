@@ -194,9 +194,8 @@ function drawTank() {
 		}
 	}
 
-
-	if (((mouse.held === true) || (autofire === true)) && (editmode === false)) {
-		for (var n = 0; n < barrels.length; n += 1) {
+	for (var n = 0; n < barrels.length; n += 1) {
+		if (((mouse.held === true) || (autofire === true) || ((barrels[n].type === 4) && (shapes.length > 0))) && (editmode === false)) {
 			var canfire = true;
 			if (barrels[n].hasOwnProperty("disabled") === true) {
 				if (barrels[n].disabled === false) {
@@ -262,13 +261,13 @@ function drawTank() {
 					necrolimit += 1;
 				}
 			}
-		}
-
-	//Reenables delay timer
-	} else for (var n = 0; n < barrels.length; n += 1) {
-		if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
+		} else {
+			if ((barrels[n].delay <= 0) && ((barrels[n].delay < barrels[n].basedelay) || (barrels[n].basedelay <= 0))) {
 			barrels[n].delayed = true;
 		}
+	}
+
+	//Reenables delay timer
 	}
 
 

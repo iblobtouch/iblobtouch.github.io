@@ -222,10 +222,10 @@ kbd {
 	content: '⬟';
 	color: #00E16E;
 	text-shadow: none;
-	width: 16px;
-	height: 16px;
+	width: 25px;
+	height: 19px;
 	position: absolute;
-	left: -2px;
+	left: -6px;
 	opacity: 0;
 }
 

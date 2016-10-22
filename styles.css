@@ -672,6 +672,12 @@ kbd {
 	width: 420px;
 }
 
+.warning {
+	background-color: rgba(255,20,20,0.9);
+	color: yellow;
+	text-align: center;
+}
+
 #notes {
 	font: 12px ubuntu, sans-serif;
 	font-weight: 600;

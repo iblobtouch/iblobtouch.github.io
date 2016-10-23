@@ -91,33 +91,6 @@ function drawTank() {
 			}
 		}
 		for (var n = 0; n < shapes.length; n += 1) {
-			for (var i = 0; i < bullets.length; i += 1) {
-				if ((shapes[n].x + shapes[n].size + shapes[n].accelx + (offset.totalx - bullets[i].initoffx) >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size + (offset.totalx - bullets[i].initoffx) <= bullets[i].x + bullets[i].size + (offset.totalx - bullets[i].initoffx) + shapes[n].accelx)) {
-					if ((shapes[n].y + shapes[n].size + shapes[n].accely + (offset.totaly - bullets[i].initoffy) >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size + (offset.totaly - bullets[i].initoffy) <= bullets[i].y + bullets[i].size + (offset.totaly - bullets[i].initoffy) + shapes[n].accely)) {
-						console.log("Collision!");
-						if (shapes[n].health > bullets[i].damage) {
-							shapes[n].health -= bullets[i].damage;
-							shapes[n].accelx += Math.cos(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
-							shapes[n].accely += Math.sin(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
-						} else {
-							if ((bullets[i].type === 3) && (necrolimit < 20)) {
-								bullets[bullets.length] = bullets[i];
-								bullets[bullets.length - 1].x = shapes[n].x;
-								bullets[bullets.length - 1].y = shapes[n].y;
-							}
-							shapes.splice(n, 1);
-							nShape = 0;
-						}
-						if (bullets[i].type === 2) {
-							dronelimit -= 1;
-						}
-						if (bullets[i].type === 3) {
-							necrolimit -= 1;
-						}
-						bullets.splice(i, 1);
-					}
-				}
-			}
 
 			if (Math.sqrt(Math.pow(shapes[n].x - tankpointx, 2) + Math.pow(shapes[n].y - tankpointy, 2)) < parseFloat(validateField(document.getElementById("body").value, 32)) + shapes[n].size / 2) {
 				if (shapes[n].health > parseFloat(validateField(document.getElementById("bodydamage").value, 50))) {
@@ -191,6 +164,34 @@ function drawTank() {
 			} else {
 				shapes[n].accely = 0;
 			}
+			
+			for (var i = 0; i < bullets.length; i += 1) {
+				if ((shapes[n].x + shapes[n].size + shapes[n].accelx + (offset.totalx - bullets[i].initoffx) >= bullets[i].x + (offset.totalx - bullets[i].initoffx)) && (shapes[n].x - shapes[n].size + (offset.totalx - bullets[i].initoffx) <= bullets[i].x + bullets[i].size + (offset.totalx - bullets[i].initoffx) + shapes[n].accelx)) {
+					if ((shapes[n].y + shapes[n].size + shapes[n].accely + (offset.totaly - bullets[i].initoffy) >= bullets[i].y + (offset.totaly - bullets[i].initoffy)) && (shapes[n].y - shapes[n].size + (offset.totaly - bullets[i].initoffy) <= bullets[i].y + bullets[i].size + (offset.totaly - bullets[i].initoffy) + shapes[n].accely)) {
+						console.log("Collision!");
+						if (shapes[n].health > bullets[i].damage) {
+							shapes[n].health -= bullets[i].damage;
+							shapes[n].accelx += Math.cos(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
+							shapes[n].accely += Math.sin(angle(bullets[i].x, bullets[i].y, shapes[n].x, shapes[n].y) * (Math.PI / 180)) * (bullets[i].size / 10);
+						} else {
+							if ((bullets[i].type === 3) && (necrolimit < 20)) {
+								bullets[bullets.length] = bullets[i];
+								bullets[bullets.length - 1].x = shapes[n].x;
+								bullets[bullets.length - 1].y = shapes[n].y;
+							}
+							shapes.splice(n, 1);
+							nShape = 0;
+						}
+						if (bullets[i].type === 2) {
+							dronelimit -= 1;
+						}
+						if (bullets[i].type === 3) {
+							necrolimit -= 1;
+						}
+						bullets.splice(i, 1);
+					}
+				}
+			}
 		}
 	}
 
@@ -222,6 +223,10 @@ function drawTank() {
 				var ydif = xdistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				var xdif = ydistancefrom(c.width / 2, c.height / 2, mouse.x + ((mouse.x - tankpointx) * barrels[n].length) - accel.x, mouse.y + ((mouse.y - tankpointy) * barrels[n].length)  - accel.y, barrels[n].yoffset, barrels[n].angle);
 				var tanksize = parseFloat(validateField(document.getElementById("body").value, 32));
+				var Pshapes = false;
+				if (shapes.length > 0) {
+					Pshapes = true;
+				}
 
 				if (barrels[n].hasOwnProperty("b") === true) {
 					if ((barrels[n].type < 4) || (shapes.length === 0)) {
@@ -235,7 +240,7 @@ function drawTank() {
 						xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, tanksize, barrels[n].angle) + tankpointx + xdif,
 						ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, tanksize, barrels[n].angle) + tankpointy - ydif,
 						shapes[nShape].x + ((shapes[nShape].x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
-						shapes[nShape].y + ((shapes[nShape].y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread);
+						shapes[nShape].y + ((shapes[nShape].y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread, Pshapes);
 					}
 				} else{
 					bullets[bullets.length] = new Bullet(n, barrels[n].width / 2, 5, 360,

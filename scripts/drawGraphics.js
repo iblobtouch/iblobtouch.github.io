@@ -10,7 +10,7 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type) {
 		//if ((a <= -172.5) || (a >= 172.5)) {
 			//a = 180;
 		//}
-		a -= a % 15;
+		a -= a % (document.getElementById("increment").value);
 		ctx.rotate(a * (Math.PI / 180));
 	} else {
 		ctx.rotate(a * (Math.PI / 180));

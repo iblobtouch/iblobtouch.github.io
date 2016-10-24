@@ -386,7 +386,7 @@ function drawTank() {
 		if (bullets[n].time <= 1) {
 			bullets.splice(n, 1);
 			//When a bullet times out, delete it.
-		} else if (bullets[n].type < 2) {
+		} else if ((bullets[n].type < 2) || (bullets[n].type == 4)) {
 			bullets[n].time -= 1;
 			//If it's a bullet, decrease it's time left to live by 1 each frame.
 		}

@@ -873,7 +873,7 @@ function placeBarrel() {
 	var rangle = angle(tankpointx, tankpointy, mouse.x, mouse.y) + 360;
 
 	if (shiftheld === true) {
-			rangle -= rangle % 15;
+			rangle -= rangle % (document.getElementById("increment").value, 15);
 	}
 	var btype = 0;
 

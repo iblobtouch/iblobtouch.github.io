@@ -328,6 +328,14 @@ function clearObject() {
 	barrels = [];
 }
 
+function clearShapes() {
+	shapes = [];
+}
+
+function clearBullets() {
+	bullets = [];
+}
+
 function importObject() {
 	var inputtext = "" + document.getElementById("save").value;
 

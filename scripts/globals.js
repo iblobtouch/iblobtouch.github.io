@@ -146,14 +146,14 @@ function Shape(x, y, random) {
 		this.maxhealth = 20000;
 
 	//Green Square
-	} else if (random < 0.9993) {
+	} else if (random < 0.99993) {
 		stype = 4;
 		this.size = 25;
 		this.health = 2000;
 		this.maxhealth = 2000;
 
 	//Green Triangle
-	} else if (random < 0.9996) {
+	} else if (random < 0.99996) {
 		stype = 5;
 		this.size = 25;
 		this.health = 6000;

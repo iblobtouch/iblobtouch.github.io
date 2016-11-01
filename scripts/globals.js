@@ -320,6 +320,14 @@ function ydistancefrom(x, y, cx, cy, distance, aoffset) {
 	//return cy - y;
 }
 
+//Completely resets tank.
+function clearObject() {
+	document.getElementById("body").value = 32;
+	document.getElementById("shape").value = "circle";
+	document.getElementById("color").value = "#00b2e1";
+	barrels = [];
+}
+
 function importObject() {
 	var inputtext = "" + document.getElementById("save").value;
 

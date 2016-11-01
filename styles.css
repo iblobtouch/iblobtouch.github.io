@@ -690,6 +690,21 @@ kbd {
 
 .warning {
 	background-color: rgba(255,20,20,0.9);
+	background-image: none;
+	color: yellow;
+	text-align: center;
+}
+
+.warning:hover {
+	background-color: rgba(255,46,46,0.9);
+	background-image: none;
+	color: yellow;
+	text-align: center;
+}
+
+.warning:active {
+	background-color: rgba(194,18,18,0.9);
+	background-image: none;
 	color: yellow;
 	text-align: center;
 }

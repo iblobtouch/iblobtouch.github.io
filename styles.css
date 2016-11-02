@@ -435,6 +435,26 @@ kbd {
 	background-color: #F177DD;
 }
 
+.presetgrey {
+	top: 16px;
+	left: 73px;
+	padding: 0px;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #999999;
+}
+
+.presetdarkgrey {
+	top: 16px;
+	left: 73px;
+	padding: 0px;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #555555;
+}
+
 /* Tooltips */
 .info , .warninginfo{
 	position: relative;

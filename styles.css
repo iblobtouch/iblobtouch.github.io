@@ -436,8 +436,8 @@ kbd {
 }
 
 .presetgrey {
-	top: 16px;
-	left: 73px;
+	top: 5px;
+	left: 84px;
 	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;
@@ -447,7 +447,7 @@ kbd {
 
 .presetdarkgrey {
 	top: 16px;
-	left: 73px;
+	left: 84px;
 	padding: 0px;
 	border: 1px solid #555555;
 	height: 12px;

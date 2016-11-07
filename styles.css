@@ -455,6 +455,15 @@ kbd {
 	background-color: #555555;
 }
 
+.presetbrown {
+	top: 5px;
+	left: 95px;
+	padding: 0px;
+	border: 1px solid #555555;
+	height: 12px;
+	width: 12px;
+	background-color: #D68165;
+}
 /* Tooltips */
 .info , .warninginfo{
 	position: relative;

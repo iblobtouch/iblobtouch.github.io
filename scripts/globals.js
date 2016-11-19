@@ -336,6 +336,14 @@ function clearBullets() {
 	bullets = [];
 }
 
+//These functions do nothing on their own. They are for development purposes.
+function debugCommandA() 
+
+function debugCommandB() 
+
+function debugCommandC() 
+//End of debug commands.
+
 function importObject() {
 	var inputtext = "" + document.getElementById("save").value;
 

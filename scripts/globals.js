@@ -337,11 +337,14 @@ function clearBullets() {
 }
 
 //These functions do nothing on their own. They are for development purposes.
-function debugCommandA() 
+function debugCommandA() {
+}
 
-function debugCommandB() 
+function debugCommandB() {
+}
 
-function debugCommandC() 
+function debugCommandC() {
+}
 //End of debug commands.
 
 function importObject() {

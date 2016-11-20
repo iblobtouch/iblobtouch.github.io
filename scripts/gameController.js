@@ -78,6 +78,38 @@ function drawTank() {
 	var tankpointx = c.width / 2 - accel.x * 20;
 	var tankpointy = c.height / 2 - accel.y * 20;
 
+	var tanksize = parseFloat(validateField(document.getElementById("body").value, 32));
+	var shape = document.getElementById("shape").value;
+
+	//Dominator Base
+	if (shape === "dominator") {
+	ctx.save();
+	ctx.globalAlpha = tankalpha;
+	ctx.fillStyle = "#555555";
+	ctx.translate(tankpointx, tankpointy);
+	ctx.beginPath();
+	ctx.moveTo(0, tanksize + (tanksize / 3));
+	ctx.rotate((360 / 6) * (Math.PI / 180));
+	ctx.lineTo(0, tanksize + (tanksize / 3));
+	ctx.rotate((360 / 6) * (Math.PI / 180));
+	ctx.lineTo(0, tanksize + (tanksize / 3));
+	ctx.rotate((360 / 6) * (Math.PI / 180));
+	ctx.lineTo(0, tanksize + (tanksize / 3));
+	ctx.rotate((360 / 6) * (Math.PI / 180));
+	ctx.lineTo(0, tanksize + (tanksize / 3));
+	ctx.rotate((360 / 6) * (Math.PI / 180));
+	ctx.lineTo(0, tanksize + (tanksize / 3));
+	ctx.rotate((360 / 6) * (Math.PI / 180));
+	ctx.lineTo(0, tanksize + (tanksize / 3));
+	ctx.closePath();
+	ctx.clip();
+	ctx.translate(-tankpointx, -tankpointy);
+	ctx.clearRect(0, 0, c.width, c.height);
+	ctx.translate(tankpointx, tankpointy);
+	ctx.fill();
+	ctx.restore();
+	}
+
 	if (editmode === false) {
 		if (document.getElementById("spawn").checked === true) {
 			if (shapetimer > document.getElementById("shaperate").value) {
@@ -802,6 +834,87 @@ function drawTank() {
 		ctx.fill();
 		ctx.restore();
 	}
+
+	if (shape === "landmine") {
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.fillStyle = "#555555";
+		ctx.translate(tankpointx, tankpointy);
+		ctx.beginPath();
+		if (editmode === false) {
+			ctx.rotate((angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180))/2);
+		}
+		ctx.moveTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.closePath();
+		ctx.clip();
+		ctx.translate(-tankpointx, -tankpointy);
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.translate(tankpointx, tankpointy);
+		ctx.fill();
+		ctx.restore();
+
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.fillStyle = "#555555";
+		ctx.translate(tankpointx, tankpointy);
+		ctx.beginPath();
+		if (editmode === false) {
+			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
+		}
+		ctx.moveTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.rotate((360 / 6) * (Math.PI / 180));
+		ctx.lineTo(0, tanksize + (tanksize / 3));
+		ctx.closePath();
+		ctx.clip();
+		ctx.translate(-tankpointx, -tankpointy);
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.translate(tankpointx, tankpointy);
+		ctx.fill();
+		ctx.restore();
+
+		ctx.save();
+		ctx.globalAlpha = tankalpha;
+		ctx.fillStyle = document.getElementById("color").value;
+		ctx.beginPath();
+		ctx.arc(tankpointx, tankpointy, tanksize, 0, Math.PI * 2, true);
+		ctx.closePath();
+		ctx.fill();
+		ctx.restore();
+	}
+
+	if (shape === "dominator") {
+		ctx.save();
+		ctx.beginPath();
+		ctx.arc(tankpointx, tankpointy, tanksize, 0, Math.PI * 2, true);
+		ctx.closePath();
+		ctx.clip();
+		ctx.clearRect(tankpointx - tanksize, tankpointy - tanksize, tanksize * 2, tanksize * 2);
+		ctx.restore();
+		drawBullet(tankpointx, tankpointy, tanksize, tankalpha);
+	}
+
 	//Draw the body of the tank on top of everything.
 	
 	for (var n = 0; n < barrels.length; n += 1) {

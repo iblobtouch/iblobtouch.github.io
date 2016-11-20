@@ -170,3 +170,21 @@ function drawPentagon(x, y, size, angle, color) {
 	ctx.stroke();
 	ctx.restore();
 }
+
+function drawPoly(x, y, size, angle, color, sides) {
+	ctx.save();
+	ctx.strokeStyle = "#555555";
+	ctx.lineWidth = 5;
+	ctx.fillStyle = color;
+	ctx.translate(x, y);
+	ctx.rotate(angle * (Math.PI / 180));
+	ctx.beginPath();
+	for (i=0; i<sides; i++) {
+		ctx.rotate((360 / sides) * (Math.PI / 180));
+		ctx.lineTo(0, size);
+	}
+	ctx.closePath();
+	ctx.fill();
+	ctx.stroke();
+	ctx.restore();
+}

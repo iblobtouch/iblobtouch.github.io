@@ -120,7 +120,7 @@ function Shape(x, y, random) {
 	//Yellow Square
 	if (random < 0.65) {
 		stype = 0;
-		this.size = 25;
+		this.size = 20;
 		this.health = 100;
 		this.maxhealth = 100;
 
@@ -148,7 +148,7 @@ function Shape(x, y, random) {
 	//Green Square
 	} else if (random < 0.99993) {
 		stype = 4;
-		this.size = 25;
+		this.size = 20;
 		this.health = 2000;
 		this.maxhealth = 2000;
 

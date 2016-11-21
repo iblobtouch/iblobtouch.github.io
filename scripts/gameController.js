@@ -143,31 +143,31 @@ function drawTank() {
 
 			//Yellow Square
 			if (shapes[n].type === 0) {
-				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FFE869", 4);
 
 			//Red Triangle
 			} else if (shapes[n].type === 1) {
-				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FC7677");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#FC7677", 3);
 
 			//Blue Pentagon
 			} else if (shapes[n].type === 2) {
-				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC", 5);
 
 			//Blue Alpha Pentagon
 			} else if (shapes[n].type === 3) {
-				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#768DFC", 5);
 
 			//Green Square
 			} else if (shapes[n].type === 4) {
-				drawNecro(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71", 4);
 
 			//Green Triangle
 			} else if (shapes[n].type === 5) {
-				drawDrone(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71", 3);
 
 			//Green Pentagon
 			} else {
-				drawPentagon(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71");
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71", 5);
 			}
 
 			if (shapes[n].health < shapes[n].maxhealth) {
@@ -398,12 +398,12 @@ function drawTank() {
 			//Display as a trap if it's a trap.
 
 			if (bullets[n].type === 2) {
-				drawDrone(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value);
+				drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value), 3;
 			}
 			//Display as a trap if it's a drone.
 
 			if (bullets[n].type === 3) {
-				drawNecro(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value);
+				drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value, 4);
 			}
 			//Display as a trap if it's a drone.
 			
@@ -581,7 +581,7 @@ function drawTank() {
 		if (editmode === false) {
 			ctx.rotate(angle(tankpointx, tankpointy, mouse.x, mouse.y) * (Math.PI / 180));
 		}
-		drawDrone(0, 0, tanksize, 0, document.getElementById("color").value);
+		drawPoly(0, 0, tanksize, 0, document.getElementById("color").value, 3);
 		ctx.restore();
 	}
 

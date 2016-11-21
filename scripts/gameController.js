@@ -398,7 +398,7 @@ function drawTank() {
 			//Display as a trap if it's a trap.
 
 			if (bullets[n].type === 2) {
-				drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value), 3;
+				drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value, 3);
 			}
 			//Display as a trap if it's a drone.
 

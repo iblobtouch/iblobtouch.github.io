@@ -159,6 +159,13 @@ function Shape(x, y, random) {
 		this.health = 6000;
 		this.maxhealth = 6000;
 
+	//Orange Pentagon
+	} else if (random < 0.99996) {
+		stype = 6;
+		this.size = 36;
+		this.health = 24000;
+		this.maxhealth = 24000;
+
 	//Green Pentagon
 	} else {
 		stype = 6;

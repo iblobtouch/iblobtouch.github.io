@@ -165,13 +165,14 @@ function drawTank() {
 			} else if (shapes[n].type === 5) {
 				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71", 3);
 
+			//Orange Pentagon
+			} else if (shapes[n].type === 6) {
+				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#F79213", 5);
+				
 			//Green Pentagon
 			} else {
 				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#92FF71", 5);
 				
-			//Orange Pentagon
-			} else {
-				drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#F79213", 5);
 			}
 
 			if (shapes[n].health < shapes[n].maxhealth) {

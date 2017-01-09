@@ -168,7 +168,7 @@ function Shape(x, y, random) {
 
 	//Green Pentagon
 	} else {
-		stype = 6;
+		stype = 7;
 		this.size = 36;
 		this.health = 24000;
 		this.maxhealth = 24000;

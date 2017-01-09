@@ -35,6 +35,11 @@ Click outside of textboxes before placing or removing barrels.
 
 --
 
+**Sharing**
+
+In edit mode, click `export tank` to get the code. You give this code to your friend and they can play with your tank. You import codes by pasting a code in, and then clicking the `import tank` button. 
+
+--
 ## Credits
 
 

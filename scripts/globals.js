@@ -160,7 +160,7 @@ function Shape(x, y, random) {
 		this.maxhealth = 6000;
 
 	//Orange Pentagon
-	} else if (random < 1000000) {
+	} else if (random < 0.99997) {
 		stype = 6;
 		this.size = 36;
 		this.health = 24000;

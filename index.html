@@ -14,16 +14,6 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-128318079-1');
-
-    </script>
-
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-9823770221487467",
-            enable_page_level_ads: true
-        });
-
     </script>
 
     <link rel="stylesheet" href="normalize.css" />
@@ -168,6 +158,29 @@
 
     <p class="editbuttons barrelsettings pos10label"><b>Delay </b><span data-tooltip="Specifies the delay before the cannon can first fire." class="info">ⓘ</span></p>
     <textarea class="editbuttons barrelsettings pos10" id="basedelay" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the delay before the cannon can first fire.">0</textarea>
+
+    <p class="editbuttons barrelsettings pos11label" id="traplabel"><b>Barrel Image </b><span data-tooltip="Specifies what shape of barrel you want to place." class="info">ⓘ</span></p>
+    <select class="editbuttons barrelsettings pos11" id="barrellImage" data-tooltip="Specifies what type of barrel you want to place.">
+		<option value="rectangle">Rectangle</option>	
+        <option value="leftTriangle">Left facing triangle</option>
+        <option value="rightTriangle">Right facing triangle</option>
+        <option value="trap">45 degree Trapezoid</option> 
+    </select>
+
+    <p class="editbuttons barrelsettings pos12label"><b>Colour </b><span data-tooltip="Specifies what colour should be used for the barrel." class="info">ⓘ</span></p>
+    <input type="color" class="editbuttons barrelsettings pos12" id="color" value="#00B2E1" data-tooltip="Specifies what colour should be used for the the barrel.">
+
+    <input type="button" class="editbuttons barrelsettings pos12 presetred" id="setcolorred" onclick="setColor('#F14E54')" title="Red Team" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetblue" id="setcolorblue" onclick="setColor('#00B2E1')" title="Blue Team" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetgreen" id="setcolorgreen" onclick="setColor('#00E16E')" title="Green Team" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetpurple" id="setcolorpurple" onclick="setColor('#BF7FF5')" title="Purple Team" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetyellow" id="setcoloryellow" onclick="setColor('#FFEB69')" title="Arena Closer/No Team" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetlightgrey" id="setcolorlightgrey" onclick="setColor('#C0C0C0')" title="Fallen Tank" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetpalered" id="setcolorpalered" onclick="setColor('#FC7677')" title="Defender" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetviolet" id="setcolorviolet" onclick="setColor('#F177DD')" title="Protector of Pentagons" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetgrey" id="setcolorgrey" onclick="setColor('#999999')" title="Barrel Grey" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetdarkgrey" id="setcolordarkgrey" onclick="setColor('#555555')" title="Border Grey" />
+    <input type="button" class="editbuttons barrelsettings pos12 presetbrown" id="setcolorbrown" onclick="setColor('#D68165')" title="Brown Team(Removed)" />
 
     <!-- Bullet menu -->
     <p class="editbuttons bulletsettings pos1label"><b>Bullet Size </b><span data-tooltip="Specifies the size of the projectiles this cannon fires." class="info">ⓘ</span></p>

@@ -21,14 +21,6 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type, im
         ctx.rotate(a * (Math.PI / 180));
     }
 
-    if (type === 4) {
-        if ((editmode === false) && (shapes.length > 0)) {
-            ctx.translate(xoffset + parseInt(validateField(document.getElementById("body").value, 32)), -((width / 2) + yoffset));
-            ctx.rotate(((angle(tankpointx, tankpointy, mouse.x, mouse.y) + a) * -1) * (Math.PI / 180));
-            ctx.rotate(angle(tankpointx + xoffset + parseFloat(validateField(document.getElementById("body").value, 32)), tankpointy - ((width / 2) + yoffset), shapes[nShape].x, shapes[nShape].y) * (Math.PI / 180));
-        }
-    }
-
     if (image === "leftTriangle") {
         ctx.beginPath();
         ctx.moveTo(xoffset + length / 2, -(width / 2) - yoffset);
@@ -92,6 +84,11 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type, im
             ctx.fill();
             ctx.stroke();
         } else if (type === 4) {
+            ctx.translate(xoffset + parseInt(validateField(document.getElementById("body").value, 32)), -((width / 2) + yoffset));
+            if ((editmode === false) && (shapes.length > 0)) {
+                ctx.rotate(((angle(tankpointx, tankpointy, mouse.x, mouse.y) + a) * -1) * (Math.PI / 180));
+                ctx.rotate(angle(tankpointx + xoffset + parseFloat(validateField(document.getElementById("body").value, 32)), tankpointy - ((width / 2) + yoffset), shapes[nShape].x, shapes[nShape].y) * (Math.PI / 180));
+            }
             ctx.fillRect(0, 0, length, width);
             ctx.strokeRect(0, 0, length, width);
             ctx.beginPath();

@@ -75,6 +75,7 @@ function Barrel(a, type, size, speed, time) {
     this.disabled = document.getElementById("disable").checked;
     this.spread = parseFloat(validateField(document.getElementById("spread").value, 0, false));
     //this.image = document.getElementById("barrellImage").value;
+    //this.color = document.getElementById("barrellcolor").value;
 
     if (document.getElementById("use").checked === false) {
         this.b = [size, speed, time];
@@ -395,8 +396,16 @@ function importObject() {
     if (inputtext.length > 0 && !isNaN(inputtext)) {
         document.getElementById("body").value = inputtext
     }
+    /*
+    for (var n = 0; n < barrels.length; n += 1) {
+        //Loop through each barrel.
+        if (barrels[n].image === undefined) {
+            barrels[n].image = document.getElementById("barrellImage").value;
+            barrels[n].color = document.getElementById("barrellcolor").value;
+        }
 
-    undos = [];
+        undos = [];
+    }*/
 }
 
 function graClick() {

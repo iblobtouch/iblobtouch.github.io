@@ -1,772 +1,799 @@
 body {
-	font: 12px ubuntu, sans-serif;
-	font-weight: 600;
-	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	border: none;
-	margin: 5px;
+    font: 12px ubuntu, sans-serif;
+    font-weight: 600;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+    border: none;
+    margin: 5px;
 }
 
 #noscript {
-	background-color: red;
-	left: 0;
-	text-align: center;
-	top: 0;
-	padding: 5px;
-	position: fixed;
-	width: 100%;
-	z-index: 10;
+    background-color: red;
+    left: 0;
+    text-align: center;
+    top: 0;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
 }
 
 #noscript h1 {
-	font-size: 1.8em;
+    font-size: 1.8em;
 }
 
 #game {
-	position: fixed; 
-	top: 0; 
-	left: 0; 
-	padding:0;
-	margin: 0;
-	width:100%;
-	height:100%;
-	background-color: #CDCDCD;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #CDCDCD;
 }
 
 .ubuntu {
-	font-family: ubuntu, sans-serif;
+    font-family: ubuntu, sans-serif;
 }
 
 textarea {
-	background-color: #f8f8f8;
-	color: black;
-	resize: none;
-	width: 90px;
-	height: 17px;
-	line-height: 14px;
-	font: 12px/16px ubuntu, sans-serif;
-	font-weight: 600;
-	border: 2px solid black;
-	border-radius: 3px;
-	user-select: text;
-	padding: 1px;
-	-moz-user-select: text;
-	-webkit-user-select: text;
-	-ms-user-select: text;
+    background-color: #f8f8f8;
+    color: black;
+    resize: none;
+    width: 90px;
+    height: 17px;
+    line-height: 14px;
+    font: 12px/16px ubuntu, sans-serif;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 3px;
+    user-select: text;
+    padding: 1px;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
 }
 
 select {
-	background-color: #f8f8f8;
-	color: black;
-	resize: none;
-	width: 96px;
-	height: 23px;
-	line-height: 14px;
-	font: 12px/16px ubuntu, sans-serif;
-	font-weight: 600;
-	border: 2px solid black;
-	border-radius: 3px;
-	padding: 1px;
+    background-color: #f8f8f8;
+    color: black;
+    resize: none;
+    width: 96px;
+    height: 23px;
+    line-height: 14px;
+    font: 12px/16px ubuntu, sans-serif;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 1px;
 }
 
-textarea:hover, textarea:focus, select:hover, select:focus{
-	background-color: white;
+textarea:hover,
+textarea:focus,
+select:hover,
+select:focus {
+    background-color: white;
 }
+
 
 /* Default for all buttons */
+
 button {
-	background-color: #8B8B8B; 
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
-	border: 2px solid #333333;
-	border-radius: 2px;
-	color: white;
-	width: 100px;
-	line-height: 15px;
-	text-align: center;
-	text-decoration: none;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	display: inline-block;
-	font-size: 11px;
-	font-weight: 600;
-	padding: 1px;
+    background-color: #8B8B8B;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(173, 173, 173, 1) 50%);
+    border: 2px solid #333333;
+    border-radius: 2px;
+    color: white;
+    width: 100px;
+    line-height: 15px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px;
 }
 
-button:hover, .toggle label:hover {
-	background-color: #989898;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(198,198,198,1) 50%);
+button:hover,
+.toggle label:hover {
+    background-color: #989898;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(198, 198, 198, 1) 50%);
 }
 
-button:active, .toggle label:active {
-	background-color: #8A8A8A;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
+button:active,
+.toggle label:active {
+    background-color: #8A8A8A;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(111, 111, 111, 1) 50%);
 }
+
+
 /* End buttons */
 
+
 /* Checkboxes - use for default */
+
 .toggle {
-	width: 55px;
-	height: 20px;
-	background: #333333;
-	margin: 20px auto;
-	position: relative;
-	border-radius: 2px;
+    width: 55px;
+    height: 20px;
+    background: #333333;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 2px;
 }
 
 .toggle:after {
-	content: 'OFF';
-	color: #F14E54;
-	position: absolute;
-	right: 3px;
-	z-index: 0;
-	font: 12px/19px ubuntu, sans-serif;
-	font-weight: 600;
+    content: 'OFF';
+    color: #F14E54;
+    position: absolute;
+    right: 3px;
+    z-index: 0;
+    font: 12px/19px ubuntu, sans-serif;
+    font-weight: 600;
 }
 
 .toggle:before {
-  content: 'ON';
-  color: #00E16E;
-  position: absolute;
-  left: 3px;
-  z-index: 0;
-	font: 12px/19px ubuntu, sans-serif;
-	font-weight: 600;
+    content: 'ON';
+    color: #00E16E;
+    position: absolute;
+    left: 3px;
+    z-index: 0;
+    font: 12px/19px ubuntu, sans-serif;
+    font-weight: 600;
 }
 
 .toggle label {
-	display: block;
-	width: 25px;
-	height: 16px;
-	cursor: pointer;
-	position: absolute;
-	top: 1px;
-	left: 1px;
-	z-index: 1;
-	background-color: #8B8B8B; 
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
-	border: 1px solid #333333;
-	border-radius: 2px;
-	transition: all 0.1s ease;
+    display: block;
+    width: 25px;
+    height: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    z-index: 1;
+    background-color: #8B8B8B;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(173, 173, 173, 1) 50%);
+    border: 1px solid #333333;
+    border-radius: 2px;
+    transition: all 0.1s ease;
 }
 
 .toggle input[type=checkbox] {
-  visibility: hidden;
+    visibility: hidden;
 }
 
-.toggle input[type=checkbox]:checked + label {
-	left: 27px;
+.toggle input[type=checkbox]:checked+label {
+    left: 27px;
 }
+
+
 /* End checkboxes */
 
 kbd {
-	background-color: #ddd;
-	border: 1px solid #bbb;
-	border-radius: 0.2em;
-	color: black;
-	font-weight: 600;
-	line-height: 1.5em;
-	text-align: center;
-	text-decoration: none;
-	text-shadow: none;
-	font-size: 12px;
-	margin: 0em 0.13em;
-	padding: 0.0em 0.5em;
+    background-color: #ddd;
+    border: 1px solid #bbb;
+    border-radius: 0.2em;
+    color: black;
+    font-weight: 600;
+    line-height: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 12px;
+    margin: 0em 0.13em;
+    padding: 0.0em 0.5em;
 }
 
 #watermark {
-	position: absolute;
-	right: 10px;
-	font: 'ubuntu', sans-serif;
+    position: absolute;
+    right: 10px;
+    font: 'ubuntu', sans-serif;
 }
 
 #editbutton {
-	z-index: 5;
-	position:fixed;
-	width: 80px;
+    z-index: 5;
+    position: fixed;
+    width: 80px;
 }
 
 #infobutton {
-	z-index: 5;
-	position:fixed;
-	font-size: 16px;
-	width: 25px;
-	margin-left: 78px;
-	padding: 1px;
+    z-index: 5;
+    position: fixed;
+    font-size: 16px;
+    width: 25px;
+    margin-left: 78px;
+    padding: 1px;
 }
 
 .spawn {
-	z-index: 0;
-	position:fixed;
-	font-size: 16px;
-	width: 19px;
-	margin-left: 101px;
-	background-color: #8B8B8B; 
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(173,173,173,1) 50%);
-	border: 2px solid #333333;
-	border-radius: 2px;
-	line-height: 15px;
-	text-align: center;
-	padding: 1px;
+    z-index: 0;
+    position: fixed;
+    font-size: 16px;
+    width: 19px;
+    margin-left: 101px;
+    background-color: #8B8B8B;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(173, 173, 173, 1) 50%);
+    border: 2px solid #333333;
+    border-radius: 2px;
+    line-height: 15px;
+    text-align: center;
+    padding: 1px;
 }
 
 #graphicButton {
-	z-index: 5;
-	position:fixed;
-	font-size: 16px;
-	width: 48px;
-	margin-left: 124px;
-	padding: 1px;
+    z-index: 5;
+    position: fixed;
+    font-size: 16px;
+    width: 48px;
+    margin-left: 124px;
+    padding: 1px;
 }
 
 .spawn:hover {
-		background-color: #989898;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(198,198,198,1) 50%);
+    background-color: #989898;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(198, 198, 198, 1) 50%);
 }
 
 .spawn:active {
-	background-color: #8A8A8A;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(111,111,111,1) 50%);
+    background-color: #8A8A8A;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(111, 111, 111, 1) 50%);
 }
 
 .spawn label {
-	position: absolute;
-	top: 0px;
-	left:4px;
+    position: absolute;
+    top: 0px;
+    left: 4px;
 }
 
 .spawn label:after {
-	content: '⬟';
-	color: #00E16E;
-	text-shadow: none;
-	width: 25px;
-	height: 19px;
-	position: absolute;
-	left: -6px;
-	opacity: 0;
+    content: '⬟';
+    color: #00E16E;
+    text-shadow: none;
+    width: 25px;
+    height: 19px;
+    position: absolute;
+    left: -6px;
+    opacity: 0;
 }
 
 .spawn label:hover::after {
-	opacity: 0.3;
+    opacity: 0.3;
 }
 
 .spawn input[type=checkbox] {
-	visibility: hidden;
+    visibility: hidden;
 }
 
-.spawn input[type=checkbox]:checked + label:after {
-	opacity: 1;
+.spawn input[type=checkbox]:checked+label:after {
+    opacity: 1;
 }
 
 #settingsbutton {
-	z-index: 5;
-	position:fixed;
-	font-size: 16px;
-	width: 25px;
-	margin-left: 170px;
-	padding: 1px;
+    z-index: 5;
+    position: fixed;
+    font-size: 16px;
+    width: 25px;
+    margin-left: 170px;
+    padding: 1px;
 }
 
 .editbuttons {
-	z-index: 5;
-	position:fixed;
-	visibility: hidden;
+    z-index: 5;
+    position: fixed;
+    visibility: hidden;
 }
 
 #bodybutton {
-	margin-top: 30px;
-	margin-left: 1px;
+    margin-top: 30px;
+    margin-left: 1px;
 }
 
 #bodybutton:hover {
-	background-color: #9D84CD;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(195,164,255,1) 50%);
+    background-color: #9D84CD;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(195, 164, 255, 1) 50%);
 }
 
 #bodybutton:active {
-	background-color: #9272CD;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,91,164,1) 50%);
+    background-color: #9272CD;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(116, 91, 164, 1) 50%);
 }
 
 #barrelbutton {
-	margin-top: 30px;
-	margin-left: 110px;
+    margin-top: 30px;
+    margin-left: 110px;
 }
 
 #barrelbutton:hover {
-	background-color: #849BCD;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(164,193,255,1) 50%);
+    background-color: #849BCD;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(164, 193, 255, 1) 50%);
 }
 
 #barrelbutton:active {
-	background-color: #728FCD;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(91,114,164,1) 50%);
+    background-color: #728FCD;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(91, 114, 164, 1) 50%);
 }
 
 #bulletbutton {
-	margin-top: 30px;
-	margin-left: 220px;
+    margin-top: 30px;
+    margin-left: 220px;
 }
 
 #bulletbutton:hover {
-	background-color: #CD8484;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(255,164,164,1) 50%);
+    background-color: #CD8484;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(255, 164, 164, 1) 50%);
 }
 
 #bulletbutton:active {
-	background-color: #CC7171;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(164,91,91,1) 50%);
+    background-color: #CC7171;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(164, 91, 91, 1) 50%);
 }
 
 #savebutton {
-	margin-top: 30px;
-	margin-left: 330px;
+    margin-top: 30px;
+    margin-left: 330px;
 }
 
 #savebutton:hover {
-	background-color: #84CDCA;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(164,225,251,1) 50%);
+    background-color: #84CDCA;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(164, 225, 251, 1) 50%);
 }
 
 #savebutton:active {
-	background-color: #71CCC8;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(91,164,161,1) 50%);
+    background-color: #71CCC8;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(91, 164, 161, 1) 50%);
 }
 
 #undobutton {
-	margin-left: 192px;
-	width: 60px;
+    margin-left: 192px;
+    width: 60px;
 }
 
 #undobutton:hover {
-	background-color: #CD8484;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(255,164,164,1) 50%);
+    background-color: #CD8484;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(255, 164, 164, 1) 50%);
 }
 
 #undobutton:active {
-	background-color: #CC7171;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(164,91,91,1) 50%);
+    background-color: #CC7171;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(164, 91, 91, 1) 50%);
 }
 
 #redobutton {
-	margin-left: 250px;
-	width: 60px;
+    margin-left: 250px;
+    width: 60px;
 }
 
 #redobutton:hover {
-	background-color: #9DCD84;
-	background-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(195,255,164,1) 50%);
+    background-color: #9DCD84;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(195, 255, 164, 1) 50%);
 }
 
 #redobutton:active {
-	background-color: #90CC71;
-	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(116,164,91,1) 50%);
+    background-color: #90CC71;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(116, 164, 91, 1) 50%);
 }
 
 #color {
-	padding: 0px;
-	width: 30px;
+    padding: 0px;
+    width: 30px;
 }
+
+#barrellcolor {
+    padding: 0px;
+    width: 30px;
+}
+
 
 /* Preset colour buttons */
 
 .presetred {
-	top: 5px;
-	left: 40px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #F14E54;
+    top: 5px;
+    left: 40px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #F14E54;
 }
 
 .presetblue {
-	top: 16px;
-	left: 40px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #00B2E1;
+    top: 16px;
+    left: 40px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #00B2E1;
 }
 
 .presetgreen {
-	top: 5px;
-	left: 51px;
-	padding: 0;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #00E16E;
+    top: 5px;
+    left: 51px;
+    padding: 0;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #00E16E;
 }
 
 .presetpurple {
-	top: 16px;
-	left: 51px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #BF7FF5;
+    top: 16px;
+    left: 51px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #BF7FF5;
 }
 
 .presetyellow {
-	top: 5px;
-	left: 62px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #FFEB69;
+    top: 5px;
+    left: 62px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #FFEB69;
 }
 
 .presetlightgrey {
-	top: 16px;
-	left: 62px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #C0C0C0;
+    top: 16px;
+    left: 62px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #C0C0C0;
 }
 
 .presetpalered {
-	top: 5px;
-	left: 73px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #FC7677;
+    top: 5px;
+    left: 73px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #FC7677;
 }
 
 .presetviolet {
-	top: 16px;
-	left: 73px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #F177DD;
+    top: 16px;
+    left: 73px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #F177DD;
 }
 
 .presetgrey {
-	top: 5px;
-	left: 84px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #999999;
+    top: 5px;
+    left: 84px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #999999;
 }
 
 .presetdarkgrey {
-	top: 16px;
-	left: 84px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #555555;
+    top: 16px;
+    left: 84px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #555555;
 }
 
 .presetbrown {
-	top: 5px;
-	left: 95px;
-	padding: 0px;
-	border: 1px solid #555555;
-	height: 12px;
-	width: 12px;
-	background-color: #D68165;
+    top: 5px;
+    left: 95px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #D68165;
 }
+
+
 /* Tooltips */
-.info , .warninginfo{
-	position: relative;
-	font: 16px ubuntu;
-	font-weight: 600;
-	line-height: 0px;
-	color: #0022C8;
-	text-shadow: none;
-	margin-left: 3px;
+
+.info,
+.warninginfo {
+    position: relative;
+    font: 16px ubuntu;
+    font-weight: 600;
+    line-height: 0px;
+    color: #0022C8;
+    text-shadow: none;
+    margin-left: 3px;
 }
 
 .info:before {
-	content: attr(data-tooltip);
-	position: absolute;
-	background-color: rgba(20,105,255,0.9);
-	border: 2px solid black;
-	color: white;
-	border-radius: 5px;
-	padding: 4px 7px;
-	font-size: 11px;
-	text-align: center;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	line-height: 1.2em;
-	width: 140px;
-	margin-left: -70px;
-	bottom: 150%;
-	left: 50%;
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0.3s, opacity 0.3s;
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: rgba(20, 105, 255, 0.9);
+    border: 2px solid black;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 7px;
+    font-size: 11px;
+    text-align: center;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+    line-height: 1.2em;
+    width: 140px;
+    margin-left: -70px;
+    bottom: 150%;
+    left: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
 }
 
 .warninginfo:before {
-	content: attr(data-tooltip);
-	position: absolute;
-	background-color: rgba(255,20,20,0.9);
-	border: 2px solid black;
-	color: yellow;
-	border-radius: 5px;
-	padding: 4px 7px;
-	font-size: 11px;
-	text-align: center;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
-	line-height: 1.2em;
-	width: 140px;
-	margin-left: -70px;
-	bottom: 150%;
-	left: 50%;
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0.3s, opacity 0.3s;
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: rgba(255, 20, 20, 0.9);
+    border: 2px solid black;
+    color: yellow;
+    border-radius: 5px;
+    padding: 4px 7px;
+    font-size: 11px;
+    text-align: center;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, -1px 1px black, 1px 1px black, 1px -1px black;
+    line-height: 1.2em;
+    width: 140px;
+    margin-left: -70px;
+    bottom: 150%;
+    left: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
 }
 
-.info:after, .warninginfo:after {
-	content: "";
-	position: absolute;
-	border-style: solid;
-	border-width: 8px;
-	border-color: black transparent transparent transparent;
-	margin-left: 0px;
-	bottom: 65%;
-	left: 50%;
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0.3s, opacity 0.3s;
+.info:after,
+.warninginfo:after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 8px;
+    border-color: black transparent transparent transparent;
+    margin-left: 0px;
+    bottom: 65%;
+    left: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
 }
 
-.info:hover:before, .info:hover:after, .warninginfo:hover:before, .warninginfo:hover:after {
-	visibility: visible;
-	opacity: 1;
-	transition: visibility 0.3s, opacity 0.5s;
+.info:hover:before,
+.info:hover:after,
+.warninginfo:hover:before,
+.warninginfo:hover:after {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.3s, opacity 0.5s;
 }
 
 .textexport {
-	resize: both;
-	width: 420px;
-	height: 90px;
+    resize: both;
+    width: 420px;
+    height: 90px;
 }
 
 .pos1label {
-	margin-top: 60px;
-	margin-left: 0px;
+    margin-top: 60px;
+    margin-left: 0px;
 }
 
 .pos2label {
-	margin-top: 60px;
-	margin-left: 110px;
+    margin-top: 60px;
+    margin-left: 110px;
 }
 
 .pos3label {
-	margin-top: 60px;
-	margin-left: 220px;
+    margin-top: 60px;
+    margin-left: 220px;
 }
 
 .pos4label {
-	margin-top: 60px;
-	margin-left: 330px;
+    margin-top: 60px;
+    margin-left: 330px;
 }
 
 .pos5label {
-	margin-top: 120px;
-	margin-left: 0px;
+    margin-top: 120px;
+    margin-left: 0px;
 }
 
 .pos6label {
-	margin-top: 120px;
-	margin-left: 110px;
+    margin-top: 120px;
+    margin-left: 110px;
 }
 
 .pos7label {
-	margin-top: 120px;
-	margin-left: 220px;
+    margin-top: 120px;
+    margin-left: 220px;
 }
 
 .pos8label {
-	margin-top: 120px;
-	margin-left: 330px;
+    margin-top: 120px;
+    margin-left: 330px;
 }
 
 .pos9label {
-	margin-top: 180px;
-	margin-left: 0px;
+    margin-top: 180px;
+    margin-left: 0px;
 }
 
 .pos10label {
-	margin-top: 180px;
-	margin-left: 110px;
+    margin-top: 180px;
+    margin-left: 110px;
 }
 
 .pos11label {
-	margin-top: 180px;
-	margin-left: 220px;
+    margin-top: 180px;
+    margin-left: 220px;
 }
 
 .pos12label {
-	margin-top: 180px;
-	margin-left: 330px;
+    margin-top: 180px;
+    margin-left: 330px;
 }
 
 .pos13label {
-	margin-top: 240px;
-	margin-left: 0px;
+    margin-top: 240px;
+    margin-left: 0px;
 }
 
 .pos14label {
-	margin-top: 240px;
-	margin-left: 110px;
+    margin-top: 240px;
+    margin-left: 110px;
 }
 
 .pos15label {
-	margin-top: 240px;
-	margin-left: 220px;
+    margin-top: 240px;
+    margin-left: 220px;
 }
 
 .pos16label {
-	margin-top: 240px;
-	margin-left: 330px;
+    margin-top: 240px;
+    margin-left: 330px;
 }
 
 .pos1 {
-	margin-top: 85px;
-	margin-left: 0px;
+    margin-top: 85px;
+    margin-left: 0px;
 }
 
 .pos2 {
-	margin-top: 85px;
-	margin-left: 110px;
+    margin-top: 85px;
+    margin-left: 110px;
 }
 
 .pos3 {
-	margin-top: 85px;
-	margin-left: 220px;
+    margin-top: 85px;
+    margin-left: 220px;
 }
 
 .pos4 {
-	margin-top: 85px;
-	margin-left: 330px;
+    margin-top: 85px;
+    margin-left: 330px;
 }
 
 .pos5 {
-	margin-top: 145px;
-	margin-left: 0px;
+    margin-top: 145px;
+    margin-left: 0px;
 }
 
 .pos6 {
-	margin-top: 145px;
-	margin-left: 110px;
+    margin-top: 145px;
+    margin-left: 110px;
 }
 
 .pos7 {
-	margin-top: 145px;
-	margin-left: 220px;
+    margin-top: 145px;
+    margin-left: 220px;
 }
 
 .pos8 {
-	margin-top: 145px;
-	margin-left: 330px;
+    margin-top: 145px;
+    margin-left: 330px;
 }
 
 .pos9 {
-	margin-top: 205px;
-	margin-left: 0px;
+    margin-top: 205px;
+    margin-left: 0px;
 }
 
 .pos10 {
-	margin-top: 205px;
-	margin-left: 110px;
+    margin-top: 205px;
+    margin-left: 110px;
 }
 
 .pos11 {
-	margin-top: 205px;
-	margin-left: 220px;
+    margin-top: 205px;
+    margin-left: 220px;
 }
 
 .pos12 {
-	margin-top: 205px;
-	margin-left: 330px;
+    margin-top: 205px;
+    margin-left: 330px;
 }
 
 .pos13 {
-	margin-top: 260px;
-	margin-left: 0px;
+    margin-top: 260px;
+    margin-left: 0px;
 }
 
 .pos14 {
-	margin-top: 260px;
-	margin-left: 110px;
+    margin-top: 260px;
+    margin-left: 110px;
 }
 
 .pos15 {
-	margin-top: 260px;
-	margin-left: 220px;
+    margin-top: 260px;
+    margin-left: 220px;
 }
 
 .pos16 {
-	margin-top: 260px;
-	margin-left: 330px;
+    margin-top: 260px;
+    margin-left: 330px;
 }
 
 .infomation {
-	font: 12px ubuntu, sans-serif;
-	font-weight: 600;
-	border: 2px solid black;
-	border-radius: 5px;
-	background-color: #555;
-	line-height: 14px;
-	padding: 3px;
-	position: fixed;
-	margin-top: 60px;
-	margin-left: 0px;
-	width: 420px;
+    font: 12px ubuntu, sans-serif;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #555;
+    line-height: 14px;
+    padding: 3px;
+    position: fixed;
+    margin-top: 60px;
+    margin-left: 0px;
+    width: 420px;
 }
 
 .warning {
-	background-color: rgba(255,20,20,0.9);
-	background-image: none;
-	color: yellow;
-	text-align: center;
+    background-color: rgba(255, 20, 20, 0.9);
+    background-image: none;
+    color: yellow;
+    text-align: center;
 }
 
 .warning:hover {
-	background-color: rgba(255,46,46,0.9);
-	background-image: none;
-	color: yellow;
-	text-align: center;
+    background-color: rgba(255, 46, 46, 0.9);
+    background-image: none;
+    color: yellow;
+    text-align: center;
 }
 
 .warning:active {
-	background-color: rgba(194,18,18,0.9);
-	background-image: none;
-	color: yellow;
-	text-align: center;
+    background-color: rgba(194, 18, 18, 0.9);
+    background-image: none;
+    color: yellow;
+    text-align: center;
 }
 
 #notes {
-	font: 12px ubuntu, sans-serif;
-	font-weight: 600;
-	border: 2px solid black;
-	border-radius: 5px;
-	background-color: #555;
-	line-height: 14px;
-	padding: 3px;
-	position: fixed;
-	bottom: 0;
-	width: 420px;
+    font: 12px ubuntu, sans-serif;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #555;
+    line-height: 14px;
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    width: 420px;
 }
 
 #version {
-	font: 8px ubuntu, sans-serif;
-	position: absolute;
-	right: 10px;
-	bottom: 0;
+    font: 8px ubuntu, sans-serif;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
 }

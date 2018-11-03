@@ -440,7 +440,11 @@ function drawTank() {
         if (barrels[n].reload > 0) {
             barrels[n].reload -= 1;
         }
-        if ((angle(tankpointx, tankpointy, mouse.x, mouse.y) >= barrels[n].angle - 1) && (angle(tankpointx, tankpointy, mouse.x, mouse.y) <= barrels[n].angle + 1) && (editmode === true)) {
+        var anglePlace = angle(tankpointx, tankpointy, mouse.x, mouse.y);
+        if (anglePlace < 0) {
+            anglePlace = 360 + anglePlace;
+        }
+        if ((anglePlace >= barrels[n].angle - 1) && (anglePlace <= barrels[n].angle + 1) && (editmode === true)) {
             drawBarrel(barrels[n].angle, barrels[n].xoffset, barrels[n].yoffset, barrels[n].width, barrels[n].length, 0.5, false, barrels[n].type, barrels[n].image, barrels[n].color);
             if (input.f === true) {
                 barrels.splice(n, 1);

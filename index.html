@@ -14,7 +14,6 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-128318079-1');
-
     </script>
 
     <link rel="stylesheet" href="normalize.css" />
@@ -202,6 +201,21 @@
         <input type="checkbox" value="None" id="use" name="check" checked="" />
         <label for="use"></label>
     </div>
+
+    <p class="editbuttons bulletsettings pos6label"><b>Colour </b><span data-tooltip="Specifies what colour bullets a barrell will shoot." class="info">ⓘ</span></p>
+    <input type="color" class="editbuttons bulletsettings pos6" id="bulletColor" value="#FFFFFF" data-tooltip="Specifies what colour should be used for the bullets (White to use tanks colour).">
+
+    <input type="button" class="editbuttons bulletsettings pos6 presetred" id="setcolorred" onclick="setBulletColor('#F14E54')" title="Red Team" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetblue" id="setcolorblue" onclick="setBulletColor('#00B2E1')" title="Blue Team" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetgreen" id="setcolorgreen" onclick="setBulletColor('#00E16E')" title="Green Team" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetpurple" id="setcolorpurple" onclick="setBulletColor('#BF7FF5')" title="Purple Team" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetyellow" id="setcoloryellow" onclick="setBulletColor('#FFEB69')" title="Arena Closer/No Team" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetlightgrey" id="setcolorlightgrey" onclick="setBulletColor('#C0C0C0')" title="Fallen Tank" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetpalered" id="setcolorpalered" onclick="setBulletColor('#FC7677')" title="Defender" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetviolet" id="setcolorviolet" onclick="setBulletColor('#F177DD')" title="Protector of Pentagons" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetgrey" id="setcolorgrey" onclick="setBulletColor('#999999')" title="Barrel Grey" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetdarkgrey" id="setcolordarkgrey" onclick="setBulletColor('#555555')" title="Border Grey" />
+    <input type="button" class="editbuttons bulletsettings pos6 presetwhite" id="setcolorwhite" onclick="setBulletColor('#FFFFFF')" title="Tank colour" />
 
     <!-- Save menu -->
     <button class="editbuttons savesettings pos1label" onclick="printObject()">Export tank</button>

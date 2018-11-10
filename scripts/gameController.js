@@ -266,20 +266,20 @@ function drawTank() {
                             xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
                             ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
                             mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
-                            mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread);
+                            mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread, Pshapes, barrels[n].bulletColor);
                     } else {
                         bullets[bullets.length] = new Bullet(n, barrels[n].b[0], barrels[n].b[1], barrels[n].b[2],
                             xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, tanksize, barrels[n].angle) + tankpointx + xdif,
                             ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, tanksize, barrels[n].angle) + tankpointy - ydif,
                             shapes[nShape].x + ((shapes[nShape].x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
-                            shapes[nShape].y + ((shapes[nShape].y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread, Pshapes);
+                            shapes[nShape].y + ((shapes[nShape].y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, barrels[n].spread, Pshapes, barrels[n].bulletColor);
                     }
                 } else {
                     bullets[bullets.length] = new Bullet(n, barrels[n].width / 2, 5, 360,
                         xdistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointx + xdif,
                         ydistancefrom(tankpointx, tankpointy, mouse.x, mouse.y, barrels[n].length + barrels[n].xoffset, barrels[n].angle) + tankpointy - ydif,
                         mouse.x + ((mouse.x - tankpointx) * barrels[n].length + barrels[n].xoffset) - accel.x,
-                        mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, 0);
+                        mouse.y + ((mouse.y - tankpointy) * barrels[n].length + barrels[n].xoffset) - accel.y, 0, barrels[n].bulletColor);
                 }
                 barrels[n].reload = barrels[n].basereload;
 
@@ -388,27 +388,27 @@ function drawTank() {
         }
         if (editmode === false) {
             if (bullets[n].type === 0) {
-                drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency);
+                drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency, bullets[n].color);
             }
             //Display as a bullet if it's a bullet.
 
             if (bullets[n].type === 1) {
-                drawTrap(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].angle, bullets[n].transparency);
+                drawTrap(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].angle, bullets[n].transparency, bullets[n].color);
             }
             //Display as a trap if it's a trap.
 
             if (bullets[n].type === 2) {
-                drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value, 3);
+                drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), bullets[n].color, 3);
             }
             //Display as a trap if it's a drone.
 
             if (bullets[n].type === 3) {
-                drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), document.getElementById("color").value, 4);
+                drawPoly(bullets[n].x, bullets[n].y, bullets[n].size, angle(bullets[n].x, bullets[n].y, mouse.x, mouse.y), bullets[n].color, 4);
             }
             //Display as a trap if it's a drone.
 
             if (bullets[n].type === 4) {
-                drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency);
+                drawBullet(bullets[n].x, bullets[n].y, bullets[n].size, bullets[n].transparency, bullets[n].color);
             }
             //Display as a bullet if it's a bullet.
         }
@@ -489,7 +489,7 @@ function drawTank() {
         ctx.clip();
         ctx.clearRect(tankpointx - tanksize, tankpointy - tanksize, tanksize * 2, tanksize * 2);
         ctx.restore();
-        drawBullet(tankpointx, tankpointy, tanksize, tankalpha);
+        drawBullet(tankpointx, tankpointy, tanksize, tankalpha, "#ffffff");
     }
     if (shape === "square") {
         ctx.save();
@@ -941,7 +941,7 @@ function drawTank() {
         ctx.clip();
         ctx.clearRect(tankpointx - tanksize, tankpointy - tanksize, tanksize * 2, tanksize * 2);
         ctx.restore();
-        drawBullet(tankpointx, tankpointy, tanksize, tankalpha);
+        drawBullet(tankpointx, tankpointy, tanksize, tankalpha, "#ffffff");
     }
 
     //Draw the body of the tank on top of everything.
@@ -1158,6 +1158,11 @@ function setColor(color) {
 //Set colour functions. Used in presets
 function setBarrellColor(color) {
     document.getElementById("barrellcolor").value = color;
+}
+
+//Set colour functions. Used in presets
+function setBulletColor(color) {
+    document.getElementById("bulletColor").value = color;
 }
 
 document.addEventListener("mousemove", mousemove, false);

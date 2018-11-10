@@ -1,4 +1,0 @@
-This is a Brave Payments publisher verification file.
-
-Domain: iblobtouch.github.io
-Token: 926de400c44aaa3096a960071de312c872f50de57e2b312359175f77c17b082e

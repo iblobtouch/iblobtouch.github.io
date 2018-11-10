@@ -102,17 +102,25 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type, im
     ctx.restore();
 }
 
-function drawBullet(x, y, size, transparency) {
+function drawBullet(x, y, size, transparency, color) {
     //Draw a bullet using the given parameters.
+
+    var bColor = "";
+
+    if (color === "#ffffff") {
+        bColor = document.getElementById("color").value;
+    } else {
+        bColor = color;
+    }
 
     ctx.save();
     if (newGraph === false) {
         ctx.strokeStyle = "#555555";
     } else {
-        ctx.strokeStyle = ColorLuminance(document.getElementById("color").value, -0.2);
+        ctx.strokeStyle = ColorLuminance(bColor, -0.2);
     }
     ctx.lineWidth = 5;
-    ctx.fillStyle = document.getElementById("color").value;
+    ctx.fillStyle = bColor;
     ctx.globalAlpha = transparency;
     ctx.beginPath();
     ctx.arc(x, y, size + 2, 0, Math.PI * 2, true);
@@ -122,15 +130,24 @@ function drawBullet(x, y, size, transparency) {
     ctx.restore();
 }
 
-function drawTrap(x, y, size, angle, transparency) {
+function drawTrap(x, y, size, angle, transparency, color) {
+    var bColor = "";
+
+    if (color === "#ffffff") {
+        bColor = document.getElementById("color").value;
+    } else {
+        bColor = color;
+    }
+
+
     ctx.save();
     if (newGraph === false) {
         ctx.strokeStyle = "#555555";
     } else {
-        ctx.strokeStyle = ColorLuminance(document.getElementById("color").value, -0.2);
+        ctx.strokeStyle = ColorLuminance(bColor, -0.2);
     }
     ctx.lineWidth = 5;
-    ctx.fillStyle = document.getElementById("color").value;
+    ctx.fillStyle = bColor;
     ctx.globalAlpha = transparency;
     ctx.translate(x, y);
     ctx.beginPath();
@@ -154,14 +171,23 @@ function drawTrap(x, y, size, angle, transparency) {
 }
 
 function drawDrone(x, y, size, angle, color) {
+    var bColor = "";
+
+    if (color === "#ffffff") {
+        bColor = document.getElementById("color").value;
+    } else {
+        bColor = color;
+    }
+
+
     ctx.save();
     if (newGraph === false) {
         ctx.strokeStyle = "#555555";
     } else {
-        ctx.strokeStyle = ColorLuminance(document.getElementById("color").value, -0.2);
+        ctx.strokeStyle = ColorLuminance(bColor, -0.2);
     }
     ctx.lineWidth = 5;
-    ctx.fillStyle = color;
+    ctx.fillStyle = bColor;
     ctx.translate(x, y);
     ctx.beginPath();
     ctx.rotate(angle * (Math.PI / 180));
@@ -179,12 +205,20 @@ function drawDrone(x, y, size, angle, color) {
 }
 
 function drawNecro(x, y, size, angle, color) {
+    var bColor = "";
+
+    if (color === "#ffffff") {
+        bColor = document.getElementById("color").value;
+    } else {
+        bColor = color;
+    }
+
     ctx.save();
-    ctx.fillStyle = color;
+    ctx.fillStyle = bColor;
     if (newGraph === false) {
         ctx.strokeStyle = "#555555";
     } else {
-        ctx.strokeStyle = ColorLuminance(color, -0.2);
+        ctx.strokeStyle = ColorLuminance(bColor, -0.2);
     }
     ctx.lineWidth = 10;
     ctx.translate(x, y);

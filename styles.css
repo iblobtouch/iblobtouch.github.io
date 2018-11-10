@@ -384,6 +384,11 @@ kbd {
     width: 30px;
 }
 
+#bulletColor {
+    padding: 0px;
+    width: 30px;
+}
+
 
 /* Preset colour buttons */
 
@@ -495,6 +500,16 @@ kbd {
     height: 12px;
     width: 12px;
     background-color: #D68165;
+}
+
+.presetwhite {
+    top: 5px;
+    left: 95px;
+    padding: 0px;
+    border: 1px solid #555555;
+    height: 12px;
+    width: 12px;
+    background-color: #FFFFFF;
 }
 
 

@@ -76,6 +76,7 @@ function Barrel(a, type, size, speed, time) {
     this.spread = parseFloat(validateField(document.getElementById("spread").value, 0, false));
     this.image = document.getElementById("barrellImage").value;
     this.color = document.getElementById("barrellcolor").value;
+    this.bulletColor = document.getElementById("bulletColor").value;
 
     if (document.getElementById("use").checked === false) {
         this.b = [size, speed, time];
@@ -89,7 +90,7 @@ function Barrel(a, type, size, speed, time) {
 var barrels = [];
 //Array containing all the barrels, each entry is a Barrel object.
 
-function Bullet(n, size, speed, time, x, y, targetx, targety, spr, shapes) {
+function Bullet(n, size, speed, time, x, y, targetx, targety, spr, shapes, color) {
     this.xoffset = barrels[n].xoffset;
     this.yoffset = barrels[n].yoffset;
     this.x = x;
@@ -112,6 +113,7 @@ function Bullet(n, size, speed, time, x, y, targetx, targety, spr, shapes) {
     this.initoffx = offset.totalx;
     this.initoffy = offset.totaly;
     this.transparency = 1;
+    this.color = color;
 }
 
 var bullets = [];
@@ -402,6 +404,9 @@ function importObject() {
         if (barrels[n].image === undefined) {
             barrels[n].image = "rectangle";
             barrels[n].color = "#888888";
+        }
+        if (barrels[n].bulletColor === undefined) {
+            barrels[n].bulletColor = "#ffffff";
         }
     }
     undos = [];

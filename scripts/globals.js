@@ -122,91 +122,91 @@ var bullets = [];
 function Shape(x, y, random) {
     var stype = 0;
 
-	//Yellow Square
-	if (random < 0.50) {
-		stype = 0;
-		this.size = 20;
-		this.health = 100;
-		this.maxhealth = 100;
-	
-	//Egg
-	} else if (random < 0.60) {
-		stype = 8;
-		this.size = 8;
-		this.health = 50;
-		this.maxhealth = 50;
-		
-	//Red Triangle
-	} else if (random < 0.70) {
-		stype = 1;
-		this.size = 20;
-		this.health = 300;
-		this.maxhealth = 300;
+    //Yellow Square
+    if (random < 0.50) {
+        stype = 0;
+        this.size = 20;
+        this.health = 100;
+        this.maxhealth = 100;
 
-	//Blue Pentagon
-	} else if (random < 0.82) {
-		stype = 2;
-		this.size = 36;
-		this.health = 1400;
-		this.maxhealth = 1400;
-	
-	//Hexagon
-	} else if (random < 0.84) {
-		stype = 7;
-		this.size = 52;
-		this.health = 1700;
-		this.maxhealth = 1700;
+        //Egg
+    } else if (random < 0.60) {
+        stype = 8;
+        this.size = 8;
+        this.health = 50;
+        this.maxhealth = 50;
 
-	//Heptagon
-	} else if (random < 0.86) {
-		stype = 9;
-		this.size = 67;
-		this.health = 2000;
-		this.maxhealth = 2000;
+        //Red Triangle
+    } else if (random < 0.70) {
+        stype = 1;
+        this.size = 20;
+        this.health = 300;
+        this.maxhealth = 300;
 
-	//Octagon
-	} else if (random < 0.88) {
-		stype = 10;
-		this.size = 83;
-		this.health = 2300;
-		this.maxhealth = 2300;
+        //Blue Pentagon
+    } else if (random < 0.82) {
+        stype = 2;
+        this.size = 36;
+        this.health = 1400;
+        this.maxhealth = 1400;
 
-	//Nonagon
-	} else if (random < 0.90) {
-		stype = 11;
-		this.size = 83;
-		this.health = 2600;
-		this.maxhealth = 2600;
+        //Hexagon
+    } else if (random < 0.84) {
+        stype = 7;
+        this.size = 52;
+        this.health = 1700;
+        this.maxhealth = 1700;
 
-	//Blue Alpha Pentagon
-	} else if (random < 0.9999) {
-		stype = 3;
-		this.size = 85;
-		this.health = 20000;
-		this.maxhealth = 20000;
+        //Heptagon
+    } else if (random < 0.86) {
+        stype = 9;
+        this.size = 67;
+        this.health = 2000;
+        this.maxhealth = 2000;
 
-		
-	//Green Square
-	} else if (random < 0.99993) {
-		stype = 4;
-		this.size = 20;
-		this.health = 2000;
-		this.maxhealth = 2000;
+        //Octagon
+    } else if (random < 0.88) {
+        stype = 10;
+        this.size = 83;
+        this.health = 2300;
+        this.maxhealth = 2300;
 
-	//Green Triangle
-	} else if (random < 0.99996) {
-		stype = 5;
-		this.size = 25;
-		this.health = 6000;
-		this.maxhealth = 6000;
+        //Nonagon
+    } else if (random < 0.90) {
+        stype = 11;
+        this.size = 83;
+        this.health = 2600;
+        this.maxhealth = 2600;
 
-	//Green Pentagon
-	} else {
-		stype = 6;
-		this.size = 36;
-		this.health = 24000;
-		this.maxhealth = 24000;
-	}
+        //Blue Alpha Pentagon
+    } else if (random < 0.9999) {
+        stype = 3;
+        this.size = 85;
+        this.health = 20000;
+        this.maxhealth = 20000;
+
+
+        //Green Square
+    } else if (random < 0.99993) {
+        stype = 4;
+        this.size = 20;
+        this.health = 2000;
+        this.maxhealth = 2000;
+
+        //Green Triangle
+    } else if (random < 0.99996) {
+        stype = 5;
+        this.size = 25;
+        this.health = 6000;
+        this.maxhealth = 6000;
+
+        //Green Pentagon
+    } else {
+        stype = 6;
+        this.size = 36;
+        this.health = 24000;
+        this.maxhealth = 24000;
+    }
 
     this.initx = offset.totalx;
     this.inity = offset.totaly;
@@ -271,12 +271,13 @@ function settingsClick() {
 }
 
 function changeClick() {
-	showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "visible", "hidden");
+    showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "visible", "hidden");
 }
 
 function expClick() {
-	showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "visible");
+    showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "visible");
 }
+
 function showhide(e, bo, ba, bu, sa, inf, se, cha, exp) {
     var elements = document.getElementsByClassName("editbuttons");
 
@@ -288,6 +289,13 @@ function showhide(e, bo, ba, bu, sa, inf, se, cha, exp) {
 
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.visibility = bo;
+        if (elements[i].classList.contains("custom")) {
+            if (document.getElementById("shape").value === "custom") {
+                elements[i].style.visibility = "visible";
+            } else {
+                elements[i].style.visibility = "hidden";
+            }
+        }
     }
 
     elements = document.getElementsByClassName("barrelsettings");
@@ -349,7 +357,7 @@ function validateField(value, returnval, ignoreneg) {
 
 function printObject() {
     var barreltext = "";
-    var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "*" + document.getElementById("scolo").value + "*" +  parseFloat(validateField(document.getElementById("customsides").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customssides").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customdistance").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customsdist").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customangle").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customsangle").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customssize").value, 0, true)) + "[";
+    var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "*" + document.getElementById("scolo").value + "*" + parseFloat(validateField(document.getElementById("customsides").value, 0, true)) + "/" + parseFloat(validateField(document.getElementById("customssides").value, 0, true)) + "/" + parseFloat(validateField(document.getElementById("customdistance").value, 0, true)) + "/" + parseFloat(validateField(document.getElementById("customsdist").value, 0, true)) + "/" + parseFloat(validateField(document.getElementById("customangle").value, 0, true)) + "/" + parseFloat(validateField(document.getElementById("customsangle").value, 0, true)) + "/" + parseFloat(validateField(document.getElementById("customssize").value, 0, true)) + "[";
     if (barrels.length > 0) {
         for (var i = 0; i < barrels.length; i += 1) {
 
@@ -441,41 +449,41 @@ function importObject() {
 
     // Find color location
 
-  	if (sixthSlash > -1 && inputtext.length > sixthSlash) {
+    if (sixthSlash > -1 && inputtext.length > sixthSlash) {
         document.getElementById("customssize").value = inputtext.substr(sixthSlash + 1);
         inputtext = inputtext.substr(0, sixthSlash);
     }
-	
-  	if (fifthSlash > -1 && inputtext.length > fifthSlash) {
+
+    if (fifthSlash > -1 && inputtext.length > fifthSlash) {
         document.getElementById("customsangle").value = inputtext.substr(fifthSlash + 1);
         inputtext = inputtext.substr(0, fifthSlash);
     }
-	
-  	if (fourthSlash > -1 && inputtext.length > fourthSlash) {
+
+    if (fourthSlash > -1 && inputtext.length > fourthSlash) {
         document.getElementById("customangle").value = inputtext.substr(fourthSlash + 1);
         inputtext = inputtext.substr(0, fourthSlash);
     }
-	
-  	if (thirdSlash > -1 && inputtext.length > thirdSlash) {
+
+    if (thirdSlash > -1 && inputtext.length > thirdSlash) {
         document.getElementById("customsdist").value = inputtext.substr(thirdSlash + 1);
         inputtext = inputtext.substr(0, thirdSlash);
     }
-	
-  	if (secondSlash > -1 && inputtext.length > secondSlash) {
+
+    if (secondSlash > -1 && inputtext.length > secondSlash) {
         document.getElementById("customdistance").value = inputtext.substr(secondSlash + 1);
         inputtext = inputtext.substr(0, secondSlash);
     }
-	
-  	if (firstSlash > -1 && inputtext.length > firstSlash) {
+
+    if (firstSlash > -1 && inputtext.length > firstSlash) {
         document.getElementById("customssides").value = inputtext.substr(firstSlash + 1);
         inputtext = inputtext.substr(0, firstSlash);
     }
-	
-	if (fourthAst > -1 && inputtext.length > fourthAst) {
+
+    if (fourthAst > -1 && inputtext.length > fourthAst) {
         document.getElementById("customsides").value = inputtext.substr(fourthAst + 1);
         inputtext = inputtext.substr(0, fourthAst);
     }
-	
+
     var scoloIndex = -1;
     if (thirdAst > -1 && inputtext[thirdAst + 1] === "#") {
         scoloIndex = thirdAst;
@@ -490,7 +498,7 @@ function importObject() {
         }
         inputtext = inputtext.substr(0, scoloIndex);
     }
-	
+
     var colorIndex = -1;
     if (secondAst > -1 && inputtext[secondAst + 1] === "#") {
         colorIndex = secondAst;
@@ -557,4 +565,17 @@ function ColorLuminance(hex, lum) {
     }
 
     return rgb;
+}
+
+function updateList() {
+    var elements = document.getElementsByClassName("tanksettings");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].classList.contains("custom")) {
+            if (document.getElementById("shape").value === "custom") {
+                elements[i].style.visibility = "visible";
+            } else {
+                elements[i].style.visibility = "hidden";
+            }
+        }
+    }
 }

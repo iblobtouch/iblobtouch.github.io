@@ -625,6 +625,7 @@ kbd {
 .warninginfo:hover:after {
     opacity: 1;
     transition: visibility 0.3s, opacity 0.5s;
+    visibility: visible;
 }
 
 .custom {

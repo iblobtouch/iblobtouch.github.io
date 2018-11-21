@@ -291,7 +291,7 @@ function showhide(e, bo, ba, bu, sa, inf, se, cha, exp) {
         elements[i].style.visibility = bo;
         if (elements[i].classList.contains("custom")) {
             if (document.getElementById("shape").value === "custom") {
-                elements[i].style.visibility = "visible";
+                elements[i].style.visibility = bo;
             } else {
                 elements[i].style.visibility = "hidden";
             }

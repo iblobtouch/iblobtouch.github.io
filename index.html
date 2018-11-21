@@ -14,7 +14,6 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-128318079-1');
-
     </script>
 
     <link rel="stylesheet" href="normalize.css" />
@@ -56,7 +55,6 @@
     <button class="editbuttons" id="savebutton" onclick="saveClick()">Export/Import</button>
     <button class="editbuttons" id="undobutton" onclick="undo()">⟲ Undo</button>
     <button class="editbuttons" id="redobutton" onclick="redo()">Redo ⟳</button>
-    <button class="editbuttons" id="changebutton" onclick="changeClick()">Changelog ◉</button>
 
     <!-- Info menu -->
     <p class="editbuttons infosettings infomation">Press the edit mode button to edit the tank. <br /> Press <kbd>E</kbd> to autofire and <kbd>C</kbd> to autospin. <br /> Refresh the page to get a new tank. <br /> <kbd>Z</kbd>/<kbd>X</kbd> To undo/redo. <br /> <kbd>O</kbd>/<kbd>P</kbd> To Increase/decrease the number of barrels places at once. </p>
@@ -75,73 +73,13 @@
     <button class="editbuttons settingssettings pos7" onclick="clearBullets()">Clear Bullets</button>
 
     <!-- Changelog -->
-    <p class="editbuttons changelog pos1label"><b>Changelog</b><span data-tooltip="FTB was created by IBlobTouch. This was modded by Fillygroove." class="info">ⓘ</span></p>
-    <textarea class="editbuttons changelog pos1 scrollbox textarea" readonly id="change">
-		Modded FTB v1.4.0
-•Updated to include the new Iblobtouch update for barrel types and colors.
-•Fixed the Drive Body Type.
-•Fixed Shooting.
-•Tweaked Border Style slightly.
-•Changed Trap Physics back to that of the original FTB.
-•Added a new Barrel Image, Single.
-•Speaking of Barrel Images, most of them have been renamed.
-•Removed the Debug Body Type.
-•Future Update Ideas:
-•New Section for Body Types, allowing them to be more customizable.
-•Having Shell Color export.
-		Modded FTB v1.3.4
-•Fixed Trap Physics.
-•Edited the Debug body type.
-•Readded the new Polygons.
-•Rearranged the body types.
-•Added a few new Body Types.
-•Next update will have Invisibility fixed.
-		Modded FTB v1.3.3
-•Added a single Body Type.
-•There is now a blank option at the bottom of the Body dropbox for debugging purposes.
-		Modded FTB v1.3.2
-•Edited the Body Presets extensively.
-•Edited the Body/Color menu.
-•Added a new experimental slider titled Luminance.
-•Added a new experimental color selector for Smasher Shells.
-		Modded FTB v1.3.1
-•Changed some of the color presets.
-•Added yet another body preset.
-•The new polygons from the original update will be re-added soon.
-		Modded FTB v1.3.0
-•Added and removed some more body types.
-•Added an experimental Barrel Color option.
-•Removed the Accelerator weapon.
-•Removed the new Color Presets.
-•Did some more stuff.
-		Modded FTB v1.2.0
-•Added a new weapon! The Accelerator: Acts like a normal turret, but if you right click, the bullets repel from the mouse.
-		Modded FTB v1.1.0
-•Added a Pentagon Color Preset as I forgot to do so last updoot.
-•Everyone seems to be bashing me to fix Decoy, so I fixed it.
-•Changed the physics of traps again.
-•Fixed the Instructions.
-•Adjusted the Textbox for inflation.
-•Fixed the multiple bugs with Drones.
-•Changed the Tab Title from "Modded Fantasy Tank Builder" to "Modded FTB".
-	Modded FTB v1.0.0
-•Added Eggs, Hexagons, Heptagons, Octagons, and Nonagons
-•Added more color presets, including, but not limited too Hexagon Tan and Heptagon Magenta.
-•Added more body presets, including, but not limited too Saw and Dodecagon.
-•Fixed bugs with reloading and color switching.
-•Modified the Landmine and Mothership body types.
-•Changed default Shift Increments from 15° to 7.5°.
-•Changed colors for the interface.
-•Changed the physics of traps.
-•Added this here changelog and its corresponding button.
-•Renamed the Edit Mode button to Toggle Edit.</textarea>
 
     <!-- Body menu -->
     <p class="editbuttons tanksettings pos9label"><b>Radius </b><span data-tooltip="Specifies the radius of the tank's main body." class="info">ⓘ</span></p>
     <textarea class="editbuttons tanksettings pos9" id="body" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">32</textarea>
 
     <p class="editbuttons tanksettings pos1label"><b>Body </b><span data-tooltip="Specifies the type of body that should be used." class="info">ⓘ</span></p>
-    <select class="editbuttons tanksettings pos1" id="shape" data-tooltip="Specifies the type of body should be used.">
+    <select class="editbuttons tanksettings pos1" id="shape" data-tooltip="Specifies the type of body should be used." onchange="updateList()">
 			<option value="circle">Circle</option> 
   			<option value="square">Square</option>
 			<option value="triangle">Triangle</option>
@@ -209,33 +147,35 @@
 			<option value="0">Borderless</option> 
 		</select>
 
-    <p class="editbuttons tanksettings pos10label"><b>Sides</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos10" id="customsides" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">4</textarea>
-    </select>
+    <div id="Custom" style="visibility: hidden;">
+        <p class="editbuttons tanksettings custom pos10label"><b>Sides</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos10" id="customsides" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">4</textarea>
 
-    <p class="editbuttons tanksettings pos11label"><b>Distance</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos11" id="customdistance" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0</textarea>
-    </select>
 
-    <p class="editbuttons tanksettings pos12label"><b>Base Angle</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos12" id="customangle" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0</textarea>
-    </select>
+        <p class="editbuttons tanksettings custom pos11label"><b>Distance</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos11" id="customdistance" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0</textarea>
 
-    <p class="editbuttons tanksettings pos13label"><b>Shell Radius</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos13" id="customssize" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">40</textarea>
-    </select>
 
-    <p class="editbuttons tanksettings pos14label"><b>Shell Sides</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos14" id="customssides" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">12</textarea>
-    </select>
+        <p class="editbuttons tanksettings custom pos12label"><b>Base Angle</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos12" id="customangle" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0</textarea>
 
-    <p class="editbuttons tanksettings pos15label"><b>Shell Distance</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos15" id="customsdist" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0.9</textarea>
-    </select>
 
-    <p class="editbuttons tanksettings pos16label"><b>Shell Angle</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
-    <textarea class="editbuttons tanksettings pos16" id="customsangle" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0</textarea>
-    </select>
+        <p class="editbuttons tanksettings custom pos13label"><b>Shell Radius</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos13" id="customssize" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">40</textarea>
+
+
+        <p class="editbuttons tanksettings custom pos14label"><b>Shell Sides</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos14" id="customssides" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">12</textarea>
+
+
+        <p class="editbuttons tanksettings custom pos15label"><b>Shell Distance</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos15" id="customsdist" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0.9</textarea>
+
+
+        <p class="editbuttons tanksettings custom pos16label"><b>Shell Angle</b><span data-tooltip="Sets the border color difference for the 'New' border scheme. Default is Arras. WARNING: Does not save to export. Yet." class="warninginfo">ⓘ</span></p>
+        <textarea class="editbuttons tanksettings custom pos16" id="customsangle" rows="1" cols="10" placeholder="0" data-tooltip="Specifies the radius of the tank's main body.">0</textarea>
+
+    </div>
 
     <!-- Barrel menu -->
     <p class="editbuttons barrelsettings pos1label" id="traplabel"><b>Barrel </b><span data-tooltip="Specifies what type of barrel you want to place." class="info">ⓘ</span></p>

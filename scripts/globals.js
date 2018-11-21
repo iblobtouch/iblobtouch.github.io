@@ -122,55 +122,91 @@ var bullets = [];
 function Shape(x, y, random) {
     var stype = 0;
 
-    //Yellow Square
-    if (random < 0.65) {
-        stype = 0;
-        this.size = 20;
-        this.health = 100;
-        this.maxhealth = 100;
+	//Yellow Square
+	if (random < 0.50) {
+		stype = 0;
+		this.size = 20;
+		this.health = 100;
+		this.maxhealth = 100;
+	
+	//Egg
+	} else if (random < 0.60) {
+		stype = 8;
+		this.size = 8;
+		this.health = 50;
+		this.maxhealth = 50;
+		
+	//Red Triangle
+	} else if (random < 0.70) {
+		stype = 1;
+		this.size = 20;
+		this.health = 300;
+		this.maxhealth = 300;
 
-        //Red Triangle
-    } else if (random < 0.90) {
-        stype = 1;
-        this.size = 20;
-        this.health = 300;
-        this.maxhealth = 300;
+	//Blue Pentagon
+	} else if (random < 0.82) {
+		stype = 2;
+		this.size = 36;
+		this.health = 1400;
+		this.maxhealth = 1400;
+	
+	//Hexagon
+	} else if (random < 0.84) {
+		stype = 7;
+		this.size = 52;
+		this.health = 1700;
+		this.maxhealth = 1700;
 
-        //Blue Pentagon
-    } else if (random < 0.995) {
-        stype = 2;
-        this.size = 36;
-        this.health = 1400;
-        this.maxhealth = 1400;
+	//Heptagon
+	} else if (random < 0.86) {
+		stype = 9;
+		this.size = 67;
+		this.health = 2000;
+		this.maxhealth = 2000;
 
-        //Blue Alpha Pentagon
-    } else if (random < 0.9990) {
-        stype = 3;
-        this.size = 85;
-        this.health = 20000;
-        this.maxhealth = 20000;
+	//Octagon
+	} else if (random < 0.88) {
+		stype = 10;
+		this.size = 83;
+		this.health = 2300;
+		this.maxhealth = 2300;
 
-        //Green Square
-    } else if (random < 0.99993) {
-        stype = 4;
-        this.size = 20;
-        this.health = 2000;
-        this.maxhealth = 2000;
+	//Nonagon
+	} else if (random < 0.90) {
+		stype = 11;
+		this.size = 83;
+		this.health = 2600;
+		this.maxhealth = 2600;
 
-        //Green Triangle
-    } else if (random < 0.99996) {
-        stype = 5;
-        this.size = 25;
-        this.health = 6000;
-        this.maxhealth = 6000;
+	//Blue Alpha Pentagon
+	} else if (random < 0.9999) {
+		stype = 3;
+		this.size = 85;
+		this.health = 20000;
+		this.maxhealth = 20000;
 
-        //Green Pentagon
-    } else {
-        stype = 6;
-        this.size = 36;
-        this.health = 24000;
-        this.maxhealth = 24000;
-    }
+		
+	//Green Square
+	} else if (random < 0.99993) {
+		stype = 4;
+		this.size = 20;
+		this.health = 2000;
+		this.maxhealth = 2000;
+
+	//Green Triangle
+	} else if (random < 0.99996) {
+		stype = 5;
+		this.size = 25;
+		this.health = 6000;
+		this.maxhealth = 6000;
+
+	//Green Pentagon
+	} else {
+		stype = 6;
+		this.size = 36;
+		this.health = 24000;
+		this.maxhealth = 24000;
+	}
 
     this.initx = offset.totalx;
     this.inity = offset.totaly;
@@ -203,38 +239,45 @@ function editButtonClick() {
         accel.x = 0;
         accel.y = 0;
         tankalpha = 1.0;
-        showhide("visible", "hidden", "hidden", "hidden", "visible", "hidden", "hidden");
+        showhide("visible", "hidden", "hidden", "hidden", "visible", "hidden", "hidden", "hidden", "hidden");
     } else {
         editmode = false;
-        showhide("hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden");
+        showhide("hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden");
     }
 }
 
 function bodyClick() {
-    showhide("visible", "visible", "hidden", "hidden", "hidden", "hidden", "hidden");
+    showhide("visible", "visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden");
 }
 
 function barrelClick() {
-    showhide("visible", "hidden", "visible", "hidden", "hidden", "hidden", "hidden");
+    showhide("visible", "hidden", "visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden");
 }
 
 function bulletClick() {
-    showhide("visible", "hidden", "hidden", "visible", "hidden", "hidden", "hidden");
+    showhide("visible", "hidden", "hidden", "visible", "hidden", "hidden", "hidden", "hidden", "hidden");
 }
 
 function saveClick() {
-    showhide("visible", "hidden", "hidden", "hidden", "visible", "hidden", "hidden");
+    showhide("visible", "hidden", "hidden", "hidden", "visible", "hidden", "hidden", "hidden", "hidden");
 }
 
 function infoClick() {
-    showhide("visible", "hidden", "hidden", "hidden", "hidden", "visible", "hidden");
+    showhide("visible", "hidden", "hidden", "hidden", "hidden", "visible", "hidden", "hidden", "hidden");
 }
 
 function settingsClick() {
-    showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "visible");
+    showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "visible", "hidden", "hidden");
 }
 
-function showhide(e, bo, ba, bu, sa, inf, se) {
+function changeClick() {
+	showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "visible", "hidden");
+}
+
+function expClick() {
+	showhide("visible", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "visible");
+}
+function showhide(e, bo, ba, bu, sa, inf, se, cha, exp) {
     var elements = document.getElementsByClassName("editbuttons");
 
     for (var i = 0; i < elements.length; i++) {
@@ -276,6 +319,18 @@ function showhide(e, bo, ba, bu, sa, inf, se) {
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.visibility = se;
     }
+
+    elements = document.getElementsByClassName("changelog");
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.visibility = cha;
+    }
+
+    elements = document.getElementsByClassName("expsettings");
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.visibility = exp;
+    }
 }
 
 function validateField(value, returnval, ignoreneg) {
@@ -294,7 +349,7 @@ function validateField(value, returnval, ignoreneg) {
 
 function printObject() {
     var barreltext = "";
-    var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "[";
+    var outtext = parseFloat(validateField(document.getElementById("body").value, 0, true)) + "*" + document.getElementById("shape").value + "*" + document.getElementById("color").value + "*" + document.getElementById("scolo").value + "*" +  parseFloat(validateField(document.getElementById("customsides").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customssides").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customdistance").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customsdist").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customangle").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customsangle").value, 0, true)) + "/" +  parseFloat(validateField(document.getElementById("customssize").value, 0, true)) + "[";
     if (barrels.length > 0) {
         for (var i = 0; i < barrels.length; i += 1) {
 
@@ -330,6 +385,7 @@ function clearObject() {
     document.getElementById("body").value = 32;
     document.getElementById("shape").value = "circle";
     document.getElementById("color").value = "#00b2e1";
+    document.getElementById("scolo").value = "#555555";
     barrels = [];
 }
 
@@ -358,13 +414,22 @@ function importObject() {
 
     var firstAst = inputtext.indexOf("*");
     var secondAst = inputtext.indexOf("*", firstAst + 1);
-    var bracketOpen = inputtext.indexOf("[", secondAst);
+    var thirdAst = inputtext.indexOf("*", secondAst + 1);
+    var fourthAst = inputtext.indexOf("*", thirdAst + 1);
+    var firstSlash = inputtext.indexOf("/", fourthAst + 1);
+    var secondSlash = inputtext.indexOf("/", firstSlash + 1);
+    var thirdSlash = inputtext.indexOf("/", secondSlash + 1);
+    var fourthSlash = inputtext.indexOf("/", thirdSlash + 1);
+    var fifthSlash = inputtext.indexOf("/", fourthSlash + 1);
+    var sixthSlash = inputtext.indexOf("/", fifthSlash + 1);
+    var bracketOpen = inputtext.indexOf("[", sixthSlash);
     var bracketClose = inputtext.lastIndexOf("]");
 
     // Defaults
     document.getElementById("body").value = 32;
     document.getElementById("shape").value = "circle";
     document.getElementById("color").value = "#00b2e1";
+    document.getElementById("scolo").value = "#555555";
     barrels = [];
 
     // Barrels
@@ -375,6 +440,57 @@ function importObject() {
     }
 
     // Find color location
+
+  	if (sixthSlash > -1 && inputtext.length > sixthSlash) {
+        document.getElementById("customssize").value = inputtext.substr(sixthSlash + 1);
+        inputtext = inputtext.substr(0, sixthSlash);
+    }
+	
+  	if (fifthSlash > -1 && inputtext.length > fifthSlash) {
+        document.getElementById("customsangle").value = inputtext.substr(fifthSlash + 1);
+        inputtext = inputtext.substr(0, fifthSlash);
+    }
+	
+  	if (fourthSlash > -1 && inputtext.length > fourthSlash) {
+        document.getElementById("customangle").value = inputtext.substr(fourthSlash + 1);
+        inputtext = inputtext.substr(0, fourthSlash);
+    }
+	
+  	if (thirdSlash > -1 && inputtext.length > thirdSlash) {
+        document.getElementById("customsdist").value = inputtext.substr(thirdSlash + 1);
+        inputtext = inputtext.substr(0, thirdSlash);
+    }
+	
+  	if (secondSlash > -1 && inputtext.length > secondSlash) {
+        document.getElementById("customdistance").value = inputtext.substr(secondSlash + 1);
+        inputtext = inputtext.substr(0, secondSlash);
+    }
+	
+  	if (firstSlash > -1 && inputtext.length > firstSlash) {
+        document.getElementById("customssides").value = inputtext.substr(firstSlash + 1);
+        inputtext = inputtext.substr(0, firstSlash);
+    }
+	
+	if (fourthAst > -1 && inputtext.length > fourthAst) {
+        document.getElementById("customsides").value = inputtext.substr(fourthAst + 1);
+        inputtext = inputtext.substr(0, fourthAst);
+    }
+	
+    var scoloIndex = -1;
+    if (thirdAst > -1 && inputtext[thirdAst + 1] === "#") {
+        scoloIndex = thirdAst;
+    } else if (secondAst > -1 && inputtext[secondAst + 1] === "#") {
+        scoloIndex = secondAst;
+    }
+
+    if (scoloIndex > -1) {
+        var scoloCode = inputtext.substr(scoloIndex + 1, 7);
+        if (scoloCode.length === 7) {
+            document.getElementById("scolo").value = scoloCode
+        }
+        inputtext = inputtext.substr(0, scoloIndex);
+    }
+	
     var colorIndex = -1;
     if (secondAst > -1 && inputtext[secondAst + 1] === "#") {
         colorIndex = secondAst;

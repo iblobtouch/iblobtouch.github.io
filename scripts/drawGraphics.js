@@ -1,5 +1,7 @@
 function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type, image, colour) {
     ctx.save();
+    length = Math.abs(length);
+    width = Math.abs(width);
     if (newGraph === false) {
         ctx.strokeStyle = "rgba(85, 85, 85, " + alpha + ")";
     } else {
@@ -57,17 +59,17 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type, im
         ctx.fill();
         ctx.stroke();
     } else if (image === "single") {
-            ctx.fillRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
-            ctx.strokeRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
-            ctx.beginPath();
-            ctx.moveTo(15 + xoffset, -(width) - yoffset);
-            ctx.lineTo(47.5 + xoffset, 0 - ((width / 2) + yoffset));
-            ctx.lineTo(47.5 + xoffset, ((width / 2) - yoffset));
-            ctx.lineTo(15 + xoffset, (width) - yoffset);
-            ctx.lineTo(15 + xoffset, -(width) - yoffset);
-            ctx.closePath();
-            ctx.fill();
-            ctx.stroke();
+        ctx.fillRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
+        ctx.strokeRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
+        ctx.beginPath();
+        ctx.moveTo(15 + xoffset, -(width) - yoffset);
+        ctx.lineTo(47.5 + xoffset, 0 - ((width / 2) + yoffset));
+        ctx.lineTo(47.5 + xoffset, ((width / 2) - yoffset));
+        ctx.lineTo(15 + xoffset, (width) - yoffset);
+        ctx.lineTo(15 + xoffset, -(width) - yoffset);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
     } else {
         if (type === 0) {
             ctx.fillRect(xoffset, 0 - ((width / 2) + yoffset), length, width);
@@ -301,44 +303,46 @@ function drawPoly(x, y, size, angle, color, sides) {
     ctx.stroke();
     ctx.restore();
 }
+
 function drawConc(x, y, size, angle, color, sides, poly) {
-	ctx.save();
-	if (newGraph === false) {
-	   ctx.strokeStyle = "#555555";
+    ctx.save();
+    if (newGraph === false) {
+        ctx.strokeStyle = "#555555";
     } else {
         ctx.strokeStyle = ColorLuminance(color, document.getElementById("luminance").value);
     }
-	ctx.lineWidth = 5;
-	ctx.fillStyle = color;
-	ctx.translate(x, y);
-	ctx.rotate(angle * (Math.PI / 180));
-	ctx.beginPath();
-	for (i=0; i<sides; i++) {
-	ctx.rotate(360/(sides*2) * (Math.PI / 180));
-	ctx.lineTo(0, poly);
-	ctx.rotate(360 /(sides*2) * (Math.PI / 180));
-	ctx.lineTo(0, size);
-	}
-	ctx.closePath();
-	ctx.fill();
-	ctx.stroke();
-	ctx.restore();
+    ctx.lineWidth = 5;
+    ctx.fillStyle = color;
+    ctx.translate(x, y);
+    ctx.rotate(angle * (Math.PI / 180));
+    ctx.beginPath();
+    for (i = 0; i < sides; i++) {
+        ctx.rotate(360 / (sides * 2) * (Math.PI / 180));
+        ctx.lineTo(0, poly);
+        ctx.rotate(360 / (sides * 2) * (Math.PI / 180));
+        ctx.lineTo(0, size);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
 }
+
 function drawRect(x, y, size, angle, color) {
-	ctx.save();
-	if (newGraph === false) {
-	   ctx.strokeStyle = "#555555";
+    ctx.save();
+    if (newGraph === false) {
+        ctx.strokeStyle = "#555555";
     } else {
         ctx.strokeStyle = ColorLuminance(color, document.getElementById("luminance").value);
     }
-	ctx.lineWidth = 5;
-	ctx.fillStyle = color;
-	ctx.translate(x, y);
-	ctx.rotate(angle * (Math.PI / 180));
-	ctx.beginPath();
-	ctx.rect(-size/2,-size,size,size*2);
-	ctx.closePath();
-	ctx.fill();
-	ctx.stroke();
-	ctx.restore();
+    ctx.lineWidth = 5;
+    ctx.fillStyle = color;
+    ctx.translate(x, y);
+    ctx.rotate(angle * (Math.PI / 180));
+    ctx.beginPath();
+    ctx.rect(-size / 2, -size, size, size * 2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
 }

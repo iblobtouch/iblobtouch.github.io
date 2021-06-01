@@ -10,7 +10,7 @@ function drawBarrel(a, xoffset, yoffset, width, length, alpha, isghost, type, im
     ctx.lineWidth = 5;
     ctx.fillStyle = colour;
     ctx.globalAlpha = alpha;
-    ctx.translate(tankpointx, tankpointy, 0);
+    ctx.translate(tankpointx, tankpointy);
     if (editmode === false) {
         ctx.rotate((angle(tankpointx, tankpointy, mouse.x, mouse.y) + a) * (Math.PI / 180));
     } else if ((isghost === true) && (shiftheld === true)) {

@@ -132,6 +132,13 @@ function Shape(x, y, random) {
         this.health = 50;
         this.maxhealth = 50;
 
+        //Mini Egg
+    } else if (random < 0.69) {
+        stype = 12;
+        this.size = 6;
+        this.health = 5;
+        this.maxhealth = 5;
+
         //Red Triangle
     } else if (random < 0.70) {
         stype = 1;

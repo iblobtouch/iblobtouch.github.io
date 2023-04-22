@@ -174,6 +174,10 @@ function drawTank() {
                 //Egg
             } else if (shapes[n].type === 8) {
                 drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#EEEEEE", 99);
+                
+               //Mini Egg
+            } else if (shapes[n].type === 12) {
+                drawPoly(shapes[n].x, shapes[n].y, shapes[n].size, shapes[n].angle, "#444444", 99);
 
                 //Heptagon
             } else if (shapes[n].type === 9) {
